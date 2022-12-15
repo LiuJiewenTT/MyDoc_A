@@ -19,7 +19,7 @@ Markdown文件不得留有YAML头，否则编译不出结果。（Github限定�
 
 Github Jekyll 组合添加了一些插件，并且无法禁用，只能通过设置更改配置。
 
-https://docs.github.com/zh/enterprise-server@3.3/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll
+[https://docs.github.com/zh/enterprise-server@3.3/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll](https://docs.github.com/zh/enterprise-server@3.3/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll)
 
 ![image-20221215232034098](./Jekyll and Files.assets/image-20221215232034098.png)
 
@@ -27,6 +27,6 @@ https://docs.github.com/zh/enterprise-server@3.3/pages/setting-up-a-github-pages
 
 有一个插件将主页从*index.d*更换成了*README.md*，这个插件也无法禁用，只能修改配置使其不生效。
 
-https://github.com/benbalter/jekyll-readme-index（见*Configuration*）
+[https://github.com/benbalter/jekyll-readme-index](https://github.com/benbalter/jekyll-readme-index)（见*Configuration*）
 
 ![image-20221215232124186](./Jekyll and Files.assets/image-20221215232124186.png)
