@@ -1,7 +1,3 @@
----
-title: MyDoc_A Home Page (README)
----
-
 # MyDoc_A
 
 *个人用途*

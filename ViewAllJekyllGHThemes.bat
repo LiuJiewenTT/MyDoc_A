@@ -8,6 +8,6 @@ start https://pages-themes.github.io/midnight/
 start https://jekyll.github.io/minima/
 start https://pages-themes.github.io/minimal/
 start https://pages-themes.github.io/modernist/
-start https://pages-themes.github.io/slat/
+start https://pages-themes.github.io/slate/
 start https://pages-themes.github.io/tactile/
 start https://pages-themes.github.io/time-machine/
