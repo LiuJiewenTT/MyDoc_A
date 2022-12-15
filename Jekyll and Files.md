@@ -2,9 +2,14 @@
 
 [toc]
 
+
 ## 部署备注
 
 在GitHub的workflow虽然运行得快，但是真正能访问页面还是要等一等的。
+
+## 文件YAML头
+
+Markdown文件不得留有YAML头，否则编译不出结果。（Github限定）
 
 ## 文件名与链接
 

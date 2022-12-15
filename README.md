@@ -1,10 +1,3 @@
----
-
-title: hello
-author: 刘杰文
-
----
-
 # MyDoc_A
 
 *个人用途*
