@@ -1,0 +1,13 @@
+start https://pages-themes.github.io/architect/
+start https://pages-themes.github.io/cayman/
+start https://pages-themes.github.io/dinky/
+start https://pages-themes.github.io/hacker/
+start https://pages-themes.github.io/leap-day/
+start https://pages-themes.github.io/merlot/
+start https://pages-themes.github.io/midnight/
+start https://jekyll.github.io/minima/
+start https://pages-themes.github.io/minimal/
+start https://pages-themes.github.io/modernist/
+start https://pages-themes.github.io/slat/
+start https://pages-themes.github.io/tactile/
+start https://pages-themes.github.io/time-machine/
