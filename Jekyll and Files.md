@@ -1,6 +1,7 @@
 ---
 title: Jekyll and Files (Special on Github Pages)
-author: Jiewen Liu
+category: Jekyll
+tags: Jekyll; Github;
 ---
 
 
@@ -52,7 +53,13 @@ Github Jekyll 组合添加了一些插件，并且无法禁用，只能通过设
 
 ![image-20221217001346176](./Jekyll and Files.assets/image-20221217001346176.png)
 
-如果标题与库名相同，则不重复显示。否则同时显示在网页标题中：
+#### 标题显示
+
+如果标题与库名相同，则不重复显示，如图：
+
+![image-20221217004030231](./Jekyll and Files.assets/image-20221217004030231.png)
+
+否则同时显示在网页标题中：
 
 ![image-20221217003154648](./Jekyll and Files.assets/image-20221217003154648.png)
 
