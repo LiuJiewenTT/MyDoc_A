@@ -25,7 +25,6 @@
       <div id="banner">
         <span id="logo"></span>
 
-        <a href="{{site.url}}{{page.dir}}" class="button"><strong>Up</strong></a>
         <a href="{{site.url}}" class="button"><strong>Home</strong></a>
 
         <a href="{{ site.github.repository_url }}" class="button fork"><strong>View On GitHub</strong></a>
@@ -45,8 +44,11 @@
         <ul></ul>
       </nav>
       <section>
-        {{ content }}
-
+        {% for page in site.pages %}
+        <ul>
+            <a href="{{site.url}}{{page.url}}">{{page.title}}</a>
+        </ul>
+        {% endfor %}
       </section>
       <footer>
         {% if site.github.is_project_page %}
