@@ -1,3 +1,9 @@
+---
+title: Jekyll and Files (Special on Github Pages)
+---
+
+
+
 # Jekyll and Files
 
 [toc]
@@ -30,3 +36,17 @@ Github Jekyll 组合添加了一些插件，并且无法禁用，只能通过设
 [https://github.com/benbalter/jekyll-readme-index](https://github.com/benbalter/jekyll-readme-index)（见*Configuration*）
 
 ![image-20221215232124186](./Jekyll and Files.assets/image-20221215232124186.png)
+
+### 标题
+
+插件：jekyll-titles-from-headings
+
+插件名：**Jekyll Titles from Headings**
+
+[https://github.com/benbalter/jekyll-titles-from-headings](https://github.com/benbalter/jekyll-titles-from-headings)
+
+*A Jekyll plugin to pull the page title from the first Markdown heading when none is specified.* 
+
+> 如果没有指定标题，则使用第一个heading。
+
+![image-20221217001346176](./Jekyll and Files.assets/image-20221217001346176.png)
