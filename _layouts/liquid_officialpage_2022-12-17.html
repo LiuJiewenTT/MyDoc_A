@@ -47,7 +47,7 @@
 
   <body>
 
-    {% include sidebar.html %}
+    {% include liquid_web/sidebar.html %}
 
     <div class="content__overlay"></div>
     <main class="content__area" role="main">
@@ -59,7 +59,7 @@
         {% if page.title -%}
           <h1>{{ page.title }}
           {%- if page.version-badge -%}
-            {%- include version-badge.html version=page.version-badge -%}
+            {%- include liquid_web/version-badge.html version=page.version-badge -%}
           {%- endif -%}</h1>
         {%- endif %}
         {{ content }}
