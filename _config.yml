@@ -11,4 +11,4 @@ defaults:
       # title: "MyDoc_A Library"
       layout: leap_day_customized_v1
 exclude:
-  - **/*.origin.md
+  - /**/*.origin.md
