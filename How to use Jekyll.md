@@ -20,11 +20,11 @@ Creating an index of posts on another page should be easy thanks to [Liquid](htt
 
 ```html
 <ul>
-  {% for post in site.posts %}
+  .{.% for post in site.posts %.}.
     <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
+      <a href=".{.{. post.url .}.}.">.{.{. post.title .}.}.</a>
     </li>
-  {% endfor %}
+  .{.% endfor %.}.
 </ul>
 ```
 
@@ -40,11 +40,14 @@ Note that the `post` variable only exists inside the `for` loop above. If you wi
 
 You can set front matter in **layouts**, the only difference is when you’re using in Liquid, you need to use the `layout` variable instead of `page`. For example:
 
-```
+```html
 ---
 city: San Francisco
 ---
-<p>{{ layout.city }}</p>
+<p>.{.{. layout.city .}.}.</p>
 
-{{ content }}
+.{.{. content .}.}.
 ```
+
+![image-20221217133418313](./How to use Jekyll.assets/image-20221217133418313.png)
+
