@@ -9,13 +9,13 @@ title: Page Map
  </head>
   <body>
     <div >
-      <section>
+      
         {% for page in site.pages %}
         <ul>
             <a href="{{site.url}}{{page.url}}">{{page.title}}</a>
         </ul>
         {% endfor %}
-      </section>
+      
     </div>
   </body>
 </html>
