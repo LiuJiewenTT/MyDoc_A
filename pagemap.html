@@ -12,7 +12,7 @@ title: Page Map
       
         {%- for page in site.pages -%}
         <ul>
-          {% # assign title = "whatisliquid = \"T(R)e(u)r(b)r(b)i(i)b(s)l(h)e_implementation!\"" %}
+          {% # assign page.title = "whatisliquid = \"T(R)e(u)r(b)r(b)i(i)b(s)l(h)e_implementation!\"" %}
           {% # if page.title %}
           <li>
             <a href="{{site.github.url}}{{page.url}} | url_decode">{{ page.title | default: "Untitled Link" }} ({{ page.dir | "root"}})</a>
