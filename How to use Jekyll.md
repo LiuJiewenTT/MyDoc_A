@@ -31,3 +31,20 @@ Creating an index of posts on another page should be easy thanks to [Liquid](htt
 You have full control over how (and where) you display your posts, and how you structure your site. You should read more about [how templates work](https://jekyllrb.com/docs/templates/) with Jekyll if you want to know more.
 
 Note that the `post` variable only exists inside the `for` loop above. If you wish to access the currently-rendering page/posts’s variables (the variables of the post/page that has the `for` loop in it), use the `page` variable instead.
+
+
+
+## Variables in layout
+
+[Permalink](https://jekyllrb.com/docs/layouts/#variables)
+
+You can set front matter in **layouts**, the only difference is when you’re using in Liquid, you need to use the `layout` variable instead of `page`. For example:
+
+```
+---
+city: San Francisco
+---
+<p>{{ layout.city }}</p>
+
+{{ content }}
+```
