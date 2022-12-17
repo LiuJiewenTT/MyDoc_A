@@ -10,6 +10,14 @@
 
 
 
+## Author's Words
+
+1. Liquid is so redundant sometimes.
+2. Absurd implementation leads to limited usage of codes, not your logics.
+3. I swear I will never transplant other's Jekyll repo!
+
+
+
 ## Find the page link from title
 
 example:
