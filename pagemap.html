@@ -12,15 +12,16 @@ title: Page Map
       
         {%- for page in site.pages -%}
         <ul>
-          <!-- {% # if page.title %} -->
+          {% # assign whatIsLiquid="T(R)e(u)r(b)r(b)i(i)b(s)l(h)e implementation!" %}
+          {% # if page.title %}
           <li>
             <a href="{{site.github.url}}{{page.url}} | url_decode">{{ page.title | default: "Untitled Link" }} ({{ page.dir | "root"}})</a>
           </li>
-          <!-- {% # else %} -->
+          {% # else %}
           <!-- <li>
             <a href="{{site.github.url}}{{page.url}}">"Untitled Link"</a>
           </li> -->
-          <!-- {% # endif %} -->
+          {% # endif %}
         </ul>
         {%- endfor -%}
       
