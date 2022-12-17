@@ -9,12 +9,8 @@ title: Page Map
  </head>
   <body>
     <div>
-      
         {%- for page in site.pages -%}
         <ul>
-          {% comment %}
-          {% assign verb = "converted" %}
-          {% endcomment %}
           <li>
             <a href="{{site.github.url}}{{page.url}} | url_decode">{{ page.title | default: "Untitled Link" }} ({{ page.dir | "root"}})</a>
           </li>
