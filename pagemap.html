@@ -15,16 +15,9 @@ title: Page Map
           {% comment %}
           {% assign verb = "converted" %}
           {% endcomment %}
-
-          {% # if page.title %}
           <li>
             <a href="{{site.github.url}}{{page.url}} | url_decode">{{ page.title | default: "Untitled Link" }} ({{ page.dir | "root"}})</a>
           </li>
-          {% # else %}
-          <!-- <li>
-            <a href="{{site.github.url}}{{page.url}}">"Untitled Link"</a>
-          </li> -->
-          {% # endif %}
         </ul>
         {%- endfor -%}
       

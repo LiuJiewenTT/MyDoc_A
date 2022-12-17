@@ -5,7 +5,7 @@ tags: Jekyll, how
 
 # How to use Jekyll
 
-@[toc]
+[toc]
 
 ## Websites
 
