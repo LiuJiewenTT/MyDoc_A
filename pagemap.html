@@ -11,10 +11,13 @@ title: Page Map
     <div>
         {%- for page in site.pages -%}
         <ul>
+          {%- if page.title -%}
+          <!-- Now irrelavant files without title would not be list out. -->
           <li>
             <a href="{{site.github.url | url_decode }}{{page.url | url_decode }}">{{ page.title | default: "Untitled Link" }} ({{ page.dir | "root"}})</a>
             <!-- url_decode filter is supported from Liquid 4.0, so, WHAT? Github Pages use 4.0.3!-->
           </li>
+          {%- endif -%}
         </ul>
         {%- endfor -%}
       
