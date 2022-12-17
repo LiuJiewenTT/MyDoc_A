@@ -12,7 +12,8 @@ title: Page Map
       
         {%- for page in site.pages -%}
         <ul>
-          {% # assign page.title = "usage is terrifying!" \%\}
+          {% # assign page.title="usageisterrifying" %}
+
           {% # if page.title %}
           <li>
             <a href="{{site.github.url}}{{page.url}} | url_decode">{{ page.title | default: "Untitled Link" }} ({{ page.dir | "root"}})</a>
