@@ -24,25 +24,15 @@ So, for more information, refer to some other documents or view online official 
 
 [![Deploy Jekyll with GitHub Pages dependencies preinstalled](https://github.com/LiuJiewenTT/MyDoc_A/actions/workflows/jekyll-gh-pages.yml/badge.svg)](https://github.com/LiuJiewenTT/MyDoc_A/actions/workflows/jekyll-gh-pages.yml)
 
-{% assign page.tmppage = {{{{site.pages | where:"title", "Terrible Liquid"}}[0]}} %} 
-
-Relative Files: [Terrible Liquid](Terrible Liquid.md) or [Terrible Liquid]({{site.github.url}}{{page.tmppage.url}})
+Relative Files: [Terrible Liquid](Terrible Liquid.md) or [Terrible Liquid]({{site.github.url}}{{ {{{{site.pages | where:"title", "Terrible Liquid"}}[0]}}.url }})
 
 1
 
-{{page.tmppage.url}}
-
-1-2
-
-{{page.tmppage.title}}
+{{ {{{{site.pages | where:"title", "Terrible Liquid"}}[0]}}.title }}
 
 2
 
-{{tmppage.url}}
-
-2-2
-
-{{tmppage.title}}
+{{ {{site.pages | where:"title", "Terrible Liquid"}}[0].title }}
 
 ## Displaying an index of posts
 
