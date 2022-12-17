@@ -12,9 +12,15 @@ title: Page Map
       
         {%- for page in site.pages -%}
         <ul>
+          <!-- {%- if page.title -%} -->
           <li>
-            <a href="{{site.github.url}}{{page.url}}">{{page.title}}</a>
+            <a href="{{site.github.url}}{{page.url}}">{{ page.title | default: "Untitled Link" }}</a>
           </li>
+          <!-- {%- else -%} -->
+          <!-- <li>
+            <a href="{{site.github.url}}{{page.url}}">"Untitled Link"</a>
+          </li> -->
+          <!-- {%- endif -%} -->
         </ul>
         {%- endfor -%}
       
