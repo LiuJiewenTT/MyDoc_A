@@ -33,7 +33,7 @@ Anything you put between {% comment %} and {% endcomment %} tags
 is {{ verb }} into a comment.
 ```
 
-## Inline comments {%- include version-badge.html version="5.4.0" %}
+## Inline comments {%- include liquid_web/version-badge.html version="5.4.0" %}
 
 You can use inline comments to prevent an expression from being rendered or output. Any text inside of the tag also won't be rendered or output.
 
@@ -99,7 +99,7 @@ In Handlebars, {{ this }} will be HTML-escaped, but {{{ that }}} will not.
 {% endraw %}
 ```
 
-## liquid {%- include version-badge.html version="5.0.0" %}
+## liquid {%- include liquid_web/version-badge.html version="5.0.0" %}
 
 Encloses multiple tags within one set of delimiters, to allow writing Liquid logic more concisely.
 
@@ -121,7 +121,7 @@ endcase %}
 
 Because any tag blocks opened within a `liquid` tag must also be closed within the same tag, use [`echo`](#echo) to output data.
 
-## echo {%- include version-badge.html version="5.0.0" %}
+## echo {%- include liquid_web/version-badge.html version="5.0.0" %}
 
 Outputs an expression in the rendered HTML. This is identical to wrapping an expression in `{% raw %}{{{% endraw %}` and `{% raw %}}}{% endraw %}`, but works inside [`liquid`](#liquid) tags and supports [filters]({{ "/basics/introduction/#filters" | prepend: site.baseurl }}).
 
@@ -140,7 +140,7 @@ endfor %}
 Hat Shirt Pants
 ```
 
-## render {%- include version-badge.html version="5.0.0" %}
+## render {%- include liquid_web/version-badge.html version="5.0.0" %}
 
 Insert the rendered content of another template within the current template.
 
