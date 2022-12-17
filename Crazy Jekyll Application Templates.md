@@ -28,6 +28,7 @@ The file is *template.md*.
 Markdown Example in File History: [https://github.com/Shopify/liquid/blob/712949b59f6c7334373d3e3e066ba058cb4dc83d/_tags/template.md](https://github.com/Shopify/liquid/blob/712949b59f6c7334373d3e3e066ba058cb4dc83d/_tags/template.md)
 of this commit: [the commit](https://github.com/Shopify/liquid/commit/712949b59f6c7334373d3e3e066ba058cb4dc83d#diff-655febbf45dc29667914f8ab0ad967ee42fe66a7fd6c477e65dcefd0a27b793c)
 in this branch: [the branch *gh-pages*](https://github.com/Shopify/liquid/tree/gh-pages)
+which output: [the official page](https://shopify.github.io/liquid/tags/template/)
 
 <i>The codes below might be incomplete on **github.io**, but the corresponding image is shown below it. </i>
 
