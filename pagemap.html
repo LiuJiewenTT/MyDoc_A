@@ -14,7 +14,7 @@ title: Page Map
         <ul>
           <!-- {%- if page.title -%} -->
           <li>
-            <a href="{{site.github.url}}{{page.url}}">{{ page.url | default: "Untitled Link" }}</a>
+            <a href="{{site.github.url}}{{page.url}}">{{ page.title | default: "Untitled Link" }} ({{ page.dir | "root"}})</a>
           </li>
           <!-- {%- else -%} -->
           <!-- <li>
