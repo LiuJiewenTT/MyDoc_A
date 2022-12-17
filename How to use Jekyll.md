@@ -20,7 +20,7 @@ Jekyll uses *Liquid* templating language. <del>As the repository runs with Liqui
 
 So, for more information, refer to some other documents or view online official pages: [Liquid](https://shopify.github.io/liquid/).
 
-*I will write an exclusive document about Liquid later.*
+*I will write an exclusive document about Liquid <del>later</del>由于极其糟糕的编译无限延期.*
 
 ## Displaying an index of posts
 
