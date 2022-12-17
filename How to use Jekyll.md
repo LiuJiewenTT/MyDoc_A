@@ -22,6 +22,8 @@ So, for more information, refer to some other documents or view online official 
 
 *I will write an exclusive document about Liquid <del>later</del>由于极其糟糕的编译无限延期.*
 
+[![Deploy Jekyll with GitHub Pages dependencies preinstalled](https://github.com/LiuJiewenTT/MyDoc_A/actions/workflows/jekyll-gh-pages.yml/badge.svg)](https://github.com/LiuJiewenTT/MyDoc_A/actions/workflows/jekyll-gh-pages.yml)
+
 ## Displaying an index of posts
 
 [Permalink](https://jekyllrb.com/docs/posts/#displaying-an-index-of-posts)

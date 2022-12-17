@@ -8,6 +8,9 @@ tags: Jekyll, Github
 
 [toc]
 
+It's really special with *Github Pages*!
+
+About GitHub Pages and Jekyll: [https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll)
 
 ## 部署备注
 
