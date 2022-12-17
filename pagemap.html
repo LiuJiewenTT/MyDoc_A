@@ -12,7 +12,9 @@ title: Page Map
       
         {% for page in site.pages %}
         <ul>
+          <li>
             <a href="{{site.github.url}}{{page.url}}">{{page.title}}</a>
+          </li>
         </ul>
         {% endfor %}
       
