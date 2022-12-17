@@ -28,7 +28,7 @@ So, for more information, refer to some other documents or view online official 
 
 Creating an index of posts on another page should be easy thanks to [Liquid](https://shopify.github.io/liquid/) and its tags. Here’s a simple example of how to create a list of links to your blog posts:
 
-<small>({%- raw -%})</small>
+<small>{%- raw -%}</small>
 
 ```html
 <ul>
@@ -53,7 +53,7 @@ Note that the `post` variable only exists inside the `for` loop above. If you wi
 
 You can set front matter in **layouts**, the only difference is when you’re using in Liquid, you need to use the `layout` variable instead of `page`. For example:
 
-<small>({%- raw -%})</small>
+<small>{%- raw -%}</small>
 
 ```html
 ---
