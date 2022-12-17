@@ -32,6 +32,7 @@ For more information, refer to some other documents or view online official page
 4. 啊`<!-- {% if ... %} -->`：无效！！照样运行！
 5. 啊：strip符号也别加，`{%-`之类的，与注释一起用容易出错。。。
 6. 啊：神特么不能嵌套，没有匹配，嵌套必报错！
+7. 啊：绝对不要想逻辑上对，因为大概率没有被实现。
 
 {% endraw %}
 

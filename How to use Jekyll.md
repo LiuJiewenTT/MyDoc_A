@@ -24,15 +24,7 @@ So, for more information, refer to some other documents or view online official 
 
 [![Deploy Jekyll with GitHub Pages dependencies preinstalled](https://github.com/LiuJiewenTT/MyDoc_A/actions/workflows/jekyll-gh-pages.yml/badge.svg)](https://github.com/LiuJiewenTT/MyDoc_A/actions/workflows/jekyll-gh-pages.yml)
 
-Relative Files: [Terrible Liquid](Terrible Liquid.md) or [Terrible Liquid]({{site.github.url}}{{ {{{{site.pages | where:"title", "Terrible Liquid"}}[0]}}.url }})
-
-1
-
-{{ {{{{site.pages | where:"title", "Terrible Liquid"}}[0]}}.title }}
-
-2
-
-{{ {{site.pages | where:"title", "Terrible Liquid"}}[0].title }}
+Relative Files: [Terrible Liquid](Terrible Liquid.md) or [Terrible Liquid]({{site.github.url}}{{ site.pages | where_exp:"item", "item.title=='Terrible Liquid'"[0].url }})
 
 ## Displaying an index of posts
 
