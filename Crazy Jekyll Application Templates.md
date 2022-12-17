@@ -4,6 +4,12 @@
 
 {% raw %}
 
+## Websites good for referencing
+
+1. [https://idratherbewriting.com/documentation-theme-jekyll/index.html](https://idratherbewriting.com/documentation-theme-jekyll/index.html)
+
+
+
 ## Find the page link from title
 
 example:
@@ -50,8 +56,9 @@ Output
 
 {% else %}
 
+==[What you see here is the Jekyll site version of complete demonstration. What you see from page is correct writing.]==
+
 ```markdown
-[What you see here is the Jekyll site version of complete demonstration. What you see from page is correct writing.]
 raw
 Temporarily disables tag processing. This is useful for generating certain content that uses conflicting syntax, such as Mustache or Handlebars.
 
@@ -73,7 +80,7 @@ Output
 
 {% raw %}
 
-We can see that, it's because the use of `{{ "%7B%25+raw+%25%7D" | url_decode }}` and `{{ "%7B%25+endraw+%25%7D" | url_decode }}`. The strategy is to use percentage representation instead. It worked. No cheating to anything like compiler, etc. But the tags look different. I don't know how this is implemented. I didn't look inside the codes. One guess is that:
+We can see that, it's because the use of `{{ "%7B%25+raw+%25%7D" | url_decode }}` and `{{ "%7B%25+endraw+%25%7D" | url_decode }}`. The strategy is to use percentage representation instead. It worked. No cheating to anything like compiler, etc. But the tags look different. I don't know how this is implemented. I didn't look inside the codes. <del>One guess is that:</del>
 
 > Syntax check must be done before expression evaluation. Otherwise, it's gonna be in chaos again. I tried nested structure. So firstly the usual pair is matched and do react. Then expression is evaluated and "new" pair is found. Then program rerun the process with original information. This thesis is a bit complex, but it should work. 
 >
