@@ -4,8 +4,6 @@ categories: Jekyll
 tags: Jekyll, Github
 ---
 
-
-
 # Jekyll and Files
 
 [toc]

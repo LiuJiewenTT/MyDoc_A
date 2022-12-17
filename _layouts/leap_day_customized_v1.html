@@ -1,3 +1,7 @@
+---
+title: leap_day_customized_v1
+---
+<!-- inherited_from: leap_day -->
 <!doctype html>
 <html lang="{{ site.lang | default: "en-US" }}">
   <head>
@@ -25,9 +29,9 @@
       <div id="banner">
         <span id="logo"></span>
 
-        <a href="{{site.url}}{{page.dir}}" class="button"><strong>Up</strong></a>
-        <a href="{{site.url}}" class="button"><strong>Home</strong></a>
-        <a href="{{site.url}}pagemap.html">Page Map</a>
+        <a href="{{site.github.url}}{{page.dir}}" class="button"><strong>Up</strong></a>
+        <a href="{{site.github.url}}" class="button"><strong>Home</strong></a>
+        <a href="{{site.github.url}}/pagemap.html">Page Map</a>
 
         <a href="{{ site.github.repository_url }}" class="button fork"><strong>View On GitHub</strong></a>
         {% if site.show_downloads %}
@@ -53,7 +57,7 @@
         {% if site.github.is_project_page %}
           <p>Project maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
         {% endif %}
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a></small></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a>, customized by <a href="{{site.github.owner_url}}">{{ site.github.owner_name }}</a> as <a href="{{site.github.repository_url}}/_layouts/{{page.title}}">the layout</a></small></p>
       </footer>
     </div>
   </body>
