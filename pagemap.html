@@ -8,11 +8,11 @@ title: Page Map
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
  </head>
   <body>
-    <div >
+    <div>
       
         {% for page in site.pages %}
         <ul>
-            <a href="{{site.url}}{{page.url}}">{{page.title}}</a>
+            <a href="{{site.github.url}}{{page.url}}">{{page.title}}</a>
         </ul>
         {% endfor %}
       
