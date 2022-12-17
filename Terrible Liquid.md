@@ -49,3 +49,9 @@ For more information, refer to some other documents or view online official page
 ```
 
 {% endraw %}
+
+## 奇葩的优先级
+
+![image-20221217223731188](./Terrible Liquid.assets/image-20221217223731188.png)
+
+怎么会有这种设定？真够异类
