@@ -7,10 +7,6 @@ tags: Jekyll, how
 
 @[toc]
 
-[Start Liquid raw](
-{%- raw -%}
-)
-
 ## Websites
 
 - English(Official): [ https://jekyllrb.com/](https://jekyllrb.com/)
@@ -32,6 +28,8 @@ So, for more information, refer to some other documents or view online official 
 
 Creating an index of posts on another page should be easy thanks to [Liquid](https://shopify.github.io/liquid/) and its tags. Here’s a simple example of how to create a list of links to your blog posts:
 
+<small>({%- raw -%})</small>
+
 ```html
 <ul>
   {% for post in site.posts %}
@@ -41,6 +39,7 @@ Creating an index of posts on another page should be easy thanks to [Liquid](htt
   {% endfor %}
 </ul>
 ```
+<small>{%- endraw -%}</small>
 
 You have full control over how (and where) you display your posts, and how you structure your site. You should read more about [how templates work](https://jekyllrb.com/docs/templates/) with Jekyll if you want to know more.
 
@@ -54,6 +53,8 @@ Note that the `post` variable only exists inside the `for` loop above. If you wi
 
 You can set front matter in **layouts**, the only difference is when you’re using in Liquid, you need to use the `layout` variable instead of `page`. For example:
 
+<small>({%- raw -%})</small>
+
 ```html
 ---
 city: San Francisco
@@ -63,9 +64,5 @@ city: San Francisco
 {{ content }}
 ```
 
-
-
-[End Liquid raw](
-{%- endraw -%}
-)
+<small>{%- endraw -%}</small>
 
