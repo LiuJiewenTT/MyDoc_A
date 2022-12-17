@@ -26,9 +26,9 @@ So, for more information, refer to some other documents or view online official 
 
 {% assign temppages = sites.pages | where:"title", "Terrible Liquid" %}
 
-{% assign temppage = temppage[0] %}
+{% assign temppage = page.temppage[0] %}
 
-Relative Files: [Terrible Liquid](Terrible Liquid.md) or [Terrible Liquid]({{site.github.url}}{{temppage.url}})
+Relative Files: [Terrible Liquid](Terrible Liquid.md) or [Terrible Liquid]({{site.github.url}}{{page.temppage.url}})
 
 ## Displaying an index of posts
 
