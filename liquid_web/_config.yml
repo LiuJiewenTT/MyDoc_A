@@ -1,0 +1,39 @@
+title: Liquid template language
+description: Liquid is a template language and accompanying rendering engine. It is built for security, so is perfect for rendering custom templates from your users.
+
+# Build settings
+baseurl:                /liquid # the subpath of your site, e.g. /blog/
+url:                    https://shopify.github.io # the base hostname & protocol for your site
+permalink:              pretty
+exclude:
+  - README.md
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - Gruntfile.js
+  - package.json
+  - package-lock.json
+  - node_modules
+  - vendor
+  - tags
+keep_files:             ["css"]
+
+# Collections
+collections:
+  basics:
+    output: true
+  tags:
+    output: true
+  filters:
+    output: true
+
+# Plugins
+plugins:
+  - jekyll-redirect-from
+
+# Front matter defaults
+defaults:
+  - scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: default
