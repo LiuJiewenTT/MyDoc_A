@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)https://shopify.github.io/liquid/tags/template/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Template – Liquid template language</title>
+
+    <meta name="description" content="An overview of template tags in the Liquid template language.">
+    <meta name="author" content="Shopify">
+
+    <meta name="robots" content="index, follow">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+    <link rel="stylesheet" href="./Template – Liquid template language_files/main.css">
+    <link rel="icon" type="image/png" href="https://shopify.github.io/liquid/images/icons/water-drop-32x.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://shopify.github.io/liquid/images/icons/water-drop-64x.png" sizes="64x64">
+    <link rel="canonical" href="https://shopify.github.io/liquid/tags/template/">
+    <link rel="alternate" type="application/rss+xml" title="Liquid template language" href="https://shopify.github.io/liquid/feed.xml">
+
+    <meta property="og:site_name" content="Liquid template language">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/liquid/tags/template/">
+    <meta property="og:title" content="Template">
+    <meta property="og:description" content="An overview of template tags in the Liquid template language.">
+
+    <meta name="twitter:site" content="Liquid template language">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://shopify.github.io">
+    <meta name="twitter:title" content="Template">
+    <meta name="twitter:description" content="An overview of template tags in the Liquid template language.">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script type="text/javascript" async="" src="./Template – Liquid template language_files/analytics.js.下载"></script><script async="" src="./Template – Liquid template language_files/js"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-49178120-52');
+    </script>
+  </head><div id="night-mask" style="position: fixed;top: 0;left: 0;width: 100%;height: 100%;z-index: 2147483647;pointer-events: none;mix-blend-mode: multiply;transition: opacity 0.1s ease 0s;opacity:0.3;display:none;background: #000000;"></div>
+
+  <body>
+
+    <div class="sidebar">
+  <header class="sidebar__logo" role="banner">
+    
+      <a href="https://shopify.github.io/liquid/">Liquid</a>
+    
+  </header><nav class="sidebar__nav">
+    <div class="sidebar__nav-interior"><h3 class="section__header" id="basics-section">Basics</h3>
+
+        <ul class="section__links"><li class="section__item">
+                <a href="https://shopify.github.io/liquid/basics/introduction/" class="section__link">Introduction</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/basics/operators/" class="section__link">Operators</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/basics/truthy-and-falsy/" class="section__link">Truthy and falsy</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/basics/types/" class="section__link">Types</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/basics/variations/" class="section__link">Variations of Liquid</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/basics/whitespace/" class="section__link">Whitespace control</a>
+            </li></ul><h3 class="section__header" id="tags-section">Tags</h3>
+
+        <ul class="section__links"><li class="section__item">
+                <a href="https://shopify.github.io/liquid/tags/control-flow/" class="section__link">Control flow</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/tags/iteration/" class="section__link">Iteration</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/tags/template/" class="section__link section__link--is-active">Template</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/tags/variable/" class="section__link">Variable</a>
+            </li></ul><h3 class="section__header" id="filters-section">Filters</h3>
+
+        <ul class="section__links"><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/abs/" class="section__link">abs</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/append/" class="section__link">append</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/at_least/" class="section__link">at_least</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/at_most/" class="section__link">at_most</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/capitalize/" class="section__link">capitalize</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/ceil/" class="section__link">ceil</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/compact/" class="section__link">compact</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/concat/" class="section__link">concat</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/date/" class="section__link">date</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/default/" class="section__link">default</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/divided_by/" class="section__link">divided_by</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/downcase/" class="section__link">downcase</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/escape/" class="section__link">escape</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/escape_once/" class="section__link">escape_once</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/first/" class="section__link">first</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/floor/" class="section__link">floor</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/join/" class="section__link">join</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/last/" class="section__link">last</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/lstrip/" class="section__link">lstrip</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/map/" class="section__link">map</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/minus/" class="section__link">minus</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/modulo/" class="section__link">modulo</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/newline_to_br/" class="section__link">newline_to_br</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/plus/" class="section__link">plus</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/prepend/" class="section__link">prepend</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/remove/" class="section__link">remove</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/remove_first/" class="section__link">remove_first</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/replace/" class="section__link">replace</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/replace_first/" class="section__link">replace_first</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/reverse/" class="section__link">reverse</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/round/" class="section__link">round</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/rstrip/" class="section__link">rstrip</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/size/" class="section__link">size</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/slice/" class="section__link">slice</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/sort/" class="section__link">sort</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/sort_natural/" class="section__link">sort_natural</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/split/" class="section__link">split</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/strip/" class="section__link">strip</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/strip_html/" class="section__link">strip_html</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/strip_newlines/" class="section__link">strip_newlines</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/times/" class="section__link">times</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/truncate/" class="section__link">truncate</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/truncatewords/" class="section__link">truncatewords</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/uniq/" class="section__link">uniq</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/upcase/" class="section__link">upcase</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/url_decode/" class="section__link">url_decode</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/url_encode/" class="section__link">url_encode</a>
+            </li><li class="section__item">
+                <a href="https://shopify.github.io/liquid/filters/where/" class="section__link">where</a>
+            </li></ul></div><script type="text/javascript">
+        document.getElementById("tags").scrollIntoView();
+    </script></nav>
+</div>
+
+
+    <div class="content__overlay"></div>
+    <main class="content__area" role="main">
+      <div class="content">
+        <button class="menu-button">
+          <span aria-hidden="true"><svg height="16" viewBox="0 0 12 16" width="12" xmlns="http://www.w3.org/2000/svg"><path d="m11.41 9h-10.82c-.59 0-.59-.41-.59-1s0-1 .59-1h10.81c.59 0 .59.41.59 1s0 1-.59 1zm0-4h-10.82c-.59 0-.59-.41-.59-1s0-1 .59-1h10.81c.59 0 .59.41.59 1s0 1-.59 1zm-10.82 6h10.81c.59 0 .59.41.59 1s0 1-.59 1h-10.81c-.59 0-.59-.41-.59-1s0-1 .59-1z"></path></svg></span>
+          <span>Menu</span>
+        </button>
+        <h1>Template</h1>
+        <p>Template tags tell Liquid where to disable processing for comments or non-Liquid markup, and how to establish relations among template files.</p>
+
+<h2 id="comment">comment</h2>
+
+<p>Allows you to leave un-rendered code inside a Liquid template. Any text within the opening and closing <code class="language-plaintext highlighter-rouge">comment</code> blocks will not be printed, and any Liquid code within will not be executed.</p>
+
+<p class="code-label">Input</p>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">verb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"turned"</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">comment</span><span class="w"> </span><span class="p">%}</span><span class="c">
+{% assign verb = "converted" %}
+</span><span class="p">{%</span><span class="w"> </span><span class="nt">endcomment</span><span class="w"> </span><span class="p">%}</span>
+Anything you put between <span class="p">{%</span><span class="w"> </span><span class="nt">comment</span><span class="w"> </span><span class="p">%}</span><span class="c"> and </span><span class="p">{%</span><span class="w"> </span><span class="nt">endcomment</span><span class="w"> </span><span class="p">%}</span> tags
+is <span class="p">{{</span><span class="w"> </span><span class="nv">verb</span><span class="w"> </span><span class="p">}}</span> into a comment.
+</code></pre></div></div>
+
+<p class="code-label">Output</p>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+Anything you put between  tags
+is turned into a comment.
+</code></pre></div></div>
+
+<h2 id="inline-comments">Inline comments<span class="version-badge" title="This feature is available since version 5.4.0" data-version="5.4.0"></span></h2>
+
+<p>You can use inline comments to prevent an expression from being rendered or output. Any text inside of the tag also won’t be rendered or output.</p>
+
+<p>You can create multi-line inline comments. However, each line must begin with a <code class="language-plaintext highlighter-rouge">#</code>.</p>
+
+<p class="code-label">Input</p>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">#</span><span class="w"> </span>for<span class="w"> </span>i<span class="w"> </span>in<span class="w"> </span>(1..3)<span class="w"> </span><span class="p">-%}</span>
+  <span class="p">{{</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">#</span><span class="w"> </span>endfor<span class="w"> </span><span class="p">%}</span>
+
+<span class="p">{%</span><span class="w">
+  </span><span class="nt">###############################</span><span class="w">
+  </span>#<span class="w"> </span>This<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>comment<span class="err">
+</span><span class="w">  </span>#<span class="w"> </span>across<span class="w"> </span>multiple<span class="w"> </span>lines<span class="err">
+</span><span class="w">  </span>###############################<span class="err">
+</span><span class="p">%}</span>
+</code></pre></div></div>
+
+<p class="code-label">Output</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+</code></pre></div></div>
+
+<h3 id="inline-comments-inside-liquid-tags">Inline comments inside <code class="language-plaintext highlighter-rouge">liquid</code> tags</h3>
+
+<p>You can use the inline comment tag inside <a href="https://shopify.github.io/liquid/tags/template/#liquid"><code class="language-plaintext highlighter-rouge">liquid</code> tags</a>. The tag must be used for each line that you want to comment.</p>
+
+<p class="code-label">Input</p>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">liquid</span><span class="w">
+  </span>#<span class="w"> </span>this<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>comment<span class="err">
+</span><span class="w">  </span>assign<span class="w"> </span><span class="na">topic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Learning about comments!'</span><span class="err">
+</span><span class="w">  </span>echo<span class="w"> </span>topic<span class="err">
+</span><span class="p">%}</span>
+</code></pre></div></div>
+
+<p class="code-label">Output</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Learning about comments!
+</code></pre></div></div>
+
+<h2 id="raw">raw</h2>
+
+<p>Temporarily disables tag processing. This is useful for generating certain content that uses conflicting syntax, such as <a href="https://mustache.github.io/">Mustache</a> or <a href="https://handlebarsjs.com/">Handlebars</a>.</p>
+
+<p class="code-label">Input</p>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">raw</span><span class="w"> </span><span class="p">%}</span>
+In Handlebars, {{ this }} will be HTML-escaped, but {{{ that }}} will not.
+<span class="p">{%</span><span class="w"> </span><span class="nt">endraw</span><span class="w"> </span><span class="p">%}</span>
+</code></pre></div></div>
+
+<p class="code-label">Output</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+In Handlebars, {{ this }} will be HTML-escaped, but {{{ that }}} will not.
+
+</code></pre></div></div>
+
+<h2 id="liquid">liquid<span class="version-badge" title="This feature is available since version 5.0.0" data-version="5.0.0"></span></h2>
+
+<p>Encloses multiple tags within one set of delimiters, to allow writing Liquid logic more concisely.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">liquid</span><span class="w">
+</span>case<span class="w"> </span>section.blocks.size<span class="err">
+</span>when<span class="w"> </span><span class="mi">1</span><span class="err">
+</span><span class="w">  </span>assign<span class="w"> </span><span class="na">column_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">''</span><span class="err">
+</span>when<span class="w"> </span><span class="mi">2</span><span class="err">
+</span><span class="w">  </span>assign<span class="w"> </span><span class="na">column_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'one-half'</span><span class="err">
+</span>when<span class="w"> </span><span class="mi">3</span><span class="err">
+</span><span class="w">  </span>assign<span class="w"> </span><span class="na">column_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'one-third'</span><span class="err">
+</span>else<span class="err">
+</span><span class="w">  </span>assign<span class="w"> </span><span class="na">column_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'one-quarter'</span><span class="err">
+</span>endcase<span class="w"> </span><span class="p">%}</span>
+</code></pre></div></div>
+
+<p>Because any tag blocks opened within a <code class="language-plaintext highlighter-rouge">liquid</code> tag must also be closed within the same tag, use <a href="https://shopify.github.io/liquid/tags/template/#echo"><code class="language-plaintext highlighter-rouge">echo</code></a> to output data.</p>
+
+<h2 id="echo">echo<span class="version-badge" title="This feature is available since version 5.0.0" data-version="5.0.0"></span></h2>
+
+<p>Outputs an expression in the rendered HTML. This is identical to wrapping an expression in <code class="language-plaintext highlighter-rouge">{{</code> and <code class="language-plaintext highlighter-rouge">}}</code>, but works inside <a href="https://shopify.github.io/liquid/tags/template/#liquid"><code class="language-plaintext highlighter-rouge">liquid</code></a> tags and supports <a href="https://shopify.github.io/liquid/basics/introduction/#filters">filters</a>.</p>
+
+<p class="code-label">Input</p>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">liquid</span><span class="w">
+</span>for<span class="w"> </span>product<span class="w"> </span>in<span class="w"> </span>collection.products<span class="err">
+</span><span class="w">  </span>echo<span class="w"> </span>product.title<span class="w"> </span>|<span class="w"> </span>capitalize<span class="err">
+</span>endfor<span class="w"> </span><span class="p">%}</span>
+</code></pre></div></div>
+
+<p class="code-label">Output</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hat Shirt Pants
+</code></pre></div></div>
+
+<h2 id="render">render<span class="version-badge" title="This feature is available since version 5.0.0" data-version="5.0.0"></span></h2>
+
+<p>Insert the rendered content of another template within the current template.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">render</span><span class="w"> </span><span class="s2">"template-name"</span><span class="w"> </span><span class="p">%}</span>
+</code></pre></div></div>
+
+<p>Note that you don’t need to write the file’s <code class="language-plaintext highlighter-rouge">.liquid</code> extension.</p>
+
+<p>The code within the rendered template does <strong>not</strong> automatically have access to the variables assigned using <a href="https://shopify.github.io/liquid/tags/variable/">variable tags</a> within the parent template. Similarly, variables assigned within the rendered template cannot be accessed by code in any other template.</p>
+
+<h2 id="render-parameters">render (parameters)</h2>
+
+<p>Variables assigned using <a href="https://shopify.github.io/liquid/tags/variable/">variable tags</a> can be passed to a template by listing them as parameters on the <code class="language-plaintext highlighter-rouge">render</code> tag.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"apples"</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">render</span><span class="w"> </span><span class="s2">"name"</span><span class="p">,</span><span class="w"> </span><span class="na">my_variable</span><span class="o">:</span><span class="w"> </span><span class="nv">my_variable</span><span class="p">,</span><span class="w"> </span><span class="na">my_other_variable</span><span class="o">:</span><span class="w"> </span><span class="s2">"oranges"</span><span class="w"> </span><span class="p">%}</span>
+</code></pre></div></div>
+
+<p>One or more objects can be passed to a template.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">featured_product</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">all_products</span><span class="p">[</span><span class="s2">"product_handle"</span><span class="p">]</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">render</span><span class="w"> </span><span class="s2">"product"</span><span class="p">,</span><span class="w"> </span><span class="na">product</span><span class="o">:</span><span class="w"> </span><span class="nv">featured_product</span><span class="w"> </span><span class="p">%}</span>
+</code></pre></div></div>
+
+<h3 id="with">with</h3>
+
+<p>A single object can be passed to a template by using the <code class="language-plaintext highlighter-rouge">with</code> and optional <code class="language-plaintext highlighter-rouge">as</code> parameters.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">featured_product</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">all_products</span><span class="p">[</span><span class="s2">"product_handle"</span><span class="p">]</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">render</span><span class="w"> </span><span class="s2">"product"</span><span class="w"> </span><span class="nt">with</span><span class="w"> </span><span class="nv">featured_product</span><span class="w"> </span><span class="nv">as</span><span class="w"> </span><span class="nv">product</span><span class="w"> </span><span class="p">%}</span>
+</code></pre></div></div>
+
+<p>In the example above, the <code class="language-plaintext highlighter-rouge">product</code> variable in the rendered template will hold the value of <code class="language-plaintext highlighter-rouge">featured_product</code> from the parent template.</p>
+
+<h3 id="for">for</h3>
+
+<p>A template can be rendered once for each value of an enumerable object by using the <code class="language-plaintext highlighter-rouge">for</code> and optional <code class="language-plaintext highlighter-rouge">as</code> parameters.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">variants</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">product</span><span class="p">.</span><span class="nv">variants</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">render</span><span class="w"> </span><span class="s2">"product_variant"</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">variants</span><span class="w"> </span><span class="nv">as</span><span class="w"> </span><span class="nv">variant</span><span class="w"> </span><span class="p">%}</span>
+</code></pre></div></div>
+
+<p>In the example above, the template will be rendered once for each variant of the product, and the <code class="language-plaintext highlighter-rouge">variant</code> variable will hold a different product variant object for each iteration.</p>
+
+<p>When using the <code class="language-plaintext highlighter-rouge">for</code> parameter, the <a href="https://shopify.github.io/liquid/tags/iteration/#forloop-object"><code class="language-plaintext highlighter-rouge">forloop</code></a> object is accessible within the rendered template.</p>
+
+<h2 id="include">include</h2>
+
+<p><em>The <code class="language-plaintext highlighter-rouge">include</code> tag is deprecated; please use <a href="https://shopify.github.io/liquid/tags/template/#render"><code class="language-plaintext highlighter-rouge">render</code></a> instead.</em></p>
+
+<p>Insert the rendered content of another template within the current template.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">include</span><span class="w"> </span><span class="s2">"template-name"</span><span class="w"> </span><span class="p">%}</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">include</code> tag works similarly to the <a href="https://shopify.github.io/liquid/tags/template/#render"><code class="language-plaintext highlighter-rouge">render</code></a> tag, but it allows the code inside of the rendered template to access and overwrite the variables within its parent template. It has been deprecated because the way that it handles variables reduces performance and makes Liquid code harder to both read and maintain.</p>
+
+<p>Note that when a template is rendered using the <a href="https://shopify.github.io/liquid/tags/template/#render"><code class="language-plaintext highlighter-rouge">render</code></a> tag, the <code class="language-plaintext highlighter-rouge">include</code> tag cannot be used within the template.</p>
+
+      </div>
+    </main>
+    <script src="./Template – Liquid template language_files/script.js.下载"></script>
+  
+
+</body></html>
