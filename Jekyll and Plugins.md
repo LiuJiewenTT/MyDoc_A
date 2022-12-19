@@ -86,3 +86,13 @@ redirect_from:
   - /Liquid/About Liquid
 ```
 
+然后`/Liquid/[Your file's name or title]`和`/Liquid/[Your file's name or title].html`都能成功重定向了，另外`/Liquid/`也成功了，但这时再`/Liquid/index`或`/Liquid/index.html`就不行了。因为按照官方的说法，它两不存在。
+
+我下载`Artifacts`检查一下：
+
+![image-20221219233053385](./Jekyll and Plugins.assets/image-20221219233053385.png)
+
+这时候名字就不一样了。
+
+**由此得出一个结论，就是：无论怎么设置，最后能访问到的链接就是原原本本写在YAML头里的，不会设置为文件夹就可以后加文件名或者标题就可以访问。一切原汁原味。**
+

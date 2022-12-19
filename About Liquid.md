@@ -1,6 +1,6 @@
 ---
 redirect_from:
-  - /Liquid/About Liquid
+  - /Liquid/{{page.title}}
 ---
 
 
