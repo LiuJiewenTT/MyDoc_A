@@ -16,7 +16,7 @@ Here we often talk about that of *Github Pages*.
 
 我没有设置安装，只是在`_config.yml`里写了，但是这里却有了，说明支持的插件会自动搞上。
 
-![image-20221219214041629](./Jekyll and Plugins.assets/image-20221219214041629.png)
+![image-20221219214041629](Jekyll and Plugins.assets/image-20221219214041629.png)
 
 往上翻记录：
 
