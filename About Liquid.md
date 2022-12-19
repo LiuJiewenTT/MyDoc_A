@@ -27,7 +27,7 @@ It's a screenshot taken on Dec. 17th, 2022:
 
 ![image-20221218183224756](About Liquid.assets/image-20221218183224756.png)
 
-### _config.yaml
+### _config.yml
 
 ``` yaml
 title: Liquid template language
@@ -117,7 +117,7 @@ plugins:
   - jekyll-redirect-from
 ```
 
-Before you put these in the `_config.yaml`, you have to install the addon so the environment will have it.
+Before you put these in the `_config.yml`, you have to install the addon so the environment will have it.
 
 It should be able to be installed in Github Pages. Because I found it in *Liquid*'s `gh-pages` branch. [Link](https://github.com/Shopify/liquid/tree/gh-pages)
 
