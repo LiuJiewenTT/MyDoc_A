@@ -1,3 +1,9 @@
+---
+redirect-from: /Liquid/
+---
+
+
+
 # About Liquid
 
 For more information, refer to some other documents or view online official pages: [Liquid](https://shopify.github.io/liquid/).
@@ -75,4 +81,39 @@ Well, Liquid has filters processing urls. And one is "absolute_url" and one is "
 *See the Jekyll page: [http://jekyllrb.com/docs/liquid/filters/](http://jekyllrb.com/docs/liquid/filters/)*
 
 ![image-20221218184500565](./About Liquid.assets/image-20221218184500565.png)
+
+#### What is the plugin jekyll-redirect-from?
+
+It is something focused on redirecting. Sounds great!
+
+这是一个专门搞重定向的东东。这玩意看起来很棒！
+
+##### Original Introduction
+
+Give your Jekyll posts and pages multiple URLs.
+
+When importing your posts and pages from, say, Tumblr, it's annoying and impractical to create new pages in the proper subdirectories so they, e.g. `/post/123456789/my-slug-that-is-often-incompl`, redirect to the new post URL.
+
+Instead of dealing with maintaining those pages for redirection, let `jekyll-redirect-from` handle it for you.
+
+[![Build Status](https://github.com/jekyll/jekyll-redirect-from/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/jekyll/jekyll-redirect-from/actions/workflows/ci.yml)
+
+翻译：
+
+> 为您的杰基尔帖子和页面提供多个网址。
+>
+> 当从Tumblr导入你的帖子和页面时，在适当的子目录中创建新页面是烦人且不切实际的，因此它们，例如'/post/123456789/my-slug-that-is-经常-incompl'，重定向到新的帖子URL。
+>
+> 与其处理维护这些页面以进行重定向，不如让“jekyll-redirect-from”为您处理它。
+
+##### More
+
+```yaml
+plugins:
+  - jekyll-redirect-from
+```
+
+Before you put these in the `_config.yaml`, you have to install the addon so the environment will have it.
+
+It should be able to be installed in Github Pages. Because I found it in *Liquid*'s `gh-pages` branch. [Link](https://github.com/Shopify/liquid/tree/gh-pages)
 
