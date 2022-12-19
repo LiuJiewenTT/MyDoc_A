@@ -1,5 +1,5 @@
 ---
-categories: test
+categories: [Jekyll]
 ---
 
 # Jekyll and Variables

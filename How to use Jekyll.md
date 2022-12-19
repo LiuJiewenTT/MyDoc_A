@@ -1,6 +1,6 @@
 ---
-categories: jekyll
-tags: Jekyll, how
+categories: [Jekyll]
+tags: [Jekyll, How]
 ---
 
 # How to use Jekyll
@@ -13,6 +13,12 @@ tags: Jekyll, how
 - Chinese: [ https://jekyllcn.com/](https://jekyllcn.com/)
 
 Non-official versions might be out-dated or incomplete. Recommend to view the official version.
+
+## YAML
+
+Here is a website providing YAML tutorial in the context of Jekyll: [https://idratherbewriting.com/documentation-theme-jekyll/mydoc_yaml_tutorial.html](https://idratherbewriting.com/documentation-theme-jekyll/mydoc_yaml_tutorial.html)
+
+
 
 ## Liquid
 

@@ -149,14 +149,9 @@ redirect_from:
   - /Liquid/关于Liquid
 ```
 
-`/Liquid/:title`这似乎有希望，这好像是YAML的语法。
+`/Liquid/:title`这似乎有希望，这好像是YAML的语法。结果：不行。输出：`:title.html`
 
-![image-20221220002100453](./Jekyll and Plugins.assets/image-20221220002100453.png)
-
-成了！可以用。
-
-**结论：<del>不可以使用Liquid变量，只能手动。</del>**
-**可以，只要用YAML的变量就行：`:title`。**
+**结论：不可以使用Liquid变量，只能手动。**
 
 另外，由于产生的文件不含YAML头，也没被include，所以这些不会被包括在`site.pages`变量里，也不会在`pagemap.html`中列出。
 

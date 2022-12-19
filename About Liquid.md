@@ -1,8 +1,8 @@
 ---
 redirect_from:
-  - /Liquid/:title
   - /Liquid/About
   - /Liquid/关于
+  - /Liquid/About Liquid
   - /Liquid/关于Liquid
 ---
 
