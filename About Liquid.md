@@ -1,8 +1,8 @@
 ---
+categories: [Liquid,]
 redirect_from:
   - /Liquid/About
   - /Liquid/关于
-  - /Liquid/About Liquid
   - /Liquid/关于Liquid
 ---
 

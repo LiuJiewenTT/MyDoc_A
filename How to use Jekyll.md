@@ -1,5 +1,5 @@
 ---
-categories: [Jekyll]
+categories: [Jekyll,]
 tags: [Jekyll, How]
 ---
 
