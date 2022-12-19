@@ -49,6 +49,10 @@ redirect_from:
 
 <small>*ps.这个文件我保存下来了.*</small>
 
+打开来看，就只是一个重定向网页而已，效果长这样：
+
+![image-20221219231834940](./Jekyll and Plugins.assets/image-20221219231834940.png)
+
 以下链接会成功重定向：
 
 1. /Liquid/
@@ -59,6 +63,9 @@ redirect_from:
 但是这样的会失败：
 
 - /Liquid/[Your file's name or title]
+- /Liquid/[Your file's name or title].html
+
+最后显示的就只是那个原本的页面的链接。
 
 
 
@@ -67,3 +74,15 @@ redirect_from:
 > Redirects including a trailing slash will generate a corresponding subdirectory containing an `index.html`, while redirects without a trailing slash will generate a corresponding `filename` without an extension, and without a subdirectory.
 >
 > 包含尾部斜杠的重定向将生成包含index.html的相应子目录，而不带尾部斜杠的重定向将生成不带扩展名且不带子目录的相应文件名。
+
+
+
+至于那个设置`site.url`的事啊，我注释掉测试了一下，发现没有影响，说明那东西不是强制要求设置的。
+
+上面的链接我改成这样试一下：
+
+``` yaml
+redirect_from:
+  - /Liquid/About Liquid
+```
+
