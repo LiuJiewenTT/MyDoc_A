@@ -1,5 +1,5 @@
 ---
-categories: [Liquid,]
+category: Liquid
 redirect_from:
   - /Liquid/About
   - /Liquid/关于
