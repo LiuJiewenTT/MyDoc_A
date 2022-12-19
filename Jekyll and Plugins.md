@@ -139,7 +139,24 @@ redirect_from:
 
 输入链接，因为不是html，Edge让我下载，我一看，这就是它的文件名了，这文件就是之前的那个重定向文件，汗！
 
-**结论：不可以使用Liquid变量，只能手动。**
+（这会找到点东西，我试试这个：）
+
+``` yaml
+redirect_from:
+  - /Liquid/:title
+  - /Liquid/About
+  - /Liquid/关于
+  - /Liquid/关于Liquid
+```
+
+`/Liquid/:title`这似乎有希望，这好像是YAML的语法。
+
+![image-20221220002100453](./Jekyll and Plugins.assets/image-20221220002100453.png)
+
+成了！可以用。
+
+**结论：<del>不可以使用Liquid变量，只能手动。</del>**
+**可以，只要用YAML的变量就行：`:title`。**
 
 另外，由于产生的文件不含YAML头，也没被include，所以这些不会被包括在`site.pages`变量里，也不会在`pagemap.html`中列出。
 

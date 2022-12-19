@@ -1,5 +1,5 @@
 ---
-categories: Jekyll
+categories: jekyll
 tags: Jekyll, how
 ---
 
@@ -69,4 +69,34 @@ city: San Francisco
 ```
 
 {% endraw %}
+
+
+
+## Permalink
+
+> Permalinks are the output path for your pages, posts, or collections. They allow you to structure the directories of your source code different from the directories in your output.
+
+That's exactly what it can do.
+
+> For example, you might have a page on your site located at `/my_pages/about-me.html` and you want the output url to be `/about/`. In front matter of the page you would set:
+>
+> ```yaml
+> ---
+> permalink: /about/
+> ---
+> ```
+
+And the gloabl setting is very practical.
+
+> To set a global permalink, you use the `permalink` variable in `_config.yml`. You can use placeholders to your desired output. For example:
+>
+> ```
+> permalink: /:categories/:year/:month/:day/:title:output_ext
+> ```
+>
+> Note that pages and collections (excluding `posts` and `drafts`) don’t have time and categories (for pages, the above `:title` is equivalent to `:basename`), these aspects of the permalink style are ignored for the output.
+>
+> For example, a permalink style of `/:categories/:year/:month/:day/:title:output_ext` for the `posts` collection becomes `/:title.html` for pages and collections (excluding `posts` and `drafts`).
+
+This is very similar to the plugin `jekyll-redirect-from`. But that is not really putting it there. And that can produce many more links.
 
