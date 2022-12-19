@@ -6,6 +6,8 @@ Here we often talk about that of *Github Pages*.
 
 ### jekyll-redirect-from
 
+#### 过程记录
+
 我没有设置安装，只是在`_config.yml`里写了，但是这里却有了，说明支持的插件会自动搞上。
 
 ![image-20221219214041629](./Jekyll and Plugins.assets/image-20221219214041629.png)
@@ -53,6 +55,14 @@ redirect_from:
 
 ![image-20221219231834940](./Jekyll and Plugins.assets/image-20221219231834940.png)
 
+打开产生的`redirects.json`:
+
+``` json
+{"/Liquid/":"https://liujiewentt.github.io/MyDoc_A/About%20Liquid.html"}
+```
+
+这时候不为空了。
+
 以下链接会成功重定向：
 
 1. /Liquid/
@@ -94,5 +104,32 @@ redirect_from:
 
 这时候名字就不一样了。
 
-**由此得出一个结论，就是：无论怎么设置，最后能访问到的链接就是原原本本写在YAML头里的，不会设置为文件夹就可以后加文件名或者标题就可以访问。一切原汁原味。**
+**由此得出一个结论，就是：**
+
+1. **无论怎么设置，最后能访问到的链接就是原原本本写在YAML头里的，不会设置为文件夹就可以后加文件名或者标题就可以访问。一切原汁原味。**
+2. 这玩意可以有空格！
+3. 对中文友好！
+
+
+
+我想试试这样：
+
+```yaml
+redirect_from:
+  - /Liquid/{{page.title}}
+```
+
+开测！
+
+![image-20221219233911318](./Jekyll and Plugins.assets/image-20221219233911318.png)
+
+寄！
+
+![image-20221219233900841](./Jekyll and Plugins.assets/image-20221219233900841.png)
+
+输入链接，因为不是html，Edge让我下载，我一看，这就是它的文件名了，这文件就是之前的那个重定向文件，汗！
+
+**结论：不可以使用Liquid变量，只能手动。**
+
+
 

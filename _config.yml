@@ -14,7 +14,7 @@ defaults:
       layout: leap_day_customized_v1
 exclude:
   - /**/*.origin.md
-  - todo.md
+  - Todo.md
 
 whitelist:
   - jekyll-remote-theme
