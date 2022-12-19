@@ -32,6 +32,10 @@ Github Jekyll 组合添加了一些插件，并且无法禁用，只能通过设
 
 ![image-20221215232034098](./Jekyll and Files.assets/image-20221215232034098.png)
 
+### 所有支持的插件
+
+支持列表: [https://pages.github.com/versions/](https://pages.github.com/versions/)
+
 ### 主页
 
 有一个插件将主页从*index.d*更换成了*README.md*，这个插件也无法禁用，只能修改配置使其不生效。

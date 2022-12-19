@@ -1,5 +1,6 @@
 ---
-redirect-from: /Liquid/
+redirect_from: 
+	- /Liquid/
 ---
 
 
