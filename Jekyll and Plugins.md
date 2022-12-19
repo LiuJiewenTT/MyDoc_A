@@ -28,4 +28,4 @@ Here we often talk about that of *Github Pages*.
 
 ![image-20221219222817401](./Jekyll and Plugins.assets/image-20221219222817401.png)
 
-我加了呀。突然感觉不妙，仔细一看：**不是横杆是下划线**。我再提交试试。
+我加了呀。突然感觉不妙，仔细一看：**不是横杆是下划线**。我再提交试试。还是不行，一番对比下发现，`_config.yaml`里没手动设置`site.url`，只设置了`baseurl`，不过插件的介绍里没有强制要求两个都设置，我不懂哪里出了问题。

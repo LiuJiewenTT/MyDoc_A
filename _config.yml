@@ -4,7 +4,7 @@ plugins:
 - jekyll-redirect-from
 
 baseurl: /MyDoc_A
-url: liujiewentt.github.io
+url: https://liujiewentt.github.io
 
 defaults:
   -
