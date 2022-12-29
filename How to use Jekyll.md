@@ -117,3 +117,10 @@ This is very similar to the plugin `jekyll-redirect-from`. But that is not reall
 - none `/:categories/:title.html`
 
 date 和 none 的参数都很好理解，但是 pretty 这个参数结尾的形式就很好玩了。它提醒我们的是：如果最后为 `/:title/` 而非 `/:title.html` 的话，显示出来的网页地址就不会带 `.html` 这个后缀，这样更美观了。所以当你在创建时，也可以通过这样的设置来实现不带后缀的链接地址。
+
+---
+
+奇怪的是，`date`似乎不会生效，`pretty`也读不到类别信息。像这样：(以'pretty'为例)
+
+![image-20221229210439573](How to use Jekyll.assets/image-20221229210439573.png)
+
