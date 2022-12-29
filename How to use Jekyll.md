@@ -1,6 +1,6 @@
 ---
-categories: [Jekyll, ]
-tags: [Jekyll, How]
+categories: [Jekyll,How]
+tags: [Jekyll,use]
 ---
 
 # How to use Jekyll
