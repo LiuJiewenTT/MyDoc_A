@@ -1,6 +1,6 @@
 ---
-categories: [Jekyll,How]
-tags: [Jekyll,use]
+categories: [Jekyll, How]
+tags: [Jekyll, use]
 ---
 
 # How to use Jekyll
@@ -106,3 +106,14 @@ And the gloabl setting is very practical.
 
 This is very similar to the plugin `jekyll-redirect-from`. But that is not really putting it there. And that can produce many more links.
 
+### permalink's presets
+
+> 摘抄自：[网页链接](https://www.liangzl.com/get-article-detail-13916.html)
+
+其实， permalink 还带有三个预置好的参数。其中默认的参数就是 date 。它的三个参数如下：
+
+- date `/:categories/:year/:month/:day/:title.html`
+- pretty `/:categories/:year/:month/:day/:title/`
+- none `/:categories/:title.html`
+
+date 和 none 的参数都很好理解，但是 pretty 这个参数结尾的形式就很好玩了。它提醒我们的是：如果最后为 `/:title/` 而非 `/:title.html` 的话，显示出来的网页地址就不会带 `.html` 这个后缀，这样更美观了。所以当你在创建时，也可以通过这样的设置来实现不带后缀的链接地址。

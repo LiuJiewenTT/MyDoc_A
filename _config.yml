@@ -5,7 +5,7 @@ plugins:
 
 baseurl: /MyDoc_A
 # url: https://liujiewentt.github.io
-permalink: /:categories/:year/:month/:day/:title:output_ext
+permalink: date
 
 defaults:
   -
