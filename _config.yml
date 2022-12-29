@@ -5,7 +5,7 @@ plugins:
 
 baseurl: /MyDoc_A
 # url: https://liujiewentt.github.io
-permalink: date
+permalink: pretty
 
 defaults:
   -
@@ -15,7 +15,7 @@ defaults:
       layout: leap_day_customized_v1
 
 exclude:
-  - /**/*.origin.md
+  - /**/*.origin.*
   - Todo.md
 
 whitelist:
