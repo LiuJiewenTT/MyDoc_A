@@ -1,5 +1,5 @@
 ---
-title: View Categories
+title: View Categories and Tags
 ---
 <!doctype html>
 <html lang="{{ site.lang | default: "en-US" }}">
@@ -9,14 +9,24 @@ title: View Categories
  </head>
 
 <body>
- <h1>View Categories</h1>
-<ul>
-    <!-- //这里使用了 jekyll 语法，会被编译，所以加多个"\" -->
-    {% for category in site.categories %}
-    <li>
-        <!-- <a href="/categories/{{ category | first }}/" title="view all posts">{{ category | first }} {{ category | last | size }}</a> -->
-        <p>{{ category[0] }}</p>
-    </li>
-    {% endfor %}
-</ul>   
+    <h1>View Categories</h1>
+    <ul>
+        <!-- //这里使用了 jekyll 语法，会被编译，所以加多个"\" -->
+        {% for category in site.categories %}
+        <li>
+            <!-- <a href="/categories/{{ category | first }}/" title="view all posts">{{ category | first }} {{ category | last | size }}</a> -->
+            <p>{{ category[0] }}</p>
+        </li>
+        {% endfor %}
+    </ul>   
+    <h1>View Tags</h1>
+    <ul>
+        <!-- //这里使用了 jekyll 语法，会被编译，所以加多个"\" -->
+        {% for tag in site.tags %}
+        <li>
+            <!-- <a href="/categories/{{ category | first }}/" title="view all posts">{{ category | first }} {{ category | last | size }}</a> -->
+            <p>{{ tag[0] }}</p>
+        </li>
+        {% endfor %}
+    </ul> 
 </body>

@@ -10,6 +10,8 @@ To record tips and bugs....
 
 For more information, refer to some other documents or view online official pages: [Liquid](https://shopify.github.io/liquid/).
 
+See tags from Jekyll website: [here](http://jekyllrb.com/docs/liquid/tags/).
+
 ## 吐槽
 
 天天看天天看，照着官方Template都没折腾出来。。。做好模板以后就不轻易动了。。
