@@ -25,7 +25,7 @@ title: View Categories and Tags
         {% for tag in site.tags %}
         <li>
             <!-- <a href="/categories/{{ category | first }}/" title="view all posts">{{ category | first }} {{ category | last | size }}</a> -->
-            <p>{{ tag[0] }}</p>
+            <p>{{ tag.name }}</p>
         </li>
         {% endfor %}
     </ul> 
