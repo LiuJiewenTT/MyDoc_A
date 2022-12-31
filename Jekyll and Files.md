@@ -1,6 +1,6 @@
 ---
 title: Jekyll and Files (Special on Github Pages)
-categories: [Jekyll,]
+categories: Jekyll
 tags: [Jekyll, Github]
 ---
 
