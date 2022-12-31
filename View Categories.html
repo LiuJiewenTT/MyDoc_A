@@ -10,9 +10,12 @@ title: View Categories and Tags
 
 <body>
     <h1>View Categories</h1>
-    {% if site.categories==nil %}
+    {% if site.categories == nil %}
     <p>No Categories</p>
+    {% else %}
+    <p>Categories not nil</p>
     {% endif %}
+
     <ul>
         <!-- //这里使用了 jekyll 语法，会被编译，所以加多个"\" -->
         {% for category in site.categories %}
@@ -22,9 +25,12 @@ title: View Categories and Tags
         </li>
         {% endfor %}
     </ul>   
+    
     <h1>View Tags</h1>
-    {% if site.tags==nil %}
+    {% if site.tags == nil %}
     <p>No tags</p>
+    {% else %}
+    <p>Tags not nil</p>
     {% endif %}
     
     {% for tag in site.tags %}
