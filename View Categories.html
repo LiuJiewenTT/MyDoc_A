@@ -20,13 +20,13 @@ title: View Categories and Tags
         {% endfor %}
     </ul>   
     <h1>View Tags</h1>
+    
+    {% for tag in site.tags %}
+    <h3>{{ tag[0] }}</h3>
     <ul>
-        <!-- //这里使用了 jekyll 语法，会被编译，所以加多个"\" -->
-        {% for tag in site.tags %}
-        <li>
-            <!-- <a href="/categories/{{ category | first }}/" title="view all posts">{{ category | first }} {{ category | last | size }}</a> -->
-            <p>{{ tag{0} }}</p>
-        </li>
+        {% for post in tag[1] %}
+        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
         {% endfor %}
-    </ul> 
+    </ul>
+    {% endfor %}
 </body>
