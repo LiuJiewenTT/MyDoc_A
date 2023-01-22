@@ -1,5 +1,5 @@
 ---
-categories: [Jekyll,]
+categories: Jekyll
 ---
 
 # Jekyll and Variables
