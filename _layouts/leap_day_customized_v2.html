@@ -1,7 +1,8 @@
 ---
-layout_name: leap_day_customized_v1
+layout_name: leap_day_customized_v2
 ---
 <!-- inherited_from: leap_day -->
+<!-- inherited_from: leap_day_customized_v1 -->
 <!doctype html>
 <html lang="{{ site.lang | default: "en-US" }}">
   <head>
@@ -24,6 +25,7 @@ layout_name: leap_day_customized_v1
       <header>
         <h1>{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
         <p>{{ page.description | default: site.description | default: site.github.project_tagline }}</p>
+        <p>Auther: {{ page.auther }}, Date: {{ page.date }}, Categories: {{ page.categories | default:"[Not Specified]" }}, Tags: {{ page.tags | default:"[Not Specified]" }}</p>
       </header>
 
       <div id="banner">
@@ -58,7 +60,7 @@ layout_name: leap_day_customized_v1
           <p>Project maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
         {% endif %}
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a>,
-           customized by <a href="{{site.github.owner_url}}">{{ site.github.owner_name }}</a> 
+           customized by <a href="https://github.com/LiuJiewenTT">LiuJiewenTT</a> 
            as <a href="{{site.github.repository_url}}/blob/main/_layouts/{{layout.layout_name}}.html">the layout</a>
         </small></p>
       </footer>
