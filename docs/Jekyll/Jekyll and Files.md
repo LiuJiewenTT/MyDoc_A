@@ -30,7 +30,7 @@ Github Jekyll 组合添加了一些插件，并且无法禁用，只能通过设
 
 [https://docs.github.com/zh/enterprise-server@3.3/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll](https://docs.github.com/zh/enterprise-server@3.3/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll)
 
-![image-20221215232034098](./Jekyll and Files.assets/image-20221215232034098.png)
+![image-20221215232034098](Jekyll and Files.assets/image-20221215232034098.png)
 
 ### 所有支持的插件
 
@@ -42,7 +42,7 @@ Github Jekyll 组合添加了一些插件，并且无法禁用，只能通过设
 
 [https://github.com/benbalter/jekyll-readme-index](https://github.com/benbalter/jekyll-readme-index)（见*Configuration*）
 
-![image-20221215232124186](./Jekyll and Files.assets/image-20221215232124186.png)
+![image-20221215232124186](Jekyll and Files.assets/image-20221215232124186.png)
 
 ### 标题
 
@@ -56,18 +56,18 @@ Github Jekyll 组合添加了一些插件，并且无法禁用，只能通过设
 
 > 如果没有指定标题，则使用第一个heading。
 
-![image-20221217001346176](./Jekyll and Files.assets/image-20221217001346176.png)
+![image-20221217001346176](Jekyll and Files.assets/image-20221217001346176.png)
 
 #### 标题显示
 
 如果标题与库名相同，则不重复显示，如图：
 
-![image-20221217004030231](./Jekyll and Files.assets/image-20221217004030231.png)
+![image-20221217004030231](Jekyll and Files.assets/image-20221217004030231.png)
 
 否则同时显示在网页标题中：
 
-![image-20221217003154648](./Jekyll and Files.assets/image-20221217003154648.png)
+![image-20221217003154648](Jekyll and Files.assets/image-20221217003154648.png)
 
-![image-20221217002937915](./Jekyll and Files.assets/image-20221217002937915.png)
+![image-20221217002937915](Jekyll and Files.assets/image-20221217002937915.png)
 
 > 对中文标题友好！

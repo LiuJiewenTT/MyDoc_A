@@ -84,7 +84,7 @@ Well, Liquid has filters processing urls. And one is "absolute_url" and one is "
 
 *See the Jekyll page: [http://jekyllrb.com/docs/liquid/filters/](http://jekyllrb.com/docs/liquid/filters/)*
 
-![image-20221218184500565](./About Liquid.assets/image-20221218184500565.png)
+![image-20221218184500565](About Liquid.assets/image-20221218184500565.png)
 
 #### What is the plugin jekyll-redirect-from?
 

@@ -54,6 +54,6 @@ See tags from Jekyll website: [here](http://jekyllrb.com/docs/liquid/tags/).
 
 ## 奇葩的优先级
 
-![image-20221217223731188](./Terrible Liquid.assets/image-20221217223731188.png)
+![image-20221217223731188](Terrible Liquid.assets/image-20221217223731188.png)
 
 <del>怎么会有这种设定？真够异类</del>。好吧也不是没有，这是一种比较典型的实现了。
