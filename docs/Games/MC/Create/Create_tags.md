@@ -1,6 +1,7 @@
 ---
 date: 2023-1-22 17:33:00 +0800
 categories: MC, Create
+tags: Minecraft, MC, Create, Mod
 ---
 
 # Create Tags
@@ -9,9 +10,15 @@ The information here is derived from [Creators-of-Create/Create](https://github.
 
 ## iframe
 
+{% if False %}
+
 <iframe style="height:800; width:100%" src="https://github.com/Creators-of-Create/Create/wiki/Useful-Tags" />
 
+{% endif %}
+
 It seems it's been blocked for security reasons.
+
+> Github Pages version do not show iframes.
 
 ## Contents
 
