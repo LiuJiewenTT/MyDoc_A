@@ -53,11 +53,11 @@ layout_name: leap_day_customized_v2
       </nav>
       <section>
         {%- if page.redirect_from -%}
-        <section>
+        <section style="height:min-content; margin-top: 0px; padding-bottom: 30px;">
           <b>Starring Links: </b>
           <ol>
             {%- for link in page.redirect_from -%}
-            <li>{{ link }}</li>
+            <li><a style="color:yellow" href="{{ site.github.url }}{{ link }}">{{ link }}</a></li>
             {%- endfor -%}
           </ol>
         </section>
