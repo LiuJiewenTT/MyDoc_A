@@ -52,14 +52,16 @@ layout_name: leap_day_customized_v2
         <ul></ul>
       </nav>
       <section>
+        {%- if page.redirect_from -%}
         <section>
           <b>Starring Links: </b>
           <ol>
             {%- for link in page.redirect_from -%}
-              <li>{{link}}</li>
+            <li>{{ link }}</li>
             {%- endfor -%}
           </ol>
         </section>
+        {%- endif -%}
 
         {{ content }}
 
