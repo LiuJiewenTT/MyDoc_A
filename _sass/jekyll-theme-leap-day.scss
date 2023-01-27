@@ -453,6 +453,11 @@ footer {
       position: fixed;
       right: 60px;
     }
+
+    #logo {
+        margin-right: 5px;
+        margin-top: 60px;
+    }
   }
 
   section {
@@ -490,7 +495,8 @@ footer {
 
     .fork {
       margin-right: 0px;
-      right: 60px
+      right: 60px;
+      position: absolute;
     }
   }
 
