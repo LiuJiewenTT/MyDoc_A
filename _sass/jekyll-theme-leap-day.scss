@@ -397,6 +397,12 @@ footer {
       }
 
     .fork {
+      float: none;
+      display: inline-block;
+      margin-left: 0px;
+      margin-right: 0px;
+      position: fixed;
+      right: 60px;
     }
 
     #logo {
@@ -447,12 +453,6 @@ footer {
     top: 80px;
 
     .fork {
-      float: none;
-      display: inline-block;
-      margin-left: 0px;
-      margin-right: 0px;
-      position: fixed;
-      right: 60px;
     }
 
     #logo {
