@@ -447,13 +447,12 @@ footer {
     top: 80px;
 
     .fork {
-      float: left;
+      float: right;
       display: inline-block;
       margin-left: 0px;
-    position:fixed;
-    left:20px;
-
-      }
+      position: fixed;
+      left: 60px;
+    }
   }
 
   section {
@@ -489,7 +488,7 @@ footer {
     margin-top: 5px;
   }
 
-  #banner { display: none;}
+//   #banner { display: none;}
   header ul {
     display:none;
   }
