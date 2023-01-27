@@ -447,11 +447,11 @@ footer {
     top: 80px;
 
     .fork {
-      float: right;
+      float: none;
       display: inline-block;
       margin-left: 0px;
       position: fixed;
-      left: 60px;
+      right: 60px;
     }
   }
 
@@ -484,6 +484,16 @@ footer {
       -ms-text-overflow: ellipsis;
     }
   }
+
+  #banner {
+    top: 60px;
+
+    .fork {
+      margin-right: 0px;
+      right: 60px
+    }
+  }
+
   section {
     margin-top: 5px;
   }
