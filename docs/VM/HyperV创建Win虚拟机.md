@@ -123,6 +123,8 @@
 >
 > ![image-20230127154854702](HyperV创建Win虚拟机.assets/image-20230127154854702.png)
 >
+> > 2023-1-28补充：“量身定制的体验”关掉吧，没必要，会有任务计划，占CPU还没用。或者把位置以外的都关闭。或者都关了。
+>
 > 然后就是等了：
 >
 > ![image-20230127154951646](HyperV创建Win虚拟机.assets/image-20230127154951646.png)
@@ -148,4 +150,16 @@
 > 如图
 > 
 > ![image-20230127151223514](HyperV创建Win虚拟机.assets/image-20230127151223514.png)
+
+## 激活LTSC
+
+找到配置，在开启了管理员权限的powershell中运行。
+
+![image-20230128181635053](HyperV创建Win虚拟机.assets/keep_local/image-20230128181635053.png)
+
+![image-20230128181654761](HyperV创建Win虚拟机.assets/keep_local/image-20230128181654761.png)
+
+貌似失效了。
+
+![image-20230128181728762](HyperV创建Win虚拟机.assets/keep_local/image-20230128181728762.png)
 
