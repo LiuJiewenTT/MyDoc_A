@@ -1,3 +1,9 @@
+---
+tags: LabPBR, shader, ray-tracing
+---
+
+
+
 # 支持LabPBR的光影
 
 看这个网站：[link](https://wiki.shaderlabs.org/wiki/LabPBR_Supported_Packs)
