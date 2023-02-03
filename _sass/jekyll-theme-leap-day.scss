@@ -357,10 +357,11 @@ nav {
 }
 
 footer {
-  width:180px;
-  position: fixed;
-  left:50%;
-  margin-left:-530px;
+  // width:180px;
+  position: relative;
+  // left:50%;
+  // margin-left:-530px;
+  margin-top: 20px;
   bottom:20px;
   text-align: right;
   line-height: 16px;
