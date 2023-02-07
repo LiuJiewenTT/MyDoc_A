@@ -1,0 +1,2 @@
+# PyInstaller Options
+
