@@ -1,0 +1,3 @@
+# drafts
+
+- [ ] kill命令
