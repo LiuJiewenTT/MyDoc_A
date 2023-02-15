@@ -1,8 +1,8 @@
 ---
-layout_name: leap_day_customized_v2
+layout_name: leap_day_customized_v3
 ---
 <!-- inherited_from: leap_day -->
-<!-- inherited_from: leap_day_customized_v2 -->
+<!-- inherited_from: leap_day_customized_v3 -->
 <!doctype html>
 <html lang="{{ site.lang | default: "en-US" }}">
   <head>
@@ -72,9 +72,30 @@ layout_name: leap_day_customized_v2
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a>,
            customized by <a href="https://github.com/LiuJiewenTT">LiuJiewenTT</a> 
            as <a href="{{site.github.repository_url}}/blob/main/_layouts/{{layout.layout_name}}.html">the layout</a>,
-           styled as <a href="{{site.github.repository_url}}/blob/main/_sass/jekyll-theme-leap-day.scss">the scss</a>.
+           <a href="{{site.github.repository_url}}/blob/main/_sass/jekyll-theme-leap-day.scss">the scss</a>.
         </small></p>
       </footer>
     </div>
+
+    <!-- Support for Mermaid Graphs
+            The tutorial link(Under this website): /docs/Jekyll/Jekyll下Markdown的填坑技巧
+    -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.0.0/mermaid.min.js"></script>
+    <script>
+        var config = {
+            startOnLoad:true,
+            theme: 'forest',
+            flowchart:{
+                    useMaxWidth:false,
+                    htmlLabels:true
+                }
+        };
+        mermaid.initialize(config);
+        window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+    </script>
+    <!-- <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script> -->
   </body>
 </html>

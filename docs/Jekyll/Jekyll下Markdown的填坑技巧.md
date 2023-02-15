@@ -26,7 +26,9 @@ Mermaid是一个从文本生成图形的工具。目前它可以生成流程图�
 </script>
 ```
 
-添加上述两个脚本即可。
+添加上述两个脚本即可。或者使用Mermaid官网的教程：[js API](https://mermaid.js.org/intro/n00b-gettingStarted.html#_3-calling-the-javascript-api) ([with HTML](https://mermaid.js.org/config/Tutorials.html#mermaid-with-html)). 
+
+其实还有一种办法，有对应的Jekyll插件，效果未知，暂时没有试过，见Mermaid官网链接：[网页](https://mermaid.js.org/misc/integrations.html#other)。
 
 ## More
 
