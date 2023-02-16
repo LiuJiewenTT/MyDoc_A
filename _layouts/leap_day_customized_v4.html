@@ -1,5 +1,5 @@
 ---
-layout_name: leap_day_customized_v3
+layout_name: leap_day_customized_v4
 ---
 <!-- inherited_from: leap_day -->
 <!-- inherited_from: leap_day_customized_v3 -->
@@ -86,16 +86,13 @@ layout_name: leap_day_customized_v3
             startOnLoad:true,
             theme: 'forest',
             flowchart:{
-                    useMaxWidth:false,
+                    useMaxWidth:true,
                     htmlLabels:true
                 }
         };
         mermaid.initialize(config);
         window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
     </script>
-    <!-- <script type="module">
-        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.esm.min.mjs';
-        mermaid.initialize({ startOnLoad: true });
-    </script> -->
+    
   </body>
 </html>
