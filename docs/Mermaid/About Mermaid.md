@@ -22,3 +22,7 @@ How to use: [Page](https://mermaid.js.org/config/usage.html).
 
 There are some other versions to choose.
 
+## Theming
+
+Variables: <https://mermaid.js.org/config/theming.html#theme-variables>
+
