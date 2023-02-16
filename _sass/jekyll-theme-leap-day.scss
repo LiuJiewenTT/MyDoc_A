@@ -127,7 +127,7 @@ pre {
     background: #ffeca0;
   }
 }
-pre :has(.language-mermaid) {
+pre :has(code.language-mermaid) {
   padding:8px 15px;
   background: #ffeca0;
   border-radius: 3px;
