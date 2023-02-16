@@ -6,7 +6,9 @@ links:
    1. <https://css-tricks.com/parent-selectors-in-css/>
    2. <https://blog.csdn.net/qq_20343517/article/details/82990211>
 2. <https://www.51cto.com/article/706500.html>
-3. 
+   1. <https://juejin.cn/post/7089775754342301732>
+
+Support? Check this: [web](https://caniuse.com/css-has).
 
 
 

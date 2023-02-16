@@ -120,12 +120,23 @@ pre {
   code {
     margin: 0px;
     padding: 0px;
-    
   }
   code:has(.language-mermaid) {
     margin: 0px;
     padding: 0px;
     background: #ffeca0;
+  }
+}
+pre :has(.language-mermaid) {
+  padding:8px 15px;
+  background: #ffeca0;
+  border-radius: 3px;
+  border:1px solid #c7c7c7;
+  overflow: auto;
+  overflow-y: hidden;
+  code {
+    margin: 0px;
+    padding: 0px;
   }
 }
 
