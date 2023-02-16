@@ -117,11 +117,16 @@ pre:has(.language-mermaid) {
   border:1px solid #c7c7c7;
   overflow: auto;
   overflow-y: hidden;
+  // width:100%;
+  // margin:auto;
   code {
     margin: 0px;
     padding: 0px;
     svg {
       fill: #ffffa029;
+      display: flex;
+      width:100%;
+      margin:auto;
     }
   }
 }
