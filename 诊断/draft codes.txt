@@ -1,0 +1,42 @@
+<!-- <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@9.4.0/dist/mermaid.min.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.0.0/mermaid.min.js"></script>
+    <script>
+        var config = {
+            startOnLoad:true,
+            theme: 'forest',
+            flowchart:{
+                    useMaxWidth:true,
+                    htmlLabels:true
+                }
+        };
+        mermaid.initialize(config);
+        window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+    </script>
+
+
+code:has(.language-mermaid) {
+    font-family: 'Lucida Sans', Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal;
+    font-size:13px;
+    color:#efefef;
+    text-shadow: 0px 1px 0px #000;
+    margin: 0 4px;
+    padding: 2px 6px;
+    border-radius: 2px;
+  
+    background: #ffeca0;
+  }
+
+  #a0f4ff29
+
+  #cfffa029
+
+  #ffffa029
+
+  #f9c5e85c
