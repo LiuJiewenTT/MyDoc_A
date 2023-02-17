@@ -105,10 +105,23 @@ pre {
   border:1px solid #c7c7c7;
   overflow: auto;
   overflow-y: hidden;
+
   code {
     margin: 0px;
     padding: 0px;
   }
+  
+  .language-mermaid {
+    text-shadow: 0 0 black;
+    svg {
+      background: #ffffa0;
+      // fill: #ffffa029;
+      // display: contents;
+      width:100%;
+      margin:auto;
+    }
+  }
+
 }
 pre:has(.language-mermaid) {
   padding:8px 15px;
@@ -124,7 +137,7 @@ pre:has(.language-mermaid) {
     text-shadow: 0 0 black;
     
     svg {
-      fill: #ffffa029;
+      // fill: #ffffa029;
       display: flex;
       width:100%;
       margin:auto;
