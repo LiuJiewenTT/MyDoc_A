@@ -1,0 +1,2113 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)https://www.cnblogs.com/hnrainll/archive/2011/02/16/1956539.html -->
+<html lang="zh-cn" style="--olcb-folder-code-block-max-height:80vh;">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="origin-when-cross-origin">
+    <meta name="description"
+        content="一. FTP 说明 linux 系统下常用的FTP 是vsftp, 即Very Security File Transfer Protocol. 还有一个是proftp(Profession ftp)">
+    <meta property="og:description"
+        content="一. FTP 说明 linux 系统下常用的FTP 是vsftp, 即Very Security File Transfer Protocol. 还有一个是proftp(Profession ftp)">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Linux FTP 服务器配置简单说明 - hnrainll - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="https://common.cnblogs.com/favicon.svg" type="image/svg+xml">
+
+    <style>
+        #home :not(.cnblogs_code):not(.cnblogs_Highlighter)>pre:not([highlighted]):not([class*="brush:"]) code:not(.hljs),
+        :not(.cnblogs_code):not(.cnblogs_Highlighter)>pre:not([highlighted]):not([class*="brush:"]) code:not(.hljs) {
+            background: rgb(245, 245, 245);
+            padding: 12px;
+            border: 1px solid rgb(204, 204, 204);
+            border-radius: 3px;
+            border-color: transparent;
+            color: rgb(68, 68, 68);
+            font-family: "Courier New", sans-serif;
+            font-size: 12px
+    </style>
+    <link rel="stylesheet" href="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/blog-common.min.css">
+
+
+
+    <link media="(prefers-color-scheme: light)" id="highlighter-theme-cnblogs" type="text/css" rel="stylesheet"
+        href="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/cnblogs.css">
+
+    <link type="text/css" rel="stylesheet" href="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/custom.css">
+
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet"
+        href="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/bundle-simplememory-mobile-pure.min.css">
+
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/hnrainll/rss">
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/hnrainll/rsd.xml">
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/hnrainll/wlwmanifest.xml">
+    <script type="text/javascript" async="" src="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/analytics.js.下载"></script>
+    <script>
+        var currentBlogId = 66907;
+        var currentBlogApp = 'hnrainll';
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'SimpleMemory';
+        var visitorUserId = '';
+        var hasCustomScript = true;
+        try {
+            if (hasCustomScript && document.referrer && document.referrer.indexOf('baidu.com') >= 0) {
+                Object.defineProperty(document, 'referrer', { value: '' });
+                Object.defineProperty(Document.prototype, 'referrer', { get: function () { return ''; } });
+            }
+        } catch (error) { }
+        window.cb_enable_mathjax = false;
+        window.mathEngine = 0;
+        window.codeHighlightEngine = 1;
+        window.enableCodeLineNumber = false;
+        window.codeHighlightTheme = 'cnblogs';
+        window.darkModeCodeHighlightTheme = 'vs2015';
+        window.isDarkCodeHighlightTheme = false;
+        window.isDarkModeCodeHighlightThemeDark = true;
+        window.isDisableCodeHighlighter = false;
+        window.enableCodeThemeTypeFollowSystem = true;
+    </script>
+    <script>
+        var currentPostDateAdded = '2011-02-16 23:28';
+    </script>
+    <script src="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/jquery-2.2.0.min.js.下载"></script>
+    <script src="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/blog-common.min.js.下载"></script>
+    <style>
+        .medium-zoom-overlay {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 300ms;
+            will-change: opacity;
+        }
+
+        .medium-zoom--opened .medium-zoom-overlay {
+            cursor: pointer;
+            cursor: zoom-out;
+            opacity: 1;
+        }
+
+        .medium-zoom-image {
+            cursor: pointer;
+            cursor: zoom-in;
+            /*
+    The `transition` is marked as "!important" for the animation to happen
+    even though it's overriden by another inline `transition` style attribute.
+
+    This is problematic with frameworks that generate inline styles on their
+    images (e.g. Gatsby).
+
+    See https://github.com/francoischalifour/medium-zoom/issues/110
+   */
+            transition: transform 300ms cubic-bezier(0.2, 0, 0.2, 1) !important;
+        }
+
+        .medium-zoom-image--hidden {
+            visibility: hidden;
+        }
+
+        .medium-zoom-image--opened {
+            position: relative;
+            cursor: pointer;
+            cursor: zoom-out;
+            will-change: transform;
+        }
+    </style>
+    <script id="hljs-script" src="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/highlight.min.js.下载"
+        type="text/javascript" async=""></script>
+
+
+
+    <meta http-equiv="origin-trial"
+        content="Az6AfRvI8mo7yiW5fLfj04W21t0ig6aMsGYpIqMTaX60H+b0DkO1uDr+7BrzMcimWzv/X7SXR8jI+uvbV0IJlwYAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+    <meta http-equiv="origin-trial"
+        content="A+USTya+tNvDPaxUgJooz+LaVk5hPoAxpLvSxjogX4Mk8awCTQ9iop6zJ9d5ldgU7WmHqBlnQB41LHHRFxoaBwoAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+    <meta http-equiv="origin-trial"
+        content="A7FovoGr67TUBYbnY+Z0IKoJbbmRmB8fCyirUGHavNDtD91CiGyHHSA2hDG9r9T3NjUKFi6egL3RbgTwhhcVDwUAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+    <script src="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/pubads_impl_2023021401.js.下载" async=""></script>
+    <link rel="preload" href="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/f.txt" as="script">
+    <script type="text/javascript" src="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/f.txt"></script>
+    <link rel="stylesheet" type="text/css"
+        href="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/page-common-comArticle.b7330533.css">
+    <link rel="stylesheet" type="text/css"
+        href="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/page-article.b7330533.css">
+    <link rel="stylesheet" type="text/css" href="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/comBefore.b7330533.css">
+    <link rel="stylesheet" type="text/css" href="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/fonticon.b7330533.css">
+    <link rel="stylesheet" type="text/css"
+        href="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/google-fonts.b7330533.css">
+</head>
+<div id="night-mask"
+    style="position: fixed;top: 0;left: 0;width: 100%;height: 100%;z-index: 2147483647;pointer-events: none;mix-blend-mode: multiply;transition: opacity 0.1s ease 0s;opacity:0.3;display:none;background: #000000;">
+</div>
+
+<body class="skin-simplememory no-navbar" style="overflow: auto;">
+    <div id="dayNightSwitch" class="generalWrapper">
+        <div class="onOff daySwitch">
+            <div class="star star1"></div>
+            <div class="star star2"></div>
+            <div class="star star3"></div>
+            <div class="star star4"></div>
+            <div class="star star5"></div>
+            <div class="star sky"></div>
+            <div class="sunMoon">
+                <div class="crater crater1"></div>
+                <div class="crater crater2"></div>
+                <div class="crater crater3"></div>
+                <div class="cloud part1"></div>
+                <div class="cloud part2"></div>
+            </div>
+        </div>
+    </div>
+    <a name="top" style="display: none;"></a>
+    <div id="top_nav" class="navbar forpc navbar-custom">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding">
+                    <a href="https://www.cnblogs.com/" title="开发者的网上家园" role="banner">
+                        <img src="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/logo.svg" alt="博客园Logo">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.cnblogs.com/" onclick="countClicks(&#39;skin-navbar-sitehome&#39;)">首页</a>
+                </li>
+                <li>
+                    <a href="https://news.cnblogs.com/"
+                        onclick="countClicks(&#39;nav&#39;, &#39;skin-navbar-news&#39;)">新闻</a>
+                </li>
+                <li>
+                    <a href="https://q.cnblogs.com/"
+                        onclick="countClicks(&#39;nav&#39;, &#39;skin-navbar-q&#39;)">博问</a>
+                </li>
+                <li>
+                    <a id="nav_brandzone" href="https://brands.cnblogs.com/"
+                        onclick="countClicks(&#39;nav&#39;, &#39;skin-navbar-brands&#39;)">专区</a>
+                </li>
+                <li>
+                    <a href="https://ing.cnblogs.com/"
+                        onclick="countClicks(&#39;nav&#39;, &#39;skin-navbar-ing&#39;)">闪存</a>
+                </li>
+                <li>
+                    <a href="https://edu.cnblogs.com/"
+                        onclick="countClicks(&#39;nav&#39;, &#39;skin-navbar-edu&#39;)">班级</a>
+                </li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search dropdown" action="https://zzk.cnblogs.com/s" method="get"
+                        role="search">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="search" tabindex="3"
+                            autocomplete="off">
+                        <button id="zzk_search_button" onclick="window.navbarSearchManager.triggerActiveOption()">
+                            <img id="search_icon" class="focus-hidden"
+                                src="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/search.svg" alt="搜索">
+                            <img class="hidden focus-visible"
+                                src="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/enter.svg" alt="搜索">
+                        </button>
+                        <ul id="navbar_search_options" class="dropdown-menu quick-search-menu">
+                            <li tabindex="0" class="active"
+                                onclick="zzkSearch(event, document.getElementById(&#39;zzk_search_input&#39;).value)">
+                                <div class="keyword-wrapper">
+                                    <img src="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/search.svg" alt="搜索">
+                                    <div class="keyword"></div>
+                                </div>
+                                <span class="search-area">所有博客</span>
+                            </li>
+                            <li tabindex="1"
+                                onclick="zzkBlogSearch(event, &#39;hnrainll&#39;, document.getElementById(&#39;zzk_search_input&#39;).value)">
+                                <div class="keyword-wrapper">
+                                    <img src="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/search.svg" alt="搜索">
+                                    <div class="keyword"></div>
+                                </div>
+                                <span class="search-area">当前博客</span>
+                            </li>
+                        </ul>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔"
+                        title="写随笔" style="display: none;">
+                        <img id="new_post_icon" class="navbar-icon"
+                            src="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/newpost.svg" alt="写随笔">
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog"
+                        href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客"
+                        style="display: none;">
+                        <img id="myblog_icon" class="navbar-icon"
+                            src="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/myblog.svg" alt="我的博客">
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/"
+                        alt="短消息" title="短消息" style="display: none;">
+                        <img id="msg_icon" class="navbar-icon"
+                            src="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/message.svg" alt="短消息">
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <a id="navbar_lite_mode_indicator" data-current-page="blog" style="display: none"
+                        href="javascript:void(0)" alt="简洁模式" title="简洁模式启用，您在访问他人博客时会使用简洁款皮肤展示">
+                        <img class="navbar-icon" src="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/lite-mode-on.svg"
+                            alt="简洁模式">
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown" style="display: none;">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar"
+                                src="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/avatar-default.svg" alt="用户头像">
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text"
+                                href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+                                简洁模式 <img id="navbar_lite_mode_on"
+                                    src="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/lite-mode-check.svg"
+                                    class="hide"><span id="navbar_lite_mode_spinner" class="hide">...</span>
+                            </a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup"
+                        style="display: inline;">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()"
+                        style="display: inline;">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+
+
+    <!--done-->
+    <div id="home" style="margin-top: 378px;">
+        <div id="header">
+            <div id="blogTitle">
+                <a id="lnkBlogLogo" href="https://www.cnblogs.com/hnrainll/"><img id="blogLogo"
+                        src="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/logo.gif" alt="返回主页"></a>
+
+                <!--done-->
+                <h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle"
+                        href="https://www.cnblogs.com/hnrainll/">平安自在</a>
+                </h1>
+                <h2></h2>
+
+
+
+
+
+            </div>
+            <!--end: blogTitle 博客的标题和副标题 -->
+            <div id="navigator">
+
+                <ul id="navList">
+                    <li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+                            博客园</a>
+                    </li>
+                    <li>
+
+                    </li>
+                    <li>
+
+                        <a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+                            新随笔</a>
+                    </li>
+                    <li>
+                    </li>
+                    <li>
+
+                        <!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>-->
+                    </li>
+                    <li>
+                        <a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+                            管理</a>
+                    </li>
+                </ul>
+
+
+                <div class="blogStats"></div>
+                <!--end: blogStats -->
+            </div>
+            <!--end: navigator 博客导航栏 -->
+        </div>
+        <!--end: header 头部 -->
+        <div id="main">
+            <div id="mainContent">
+                <div class="forFlow">
+                    <div id="post_detail">
+                        <!--done-->
+                        <div id="topics">
+                            <div class="post">
+                                <h1 class="postTitle">
+
+                                    <a id="cb_post_title_url" class="postTitle2 vertical-middle post-del-title"
+                                        href="https://www.cnblogs.com/hnrainll/archive/2011/02/16/1956539.html">
+                                        <span role="heading" aria-level="2">Linux FTP 服务器配置简单说明</span>
+
+                                    </a>
+
+                                </h1>
+                                <div class="clear"></div>
+                                <div class="postBody">
+                                    <div id="cnblogs_post_body" class="blogpost-body blogpost-body-html">
+                                        <p>一. &nbsp;FTP 说明</p>
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp; linux 系统下常用的FTP 是vsftp, 即Very Security File Transfer
+                                            Protocol. 还有一个是proftp(Profession ftp)。 我们这里也是简单的说明下vsftp的配置。</p>
+
+                                        <p>&nbsp;vsftp提供3种远程的登录方式：</p>
+                                        <p>&nbsp;（1）匿名登录方式</p>
+                                        <p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            就是不需要用户名，密码。就能登录到服务器电脑里面</p>
+                                        <p>（2）本地用户方式</p>
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            需要帐户名和密码才能登录。而且，这个帐户名和密码，都是在你linux系统里面，已经有的用户。</p>
+                                        <p>&nbsp;（3）虚拟用户方式</p>
+                                        <p>&nbsp;&nbsp;&nbsp; &nbsp;
+                                            同样需要用户名和密码才能登录。但是和上面的区别就是，这个用户名和密码，在你linux系统中是没有的(没有该用户帐号)</p>
+
+                                        <p>二.&nbsp; Vsftp的安装配置</p>
+
+                                        <p>2.1&nbsp; 安装</p>
+                                        <p>vsftp 的安装包，可以在安装里找到。 用yum 安装过程也很简单。 具体参考：</p>
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Linux 搭建 YUM 服务器</p>
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
+                                                href="http://blog.csdn.net/tianlesoftware/archive/2011/01/03/6113902.aspx"
+                                                rel="noopener">http://blog.csdn.net/tianlesoftware/archive/2011/01/03/6113902.aspx</a>
+                                        </p>
+
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 安装命令：yum install vsftpd</p>
+
+                                        <p>2.2. 相关命令</p>
+                                        <p>2.2.1 启动与关闭</p>
+                                        <p>[root@singledb ~]# service vsftpd start</p>
+                                        <p>Starting vsftpd for
+                                            vsftpd:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            [&nbsp; OK&nbsp; ]</p>
+                                        <p>[root@singledb ~]# service vsftpd stop</p>
+                                        <p>Shutting down
+                                            vsftpd:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            [&nbsp; OK&nbsp; ]</p>
+                                        <p>[root@singledb ~]# service vsftpd restart</p>
+                                        <p>Shutting down
+                                            vsftpd:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            [FAILED]</p>
+                                        <p>Starting vsftpd for
+                                            vsftpd:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            [&nbsp; OK&nbsp; ]</p>
+                                        <p>[root@singledb ~]# /etc/init.d/vsftpd start</p>
+                                        <p>Starting vsftpd for
+                                            vsftpd:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            [FAILED]</p>
+                                        <p>[root@singledb ~]# /etc/init.d/vsftpd stop</p>
+                                        <p>Shutting down
+                                            vsftpd:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            [&nbsp; OK&nbsp; ]</p>
+                                        <p>[root@singledb ~]# /etc/init.d/vsftpd restart</p>
+                                        <p>Shutting down
+                                            vsftpd:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            [FAILED]</p>
+                                        <p>Starting vsftpd for
+                                            vsftpd:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            [&nbsp; OK&nbsp; ]</p>
+                                        <p>[root@singledb ~]# /etc/init.d/vsftpd status</p>
+                                        <p>vsftpd (pid 3931) is running...</p>
+                                        <p>[root@singledb ~]#</p>
+
+                                        <p>2.2.2. 其他命令</p>
+                                        <p>--查看vsftpd 启动状态</p>
+                                        <p>[root@singledb ~]# chkconfig --list vsftpd</p>
+                                        <p>vsftpd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            0:off&nbsp;&nbsp; 1:off&nbsp;&nbsp; 2:off&nbsp;&nbsp; 3:off&nbsp;&nbsp;
+                                            4:off&nbsp;&nbsp; 5:off&nbsp;&nbsp; 6:off</p>
+                                        <p>[root@singledb ~]# chkconfig&nbsp; vsftpd on</p>
+                                        <p>[root@singledb ~]# chkconfig --list vsftpd</p>
+                                        <p>vsftpd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            0:off&nbsp;&nbsp; 1:off&nbsp;&nbsp; 2:on&nbsp;&nbsp;&nbsp;
+                                            3:on&nbsp;&nbsp;&nbsp; 4:on&nbsp;&nbsp;&nbsp; 5:on&nbsp;&nbsp;&nbsp; 6:off
+                                        </p>
+
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 这里看到，默认情况下从2到5设置为on了。2到5是多用户级别。
+                                            这个对应的是linux不同的运行级别。 </p>
+
+                                        <p>我们也可以加level 选项来指定：</p>
+                                        <p>[root@singledb ~]# chkconfig --level 0 vsftpd on&nbsp;&nbsp;&nbsp; </p>
+                                        <p>[root@singledb ~]# chkconfig --list vsftpd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+                                        <p>vsftpd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            0:on&nbsp;&nbsp;&nbsp; 1:off&nbsp;&nbsp; 2:on&nbsp;&nbsp;&nbsp;
+                                            3:on&nbsp;&nbsp;&nbsp; 4:on&nbsp;&nbsp;&nbsp; 5:on&nbsp;&nbsp;&nbsp; 6:off
+                                        </p>
+                                        <p>我们看到0已经设置为on了。</p>
+
+                                        <p>我们可以使用man chkconfig 来查看帮助：</p>
+                                        <p>--level levels</p>
+                                        <p>&nbsp;&nbsp;&nbsp; Specifies the run levels an operation should pertain to.
+                                            It is&nbsp; given&nbsp; as&nbsp; a string of numbers from 0 to 7. For
+                                            example, --level 35 specifies runlevels
+                                            3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            and 5.</p>
+
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 传统的init 定义了7个运行级（run
+                                            level），每一个级别都代表系统应该补充运行的某些特定服务：</p>
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            （1）0级是完全关闭系统的级别</p>
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            （2）1级或者S级代表单用户模式</p>
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            （3）2-5 级 是多用户级别</p>
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            （4）6级 是 重新引导的级别</p>
+
+                                        <p>关于Linux 的运行级别，在我的Blog：</p>
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Linux 开机引导与关机过程（5.1 init 和运行级）</p>
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
+                                                href="http://blog.csdn.net/tianlesoftware/archive/2010/10/24/5962460.aspx"
+                                                rel="noopener">http://blog.csdn.net/tianlesoftware/archive/2010/10/24/5962460.aspx</a>
+                                        </p>
+
+                                        <p>（1）查看防火墙</p>
+                                        <p>&nbsp;&nbsp;&nbsp; 我一般都是把系统的防火墙关闭了。 因为开了会有很多限制。</p>
+
+                                        <p>[root@singledb ~]# /etc/init.d/iptables status</p>
+                                        <p>Table: nat</p>
+                                        <p>Chain PREROUTING (policy ACCEPT)</p>
+                                        <p>num&nbsp; target&nbsp;&nbsp;&nbsp;&nbsp; prot opt
+                                            source&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            destination&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+
+                                        <p>Chain POSTROUTING (policy ACCEPT)</p>
+                                        <p>num&nbsp; target&nbsp;&nbsp;&nbsp;&nbsp; prot opt
+                                            source&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            destination&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+                                        <p>1&nbsp;&nbsp;&nbsp; MASQUERADE&nbsp; all&nbsp; --&nbsp;
+                                            192.168.122.0/24&nbsp;&nbsp;&nbsp; !192.168.122.0/24&nbsp;&nbsp;&nbsp; </p>
+
+                                        <p>Chain OUTPUT (policy ACCEPT)</p>
+                                        <p>num&nbsp; target&nbsp;&nbsp;&nbsp;&nbsp; prot opt
+                                            source&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            destination&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+                                        <p>Table: filter</p>
+                                        <p>Chain INPUT (policy ACCEPT)</p>
+                                        <p>num&nbsp; target&nbsp;&nbsp;&nbsp;&nbsp; prot opt
+                                            source&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            destination&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+                                        <p>1&nbsp;&nbsp;&nbsp; ACCEPT&nbsp;&nbsp;&nbsp;&nbsp; udp&nbsp; --&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; udp
+                                            dpt:53 </p>
+                                        <p>2&nbsp;&nbsp;&nbsp; ACCEPT&nbsp;&nbsp;&nbsp;&nbsp; tcp&nbsp; --&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;tcp
+                                            dpt:53 </p>
+                                        <p>3&nbsp;&nbsp;&nbsp; ACCEPT&nbsp;&nbsp;&nbsp;&nbsp; udp&nbsp; --&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; udp
+                                            dpt:67 </p>
+                                        <p>4&nbsp;&nbsp;&nbsp; ACCEPT&nbsp;&nbsp;&nbsp;&nbsp; tcp&nbsp; --&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tcp
+                                            dpt:67 </p>
+
+                                        <p>Chain FORWARD (policy ACCEPT)</p>
+                                        <p>num&nbsp; target&nbsp;&nbsp;&nbsp;&nbsp; prot opt
+                                            source&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            destination&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+                                        <p>1&nbsp;&nbsp;&nbsp; ACCEPT&nbsp;&nbsp;&nbsp;&nbsp; all&nbsp; --&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            192.168.122.0/24&nbsp;&nbsp;&nbsp; state RELATED,ESTABLISHED </p>
+                                        <p>2&nbsp;&nbsp;&nbsp; ACCEPT&nbsp;&nbsp;&nbsp;&nbsp; all&nbsp; --&nbsp;
+                                            192.168.122.0/24&nbsp;&nbsp;&nbsp;&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+                                        <p>3&nbsp;&nbsp;&nbsp; ACCEPT&nbsp;&nbsp;&nbsp;&nbsp; all&nbsp; --&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+                                        <p>4&nbsp;&nbsp;&nbsp; REJECT&nbsp;&nbsp;&nbsp;&nbsp; all&nbsp; --&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            reject-with icmp-port-unreachable </p>
+                                        <p>5&nbsp;&nbsp;&nbsp; REJECT&nbsp;&nbsp;&nbsp;&nbsp; all&nbsp; --&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            reject-with icmp-port-unreachable </p>
+
+                                        <p>Chain OUTPUT (policy ACCEPT)</p>
+                                        <p>num&nbsp; target&nbsp;&nbsp;&nbsp;&nbsp; prot opt
+                                            source&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;destination&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        </p>
+
+                                        <p>You have new mail in /var/spool/mail/root</p>
+                                        <p>--添加开放21号端口：</p>
+                                        <p>[root@singledb ~]# /sbin/iptables -I INPUT -p tcp --dport 21 -j ACCEPT </p>
+                                        <p>[root@singledb ~]# /etc/init.d/iptables status&nbsp;
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        </p>
+                                        <p>Table: nat</p>
+                                        <p>Chain PREROUTING (policy ACCEPT)</p>
+                                        <p>num&nbsp; target&nbsp;&nbsp;&nbsp;&nbsp; prot opt
+                                            source&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            destination &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+                                        <p>Chain POSTROUTING (policy ACCEPT)</p>
+                                        <p>num&nbsp; target&nbsp;&nbsp;&nbsp;&nbsp; prot opt
+                                            source&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            destination&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+                                        <p>1&nbsp;&nbsp;&nbsp; MASQUERADE&nbsp; all&nbsp; --&nbsp;
+                                            192.168.122.0/24&nbsp;&nbsp;&nbsp; !192.168.122.0/24&nbsp;&nbsp;&nbsp; </p>
+
+                                        <p>Chain OUTPUT (policy ACCEPT)</p>
+                                        <p>num&nbsp; target&nbsp;&nbsp;&nbsp;&nbsp; prot opt
+                                            source&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            destination&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+
+                                        <p>Table: filter</p>
+                                        <p>Chain INPUT (policy ACCEPT)</p>
+                                        <p>num&nbsp; target&nbsp;&nbsp;&nbsp;&nbsp; prot opt
+                                            source&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            destination&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+                                        <p>1&nbsp;&nbsp;&nbsp; ACCEPT&nbsp;&nbsp;&nbsp;&nbsp; tcp&nbsp; --&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tcp
+                                            dpt:21 </p>
+                                        <p>2&nbsp;&nbsp;&nbsp; ACCEPT&nbsp;&nbsp;&nbsp;&nbsp; udp&nbsp; --&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; udp
+                                            dpt:53 </p>
+                                        <p>3&nbsp;&nbsp;&nbsp; ACCEPT&nbsp;&nbsp;&nbsp;&nbsp; tcp&nbsp; --&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tcp
+                                            dpt:53 </p>
+                                        <p>4&nbsp;&nbsp;&nbsp; ACCEPT&nbsp;&nbsp;&nbsp;&nbsp; udp&nbsp; --&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; udp
+                                            dpt:67 </p>
+                                        <p>5&nbsp;&nbsp;&nbsp; ACCEPT&nbsp;&nbsp;&nbsp;&nbsp; tcp&nbsp; --&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tcp
+                                            dpt:67 </p>
+
+                                        <p>Chain FORWARD (policy ACCEPT)</p>
+                                        <p>num&nbsp; target&nbsp;&nbsp;&nbsp;&nbsp; prot opt
+                                            source&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            destination&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+                                        <p>1&nbsp;&nbsp;&nbsp; ACCEPT&nbsp;&nbsp;&nbsp;&nbsp; all&nbsp; --&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            192.168.122.0/24&nbsp;&nbsp;&nbsp; state RELATED,ESTABLISHED </p>
+                                        <p>2&nbsp;&nbsp;&nbsp; ACCEPT&nbsp;&nbsp;&nbsp;&nbsp; all&nbsp; --&nbsp;
+                                            192.168.122.0/24&nbsp;&nbsp;&nbsp;&nbsp; 0.0.0.0/0&nbsp;
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                                        <p>3&nbsp;&nbsp;&nbsp; ACCEPT&nbsp;&nbsp;&nbsp;&nbsp; all&nbsp; --&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+                                        <p>4&nbsp;&nbsp;&nbsp; REJECT&nbsp;&nbsp;&nbsp;&nbsp; all&nbsp; --&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            reject-with icmp-port-unreachable </p>
+                                        <p>5&nbsp;&nbsp;&nbsp; REJECT&nbsp;&nbsp;&nbsp;&nbsp; all&nbsp; --&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            0.0.0.0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            reject-with icmp-port-unreachable </p>
+
+                                        <p>Chain OUTPUT (policy ACCEPT)</p>
+                                        <p>num&nbsp; target&nbsp;&nbsp;&nbsp;&nbsp; prot opt
+                                            source&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            destination&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+                                        <p>--保存配置</p>
+                                        <p>[root@singledb ~]# /etc/rc.d/init.d/iptables save</p>
+                                        <p>Saving firewall rules to
+                                            /etc/sysconfig/iptables:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            [&nbsp; OK&nbsp; ]</p>
+                                        <p>--重启防火墙：</p>
+                                        <p>[root@singledb ~]# service iptables {start|stop|restart}</p>
+
+                                        <p>（2）查看关闭selinux </p>
+
+                                        <p>[root@singledb ~]# sestatus</p>
+                                        <p>SELinux status:&nbsp;&nbsp;&nbsp;
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;disabled
+                                        </p>
+                                        <p>我这里在安装操作系统的时候就关闭了selinux，如果没有关闭，可以修改如下文件来关闭：</p>
+                                        <p>[root@singledb ~]# cat /etc/sysconfig/selinux </p>
+                                        <p># This file controls the state of SELinux on the system.</p>
+                                        <p># SELINUX= can take one of these three values:</p>
+                                        <p>#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; enforcing - SELinux security policy is
+                                            enforced.</p>
+                                        <p>#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; permissive - SELinux prints warnings
+                                            instead of enforcing.</p>
+                                        <p>#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; disabled - SELinux is fully disabled.
+                                        </p>
+                                        <p>SELINUX=disabled</p>
+                                        <p># SELINUXTYPE= type of policy in use. Possible values are:</p>
+                                        <p>#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; targeted - Only targeted network
+                                            daemons are protected.</p>
+                                        <p>#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; strict - Full SELinux protection.</p>
+                                        <p>SELINUXTYPE=targeted</p>
+                                        <p>[root@singledb ~]#</p>
+
+                                        <p>保存退出并重启系统reboot</p>
+
+                                        <p>三. &nbsp;FTP配置文件</p>
+
+                                        <p>FTP 安装好之后，在/etc/vsftpd/目录下会有如下文件：</p>
+                                        <p>[root@singledb ~]# cd /etc/vsftpd/</p>
+                                        <p>[root@singledb vsftpd]# ls</p>
+                                        <p>ftpusers&nbsp; user_list&nbsp; vsftpd.conf&nbsp; vsftpd_conf_migrate.sh</p>
+                                        <p>[root@singledb vsftpd]#</p>
+
+                                        <p>vsftpd.conf: 主配置文件</p>
+                                        <p>ftpusers: 指定哪些用户不能访问FTP服务器</p>
+                                        <p>user_list: 指定的用户是否可以访问ftp服务器由vsftpd.conf文件中的userlist_deny的取值来决定。</p>
+
+                                        <p>[root@singledb vsftpd]# cat user_list </p>
+                                        <p># vsftpd userlist</p>
+                                        <p># If userlist_deny=NO, only allow users in this file</p>
+                                        <p># If userlist_deny=YES (default), never allow users in this file, and</p>
+                                        <p># do not even prompt for a password.</p>
+                                        <p># Note that the default vsftpd pam config also checks /etc/vsftpd/ftpusers
+                                        </p>
+                                        <p># for users that are denied.</p>
+
+                                        <p>我们过滤掉#的注释后，查看一下vsftpd.conf 文件：</p>
+                                        <p>[root@singledb ftp]# cat /etc/vsftpd/vsftpd.conf |grep -v '^#';</p>
+                                        <p>anonymous_enable=YES</p>
+                                        <p>local_enable=YES</p>
+                                        <p>write_enable=YES</p>
+                                        <p>local_umask=022</p>
+                                        <p>dirmessage_enable=YES</p>
+                                        <p>xferlog_enable=YES</p>
+                                        <p>connect_from_port_20=YES</p>
+                                        <p>xferlog_std_format=YES</p>
+                                        <p>listen=YES</p>
+
+                                        <p>pam_service_name=vsftpd</p>
+                                        <p>userlist_enable=yes</p>
+                                        <p>tcp_wrappers=YES</p>
+
+                                        <p>至于这些参数的意思，在注释里有详细的说明。</p>
+
+
+                                        <p>我们可以在vsftpd.conf 文件设置如下参数：</p>
+                                        <p>（1）ftpd_banner=welcome to ftp service ：设置连接服务器后的欢迎信息</p>
+                                        <p>（2）idle_session_timeout=60 ：限制远程的客户机连接后，所建立的控制连接，在多长时间没有做任何的操作就会中断(秒)</p>
+                                        <p>（3）data_connection_timeout=120 ：设置客户机在进行数据传输时,设置空闲的数据中断时间</p>
+                                        <p>（4）accept_timeout=60 设置在多长时间后自动建立连接</p>
+                                        <p>（5）connect_timeout=60 设置数据连接的最大激活时间，多长时间断开，为别人所使用;</p>
+                                        <p>（6）max_clients=200 指明服务器总的客户并发连接数为200</p>
+                                        <p>（7）max_per_ip=3 指明每个客户机的最大连接数为3</p>
+                                        <p>（8）local_max_rate=50000(50kbytes/sec)&nbsp; 本地用户最大传输速率限制</p>
+                                        <p>（9）anon_max_rate=30000匿名用户的最大传输速率限制</p>
+                                        <p>（10）pasv_min_port=端口</p>
+                                        <p>（11）pasv-max-prot=端口号 定义最大与最小端口，为0表示任意端口;为客户端连接指明端口;</p>
+                                        <p>（12）listen_address=IP地址 设置ftp服务来监听的地址，客户端可以用哪个地址来连接;</p>
+                                        <p>（13）listen_port=端口号 设置FTP工作的端口号，默认的为21</p>
+                                        <p>（14）chroot_local_user=YES 设置所有的本地用户可以chroot</p>
+                                        <p>（15）chroot_local_user=NO 设置指定用户能够chroot</p>
+                                        <p>（16）chroot_list_enable=YES</p>
+                                        <p>（17）chroot_list_file=/etc/vsftpd/chroot_list(只有/etc/vsftpd/chroot_list中的指定的用户才能执行
+                                            )</p>
+                                        <p>（18）local_root=path 无论哪个用户都能登录的用户，定义登录帐号的主目录, 若没有指定，则每一个用户则进入到个人用户主目录;</p>
+                                        <p>（19）chroot_local_user=yes/no
+                                            是否锁定本地系统帐号用户主目录(所有);锁定后，用户只能访问用户的主目录/home/user,不能利用cd命令向上转;只能向下;</p>
+                                        <p>（20）chroot_list_enable=yes/no 锁定指定文件中用户的主目录(部分),文件：/chroot_list_file=path
+                                            中指定;</p>
+                                        <p>（21）userlist_enable=YES/NO 是否加载用户列表文件;</p>
+                                        <p>（22）userlist_deny=YES 表示上面所加载的用户是否允许拒绝登录;</p>
+                                        <p>（23）userlist_file=/etc/vsftpd/user_list 列表文件</p>
+
+                                        <p>限制IP 访问FTP:</p>
+                                        <p>#vi /etc/hosts.allow</p>
+                                        <p>vsftpd:192.168.5.128:DENY 设置该IP地址不可以访问ftp服务</p>
+
+                                        <p>FTP 访问时间限制：</p>
+                                        <p>#cp /usr/share/doc/vsftpd-1.1.3/vsftpd.xinetd /etc/xinetd.d/vsftpd</p>
+                                        <p>#vi /etc/xinetd.d/vsftpd/</p>
+                                        <p>修改 disable = no</p>
+                                        <p>access_time = hour:min-hour:min (添加配置访问的时间限制(注：与vsftpd.conf中listen=NO相对应)</p>
+                                        <p>例: access_time = 8:30-11:30 17:30-21:30 表示只有这两个时间段可以访问ftp</p>
+                                        <p>ftp的配置基本上只有这些了。</p>
+
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 默认情况下，ftp根目录是/var/ftp。
+                                            如果要修改这个目录位置，可以更改/etc/passwd 文件：</p>
+                                        <p>[root@singledb ftp]# cat /etc/passwd | grep ftp</p>
+                                        <p>ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin</p>
+
+                                        <p>创建一个用户来访问FTP,并指定该用户的FTP 目录：</p>
+                                        <p>[root@singledb u02]# useradd -d /u02/qsftp qs</p>
+                                        <p>[root@singledb u02]# passwd qs</p>
+                                        <p>Changing password for user qs.</p>
+                                        <p>New UNIX password: </p>
+                                        <p>BAD PASSWORD: it is WAY too short</p>
+                                        <p>Retype new UNIX password: </p>
+                                        <p>passwd: all authentication tokens updated successfully.</p>
+
+                                        <p>这里指定的是/u02/qsftp 这个目录，要注意个目录的权限。 </p>
+
+                                        <p>更改用户不能telnet，只能ftp：</p>
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; usermod -s /sbin/nologin
+                                            username&nbsp;&nbsp; //用户只能ftp，不能telnet</p>
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; usermod -s /sbin/bash
+                                            username&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //用户恢复正常</p>
+
+                                        <p>禁止用户ssh登陆</p>
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; useradd username -s
+                                            /bin/false&nbsp;&nbsp; </p>
+
+                                        <p>更改用户主目录：</p>
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; usermod -d /bbb
+                                            username&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            //把用户的主目录定为/bbb</p>
+
+                                        <p>然后用qs这个用户就可以访问了。 </p>
+
+
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 以上只是一些简单的设置。 在用户权限这块还有很多内容可以研究。
+                                            比如特定用户的特定权限。 安全性等。 以后在研究了。 </p>
+                                        <span class="articleSuffix-flg"> <br>
+                                            <p class="essaySuffix-eof">__EOF__</p>
+                                            <div id="articleSuffix">
+                                                <div class="articleSuffix-bg"> <svg xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 147.78 155.96">
+                                                        <path
+                                                            d="M10.5,99.81a1.9,1.9,0,0,0-.53-.09,1.66,1.66,0,0,0-1.64,1.65A1.64,1.64,0,0,0,10,103a1.57,1.57,0,0,0,.87-.25l26.76,26.82.45-1.08L11.52,101.91A1.65,1.65,0,0,0,10.5,99.81Zm-.13,2a.57.57,0,0,1-.8,0,.58.58,0,0,1-.17-.41.58.58,0,0,1,.57-.57h0a.57.57,0,0,1,.56.58A.55.55,0,0,1,10.37,101.77Z"
+                                                            style="fill:#c5c9e0"></path>
+                                                        <path
+                                                            d="M56.15,117.58H39.06l0-.09a1.65,1.65,0,0,0-1.36-1H37.5a1.65,1.65,0,1,0,1.56,2.19H55.7L92.92,156h41.44v-1.08h-41Zm-18.25.94a.56.56,0,0,1-.79,0,.58.58,0,0,1-.17-.41.57.57,0,0,1,.56-.57h0a.58.58,0,0,1,.57.58A.54.54,0,0,1,37.9,118.52Z"
+                                                            style="fill:#c5c9e0"></path>
+                                                        <path
+                                                            d="M23.52,50.32a1.65,1.65,0,0,0,1.55-1.11H55.28l48-48.13h31.06V0H102.85l-48,48.13H25.07a1.64,1.64,0,0,0-2.09-1,1.64,1.64,0,0,0,.54,3.2Zm0-2.21a.57.57,0,0,1,0,1.13.57.57,0,1,1,0-1.13Z"
+                                                            style="fill:#c5c9e0"></path>
+                                                        <polygon points="102.86 0 102.86 0 102.86 0 102.86 0"
+                                                            style="fill:#c5c9e0"></polygon>
+                                                        <path
+                                                            d="M107.72,12.14h26.64V11.07H107.27L57.4,61H3.09a1.66,1.66,0,0,0-1.45-.86H1.52A1.65,1.65,0,1,0,2.81,63a1.59,1.59,0,0,0,.45-.87H57.85ZM2.05,62.23a.57.57,0,0,1-.8,0,.58.58,0,0,1-.17-.41.57.57,0,0,1,.56-.57h.09a.57.57,0,0,1,.32,1Z"
+                                                            style="fill:#c5c9e0"></path>
+                                                        <path
+                                                            d="M134.36,43.22V42.14h-22.3l-9.62,9.63a1.64,1.64,0,0,0-2.19.77,1.61,1.61,0,0,0-.17.71,1.65,1.65,0,1,0,3.29,0,1.61,1.61,0,0,0-.16-.72l9.3-9.32Zm-32.64,10.6a.57.57,0,0,1,0-1.13.57.57,0,0,1,0,1.13Z"
+                                                            style="fill:#c5c9e0"></path>
+                                                        <path
+                                                            d="M147,52.3l-9,9H111.48a1.64,1.64,0,0,0-1.61-1.33h-.14a1.65,1.65,0,1,0,1.6,2.41h27.19l9.26-9.29L147,52.3Zm-37.15,9.85a.56.56,0,0,1-.56-.57h0a.56.56,0,0,1,.56-.56h0a.57.57,0,1,1,0,1.13Z"
+                                                            style="fill:#c5c9e0"></path>
+                                                        <path
+                                                            d="M66.79,75.35l11,11.06h56.53V85.33H78.27l-11-11.06H49.49L37.12,86.67a1.64,1.64,0,0,0-2.09,1,1.61,1.61,0,0,0-.09.54,1.65,1.65,0,0,0,3.29,0,1.68,1.68,0,0,0-.26-.89l12-12ZM36.58,88.79a.57.57,0,1,1,.57-.56A.57.57,0,0,1,36.58,88.79Z"
+                                                            style="fill:#c5c9e0"></path>
+                                                        <path
+                                                            d="M110.61,95.55,92.8,113.4a1.62,1.62,0,1,0,.77.76l17.49-17.53h23.31V95.55ZM92.49,115.28a.56.56,0,0,1-.8,0,.58.58,0,0,1-.17-.41.57.57,0,0,1,.57-.57h0a.58.58,0,0,1,.56.58A.55.55,0,0,1,92.49,115.28Z"
+                                                            style="fill:#c5c9e0"></path>
+                                                        <path
+                                                            d="M97.89,122.3H76.62L64.2,109.85a1.65,1.65,0,0,0-.77-2.2,1.77,1.77,0,0,0-.72-.17h-.14a1.65,1.65,0,0,0,.15,3.29,1.58,1.58,0,0,0,.71-.17l12.74,12.77H98.34l17.48-17.52h18.54v-1.08h-19ZM63.12,109.53a.56.56,0,0,1-.8,0,.58.58,0,0,1-.17-.41.57.57,0,0,1,1.14,0A.54.54,0,0,1,63.12,109.53Z"
+                                                            style="fill:#c5c9e0"></path>
+                                                    </svg> </div>
+                                                <div class="articleSuffix-left"> <a data-fancybox="gallery"
+                                                        href="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/20200413103458.png"><img
+                                                            src="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/20200413103458.png"></a>
+                                                </div>
+                                                <div class="articleSuffix-right">
+                                                    <item>
+                                                        <li> <b>本文作者：</b> <a href="https://www.cnblogs.com/hnrainll"
+                                                                target="_blank">hnrainll</a> </li>
+                                                        <li> <b>本文链接：</b> <a
+                                                                href="https://www.cnblogs.com/hnrainll/archive/2011/02/16/1956539.html"
+                                                                target="_blank">https://www.cnblogs.com/hnrainll/archive/2011/02/16/1956539.html</a>
+                                                        </li>
+                                                        <li> <b>关于博主：</b> 评论和私信会在第一时间回复。或者<a
+                                                                href="https://msg.cnblogs.com/msg/send/hnrainll"
+                                                                target="_blank">直接私信</a>我。 </li>
+                                                        <li> <b>版权声明：</b> 本博客所有文章除特别声明外，均采用 <a
+                                                                href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+                                                                alt="BY-NC-SA" title="BY-NC-SA"
+                                                                target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！ </li>
+                                                        <li> <b>声援博主：</b> 如果您觉得文章对您有帮助，可以点击文章右下角<strong><span
+                                                                    style="color: #ff0000; font-size: 12pt;">【<a
+                                                                        id="post-up"
+                                                                        onclick="votePost(1956539,&#39;Digg&#39;)"
+                                                                        href="javascript:void(0);">推荐</a>】</span></strong>一下。
+                                                        </li>
+                                                    </item>
+                                                </div>
+                                                <div style="clear:both"></div>
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div id="blog_post_info_block" role="contentinfo">
+                                        <div id="BlogPostCategory">
+                                            分类:
+                                            <a href="https://www.cnblogs.com/hnrainll/category/283519.html"
+                                                target="_blank"><span
+                                                    class="iconfont icon-marketing_fill"></span>Linux</a>
+                                        </div>
+
+
+                                        <div id="blog_post_info">
+                                            <div id="green_channel">
+                                                <a href="javascript:void(0);" id="green_channel_digg"
+                                                    onclick="DiggIt(1956539,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a><button
+                                                    class="custom-btn btn-11"
+                                                    onclick="DiggIt(1956539,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">推荐该文
+                                                    <div class="dot"></div>
+                                                </button>
+                                                <a id="green_channel_follow"
+                                                    onclick="follow(&#39;b044ca99-3220-df11-ba8f-001cf0cd104b&#39;);"
+                                                    href="javascript:void(0);">关注我</a><button class="custom-btn btn-12"
+                                                    onclick="follow(&#39;b044ca99-3220-df11-ba8f-001cf0cd104b&#39;);"><span>关注博主</span><span>关注博主</span></button>
+                                                <a id="green_channel_favorite"
+                                                    onclick="AddToWz(cb_entryId);return false;"
+                                                    href="javascript:void(0);">收藏该文</a><button class="custom-btn btn-7"
+                                                    onclick="AddToWz(cb_entryId);return false;"><span>收藏本文</span></button>
+                                                <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博"
+                                                    onclick="ShareToTsina()"><img
+                                                        src="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/icon_weibo_24.png"
+                                                        alt=""></a><button class="custom-btn btn-15"
+                                                    onclick="ShareToTsina()">分享微博</button>
+                                                <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信"
+                                                    onclick="shareOnWechat()"><img
+                                                        src="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/wechat.png"
+                                                        alt=""></a><button class="custom-btn btn-13"
+                                                    onclick="shareOnWechat()">分享微信</button>
+                                            </div>
+                                            <div id="author_profile">
+                                                <div id="author_profile_info" class="author_profile_info">
+                                                    <a href="https://home.cnblogs.com/u/hnrainll/" target="_blank"><img
+                                                            src="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/20200413103458(1).png"
+                                                            class="author_avatar" alt=""></a>
+                                                    <div id="author_profile_detail" class="author_profile_info">
+                                                        <a href="https://home.cnblogs.com/u/hnrainll/">hnrainll</a><br>
+                                                        <a href="https://home.cnblogs.com/u/hnrainll/followers/">粉丝 -
+                                                            <span class="follower-count">1551</span></a>
+                                                        <a href="https://home.cnblogs.com/u/hnrainll/followees/">关注 -
+                                                            <span class="following-count">11</span></a><br>
+                                                    </div>
+                                                </div>
+                                                <div class="clear"></div>
+                                                <div id="author_profile_honor"></div>
+                                                <div id="author_profile_follow" class="follow-tip">
+                                                    <a href="javascript:void(0);"
+                                                        onclick="follow(&#39;b044ca99-3220-df11-ba8f-001cf0cd104b&#39;);return false;">+加关注</a>
+                                                </div>
+                                            </div>
+                                            <div id="div_digg">
+                                                <div class="diggit" onclick="votePost(1956539,&#39;Digg&#39;)"><i
+                                                        class="iconfont icon-zan1"></i>
+                                                    <span class="diggnum" id="digg_count">4</span>
+                                                </div>
+                                                <div class="buryit" onclick="votePost(1956539,&#39;Bury&#39;)"><i
+                                                        class="iconfont icon-buzan"></i>
+                                                    <span class="burynum" id="bury_count">0</span>
+                                                </div>
+                                                <div class="clear"></div>
+                                                <div class="diggword" id="digg_tips">
+                                                </div>
+                                            </div>
+
+                                            <script type="text/javascript">
+                                                currentDiggType = 0;
+                                            </script>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <div id="post_next_prev">
+
+                                            <a href="https://www.cnblogs.com/hnrainll/archive/2011/02/16/1956538.html"
+                                                class="p_n_p_prefix">« </a> 上一篇： <a
+                                                href="https://www.cnblogs.com/hnrainll/archive/2011/02/16/1956538.html"
+                                                data-featured-image="" title="发布于 2011-02-16 23:25">linux FTP配置详解</a>
+                                            <br>
+                                            <a href="https://www.cnblogs.com/hnrainll/archive/2011/02/17/1957428.html"
+                                                class="p_n_p_prefix">» </a> 下一篇： <a
+                                                href="https://www.cnblogs.com/hnrainll/archive/2011/02/17/1957428.html"
+                                                data-featured-image="" title="发布于 2011-02-17 23:38">实例1 数据类型转换</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="postDesc" style="display: block;">posted @
+                                    <span id="post-date" data-date-updated-tip="disable"
+                                        data-date-updated="2011-02-16 23:28">2011-02-16 23:28</span>&nbsp;
+                                    <a href="https://www.cnblogs.com/hnrainll/">hnrainll</a>&nbsp;
+                                    阅读(<span id="post_view_count">57234</span>)&nbsp;
+                                    评论(<span id="post_comment_count">1</span>)&nbsp;
+                                    <a href="https://i.cnblogs.com/EditPosts.aspx?postid=1956539"
+                                        rel="nofollow">编辑</a>&nbsp;
+                                    <a href="javascript:void(0)" onclick="AddToWz(1956539);return false;">收藏</a>&nbsp;
+                                    <a href="javascript:void(0)"
+                                        onclick="reportManager.report({ currentUserId: &#39;&#39;, targetType: &#39;blogPost&#39;, targetId: &#39;1956539&#39;, targetLink: &#39;https://www.cnblogs.com/hnrainll/archive/2011/02/16/1956539.html&#39;, title: &#39;Linux FTP 服务器配置简单说明&#39; })">举报</a>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <!--end: topics 文章、评论容器-->
+                    </div>
+
+                    <script>
+                        var cb_entryId = 1956539, cb_entryCreatedDate = '2011-02-16 23:28', cb_postType = 1, cb_postTitle = 'Linux FTP 服务器配置简单说明';
+                        var allowComments = true, cb_blogId = 66907, cb_blogApp = 'hnrainll', cb_blogUserGuid = 'b044ca99-3220-df11-ba8f-001cf0cd104b';
+                        mermaidRender.render()
+                        markdown_highlight()
+                        zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+                        updatePostStats(
+                            [cb_entryId],
+                            function (id, count) { $("#post_view_count").text(count) },
+                            function (id, count) { $("#post_comment_count").text(count) })
+                    </script>
+                    <a id="!comments"></a>
+                    <div id="blog-comments-placeholder"></div>
+                    <div id="comment_form" class="commentform">
+                        <a name="commentform"></a>
+                        <div id="divCommentShow"></div>
+                        <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);"
+                                onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server"
+                                clientidmode="Static">刷新评论</a><a
+                                href="https://www.cnblogs.com/hnrainll/archive/2011/02/16/1956539.html#"
+                                onclick="return RefreshPage();">刷新页面</a><a
+                                href="https://www.cnblogs.com/hnrainll/archive/2011/02/16/1956539.html#top">返回顶部</a>
+                        </div>
+                        <div id="comment_form_container" style="visibility: visible;">
+                            <div class="login_tips">
+                                登录后才能查看或发表评论，立即 <a rel="nofollow" href="javascript:void(0);" class="underline"
+                                    onclick="return account.login(&#39;!comments&#39;);">登录</a> 或者
+                                <a href="https://www.cnblogs.com/">逛逛</a> 博客园首页
+                            </div>
+                        </div>
+                        <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+                        <div id="cnblogs_ch"></div>
+                        <div id="opt_under_post"></div>
+                        <div id="cnblogs_c1" class="under-post-card" style="display: none;">
+                            <div id="div-gpt-ad-1592365906576-0" style="width: 300px; height: 250px;">
+                                <div id="google_ads_iframe_/1090369/C1_0__container__"
+                                    style="border: 0pt none; width: 300px; height: 0px;"></div>
+                            </div>
+                        </div>
+                        <div id="under_post_card1">
+                            <div class="under-post-card">
+                                <b>编辑推荐：</b>
+                                <br>
+
+                                · <a href="https://www.cnblogs.com/jiujuan/p/17116605.html"
+                                    target="_blank">小公司需要使用微服务架构吗？ </a>
+                                <br>
+                                · <a href="https://www.cnblogs.com/dragonir/p/17121487.html" target="_blank">Three.js
+                                    进阶之旅：物理效果-碰撞和声音</a>
+                                <br>
+                                · <a href="https://www.cnblogs.com/linvanda/p/17120205.html"
+                                    target="_blank">我已经受够了“系统异常”！</a>
+                                <br>
+                                · <a href="https://www.cnblogs.com/huangxincheng/p/17115916.html" target="_blank">记一次
+                                    .NET 某游戏网站 CPU 爆高分析</a>
+                                <br>
+                                · <a href="https://www.cnblogs.com/jackyfei/p/17107742.html" target="_blank">探索 ABP
+                                    基础架构的横切关注点</a>
+                                <br>
+                            </div>
+                        </div>
+                        <div id="under_post_card2">
+                            <div class="itnews under-post-card">
+                                <b>阅读排行：</b>
+                                <br>
+                                · <a href="https://www.cnblogs.com/coco1s/p/17128906.html"
+                                    target="_blank">由小见大！不规则造型按钮解决方案</a>
+                                <br>
+                                · <a href="https://www.cnblogs.com/qdhxhz/p/17007958.html"
+                                    target="_blank">看完这篇你不能再说不懂SSO原理了！</a>
+                                <br>
+                                · <a href="https://www.cnblogs.com/cicada-smile/p/17128905.html"
+                                    target="_blank">这些「误区」99%的研发都踩过</a>
+                                <br>
+                                · <a href="https://www.cnblogs.com/newbe36524/p/0x01E-annual-dotnet-runtime-community-survey-2023.html"
+                                    target="_blank">2023 年 dotnet 仓库社区年度调查已经开始</a>
+                                <br>
+                                · <a href="https://www.cnblogs.com/vipstone/p/17128885.html"
+                                    target="_blank">面试官：熔断和降级有什么区别？</a>
+                                <br>
+                            </div>
+                        </div>
+                        <div id="HistoryToday" class="under-post-card"></div>
+                        <script type="text/javascript">
+                            var commentManager = new blogCommentManager();
+                            commentManager.renderComments(0);
+                            fixPostBody();
+                            window.footnoteTipManager.generateFootnoteTips();
+
+                            window.tocManager.displayDisableTocTips = false;
+                            window.tocManager.generateToc();
+
+                            setTimeout(function () { countViews(cb_blogId, cb_entryId); }, 50);
+
+                            deliverT2();
+                            deliverC1C2();
+                            loadNewsAndKb();
+
+                            LoadPostCategoriesTags(cb_blogId, cb_entryId);
+
+                            LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+                            GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+                            loadOptUnderPost();
+                            GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+                        </script>
+                    </div>
+
+                </div>
+                <!--end: forFlow -->
+            </div>
+            <!--end: mainContent 主体内容容器-->
+            <div id="sideBar">
+                <div id="sideBarMain">
+                    <div id="sidebar_news" class="newsItem">
+                        <div class="main-header" id="main-header"
+                            style="height: 40vh; background: url(&quot;https://images.cnblogs.com/cnblogs_com/hnrainll/2270106/o_230203040102_image.png&quot;) center center / cover no-repeat rgb(34, 34, 34);">
+                            <div id="nhBannerAnimation">
+                                <ul class="circles">
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                            <div class="vertical">
+                                <div class="main-header-content inner" style="max-width: 100vw;">
+                                    <h1 class="page-title" id="homeTopTitle" style="display: none;"><span></span></h1>
+                                    <h2 class="page-description" id="hitokoto"></h2>
+                                    <h3 class="page-author" id="hitokotoAuthor"></h3>
+                                    <h1 class="sb-title" id="sbTitle"> <span id="sbTitleText" style="color:#fff">
+                                            Linux FTP 服务器配置简单说明
+                                        </span> <span id="sbTitleConsole" style="visibility: visible;">_</span> </h1>
+                                    <p class="article-info" id="articleInfo">
+                                    <p class="article-info-text"><span class="postMeta"><i
+                                                class="iconfont icon-time1"></i>2011-02-16 23:28<i
+                                                class="iconfont icon-browse"></i>57234<i
+                                                class="iconfont icon-interactive"></i>1<i
+                                                class="iconfont icon-hot"></i>4<br><i
+                                                class="iconfont icon-wenzi4"></i>10215<i
+                                                class="iconfont icon-shangwutubiao-"></i>20:25 ~ 34:02</span></p><a
+                                        href="https://www.cnblogs.com/hnrainll/category/283519.html"
+                                        target="_blank"><span
+                                            class="article-info-tag article-tag-class-color">Linux</span></a></p>
+                                </div>
+                            </div> <a class="scroll-down" href="javascript:void(0);" data-offset="-45"
+                                style="display: none;"> <span class="hidden">Scroll Down</span> <i
+                                    class="scroll-down-icon iconfont icon-fanhui"></i> </a>
+                        </div>
+                        <div class="container">
+                            <div class="menu-wrap optiscroll is-enabled optiscroll-prevent" id="menuWrap"
+                                style="display: none; background-image: url(&quot;https://cdn.cnblogs.com/gh/BNDong/Cnblogs-Theme-SimpleMemory@v2.1.2/dist/images/5fcc0053d3e1e4c884df.png&quot;);">
+                                <div class=" optiscroll-content" style="right: -3px; bottom: -3px;">
+                                    <div class="close-button" id="close-button"> <i class="iconfont icon-close"></i>
+                                    </div>
+                                    <div class="sidebar-header"> <i class="iconfont icon-guangbo"></i> &nbsp;&nbsp;
+                                        <span class="sidebar-title-msg">欢迎访问本博客~</span>
+                                    </div>
+                                    <div class="sidebar-profile">
+                                        <div class="user-pic" id="menuBlogAvatar"><img
+                                                class="img-responsive img-rounded" alt="用户头像"
+                                                src="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/20200413103458.png">
+                                        </div>
+                                        <div class="sidebar-userinfo" id="introduce">
+                                            昵称：
+                                            <a href="https://home.cnblogs.com/u/hnrainll/">
+                                                hnrainll
+                                            </a>
+                                            <br>
+                                            园龄：
+                                            <a href="https://home.cnblogs.com/u/hnrainll/" title="入园时间：2010-02-23">
+                                                12年11个月
+                                            </a>
+                                            <br>
+                                            粉丝：
+                                            <a class="follower-count"
+                                                href="https://home.cnblogs.com/u/hnrainll/followers/">
+                                                1551
+                                            </a>
+                                            <br>
+                                            关注：
+                                            <a class="folowing-count"
+                                                href="https://home.cnblogs.com/u/hnrainll/followees/">
+                                                11
+                                            </a>
+                                            <div id="p_b_follow" class="follow-tip">
+                                                <a href="javascript:void(0)"
+                                                    onclick="follow(&#39;b044ca99-3220-df11-ba8f-001cf0cd104b&#39;)">+加关注</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="sidebar-stats" style="display: block;">
+                                        <span id="stats_post_count">随笔 - 1415&nbsp; </span>
+                                        <span id="stats_article_count">文章 - 0&nbsp; </span>
+                                        <span id="stats-comment_count">评论 - 337&nbsp; </span>
+                                        <span id="stats-total-view-count">阅读 -
+                                            <span title="总阅读数: 8703282">
+                                                870万</span></span>
+
+                                    </div>
+                                    <div class="sidebar-search">
+                                        <div class="sidebar-search-div">
+                                            <div class="input-group"> <span id="sb-sidebarSearchBox"></span>
+                                                <div class="input-group-append"> <span class="input-group-text"> <i
+                                                            class="iconfont icon-sousuo2"></i> </span> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="customize-nav"></div>
+                                    <div id="calendar-box" style="display: block;">
+                                        <div id="blog-calendar" style="visibility: visible;">
+
+                                            <table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0"
+                                                title="Calendar" border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="7">
+                                                            <table class="CalTitle" cellspacing="0" border="0">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="CalNextPrev">
+                                                                            <a href="javascript:void(0);"
+                                                                                onclick="loadBlogCalendar(&#39;2011/01/16&#39;); return false;">&lt;</a>
+                                                                        </td>
+                                                                        <td align="center">2011年2月</td>
+                                                                        <td align="right" class="CalNextPrev">
+                                                                            <a href="javascript:void(0);"
+                                                                                onclick="loadBlogCalendar(&#39;2011/03/16&#39;); return false;">&gt;</a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="CalDayHeader" align="center" abbr="日" scope="col">日
+                                                        </th>
+                                                        <th class="CalDayHeader" align="center" abbr="一" scope="col">一
+                                                        </th>
+                                                        <th class="CalDayHeader" align="center" abbr="二" scope="col">二
+                                                        </th>
+                                                        <th class="CalDayHeader" align="center" abbr="三" scope="col">三
+                                                        </th>
+                                                        <th class="CalDayHeader" align="center" abbr="四" scope="col">四
+                                                        </th>
+                                                        <th class="CalDayHeader" align="center" abbr="五" scope="col">五
+                                                        </th>
+                                                        <th class="CalDayHeader" align="center" abbr="六" scope="col">六
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="CalOtherMonthDay" align="center">30</td>
+                                                        <td class="CalOtherMonthDay" align="center">31</td>
+                                                        <td class="" align="center">
+                                                            1
+                                                        </td>
+                                                        <td class="" align="center">
+                                                            2
+                                                        </td>
+                                                        <td class="" align="center">
+                                                            3
+                                                        </td>
+                                                        <td class="" align="center">
+                                                            4
+                                                        </td>
+                                                        <td class="CalWeekendDay" align="center">
+                                                            5
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="CalWeekendDay" align="center">
+                                                            6
+                                                        </td>
+                                                        <td class="" align="center">
+                                                            7
+                                                        </td>
+                                                        <td class="" align="center">
+                                                            8
+                                                        </td>
+                                                        <td class="" align="center">
+                                                            <a
+                                                                href="https://www.cnblogs.com/hnrainll/archive/2011/02/09.html"><u>9</u></a>
+                                                        </td>
+                                                        <td class="" align="center">
+                                                            10
+                                                        </td>
+                                                        <td class="" align="center">
+                                                            11
+                                                        </td>
+                                                        <td class="CalWeekendDay" align="center">
+                                                            <a
+                                                                href="https://www.cnblogs.com/hnrainll/archive/2011/02/12.html"><u>12</u></a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="CalWeekendDay" align="center">
+                                                            13
+                                                        </td>
+                                                        <td class="" align="center">
+                                                            14
+                                                        </td>
+                                                        <td class="" align="center">
+                                                            15
+                                                        </td>
+                                                        <td class="" align="center">
+                                                            <a
+                                                                href="https://www.cnblogs.com/hnrainll/archive/2011/02/16.html"><u>16</u></a>
+                                                        </td>
+                                                        <td class="" align="center">
+                                                            <a
+                                                                href="https://www.cnblogs.com/hnrainll/archive/2011/02/17.html"><u>17</u></a>
+                                                        </td>
+                                                        <td class="" align="center">
+                                                            <a
+                                                                href="https://www.cnblogs.com/hnrainll/archive/2011/02/18.html"><u>18</u></a>
+                                                        </td>
+                                                        <td class="CalWeekendDay" align="center">
+                                                            19
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="CalWeekendDay" align="center">
+                                                            20
+                                                        </td>
+                                                        <td class="" align="center">
+                                                            21
+                                                        </td>
+                                                        <td class="" align="center">
+                                                            22
+                                                        </td>
+                                                        <td class="" align="center">
+                                                            23
+                                                        </td>
+                                                        <td class="" align="center">
+                                                            24
+                                                        </td>
+                                                        <td class="" align="center">
+                                                            25
+                                                        </td>
+                                                        <td class="CalWeekendDay" align="center">
+                                                            26
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="CalWeekendDay" align="center">
+                                                            27
+                                                        </td>
+                                                        <td class="" align="center">
+                                                            28
+                                                        </td>
+                                                        <td class="CalOtherMonthDay" align="center">
+                                                            1
+                                                        </td>
+                                                        <td class="CalOtherMonthDay" align="center">
+                                                            2
+                                                        </td>
+                                                        <td class="CalOtherMonthDay" align="center">
+                                                            3
+                                                        </td>
+                                                        <td class="CalOtherMonthDay" align="center">
+                                                            4
+                                                        </td>
+                                                        <td class="CalOtherMonthDay" align="center">
+                                                            5
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="CalOtherMonthDay" align="center">
+                                                            6
+                                                        </td>
+                                                        <td class="CalOtherMonthDay" align="center">
+                                                            7
+                                                        </td>
+                                                        <td class="CalOtherMonthDay" align="center">
+                                                            8
+                                                        </td>
+                                                        <td class="CalOtherMonthDay" align="center">
+                                                            9
+                                                        </td>
+                                                        <td class="CalOtherMonthDay" align="center">
+                                                            10
+                                                        </td>
+                                                        <td class="CalOtherMonthDay" align="center">
+                                                            11
+                                                        </td>
+                                                        <td class="CalOtherMonthDay" align="center">
+                                                            12
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="sidebar-menu" id="customize-sidebar-menu">
+                                        <ul></ul>
+                                    </div>
+                                    <div class="sidebar-menu">
+                                        <ul>
+                                            <li class="ng-star-inserted sidebar-dropdown" style="display: list-item;">
+                                                <a href="javascript:void(0)"
+                                                    class="ng-star-inserted sidebar-dropdown-box"> <i
+                                                        class="iconfont icon-collection_fill"></i> <span
+                                                        class="sidebar-dropdown-title">积分排名</span> </a>
+                                                <div class="sidebar-submenu" id="sb-sidebarScorerank">
+                                                    <ul>
+                                                        <li><a href="javascript:void(0);">积分 -
+                                                                1694857</a></li>
+                                                        <li><a href="javascript:void(0);">排名 -
+                                                                102</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="ng-star-inserted sidebar-dropdown"> <a href="javascript:void(0)"
+                                                    class="ng-star-inserted sidebar-dropdown-box"> <i
+                                                        class="iconfont icon-time_fill"></i> <span
+                                                        class="sidebar-dropdown-title">最新随笔</span> </a>
+                                                <div class="sidebar-submenu" id="sb-sidebarRecentposts"></div>
+                                            </li>
+                                            <li class="ng-star-inserted sidebar-dropdown"> <a href="javascript:void(0)"
+                                                    class="ng-star-inserted sidebar-dropdown-box"> <i
+                                                        class="iconfont icon-label_fill"></i> <span
+                                                        class="sidebar-dropdown-title">我的标签</span> </a>
+                                                <div class="sidebar-submenu" id="sb-toptags"></div>
+                                            </li>
+                                            <li class="ng-star-inserted sidebar-dropdown" style="display: list-item;">
+                                                <a href="javascript:void(0)"
+                                                    class="ng-star-inserted sidebar-dropdown-box"> <i
+                                                        class="iconfont icon-fenleicur"></i> <span
+                                                        class="sidebar-dropdown-title">随笔分类</span> </a>
+                                                <div class="sidebar-submenu" id="sb-classify">
+                                                    <ul>
+                                                        <li><a href="https://www.cnblogs.com/hnrainll/category/325748.html"
+                                                                class="category-item-link" rel=""
+                                                                target="">Android(221)</a></li>
+                                                        <li><a href="https://www.cnblogs.com/hnrainll/category/234348.html"
+                                                                class="category-item-link" rel="" target="">C(98)</a>
+                                                        </li>
+                                                        <li><a href="https://www.cnblogs.com/hnrainll/category/234345.html"
+                                                                class="category-item-link" rel="" target="">C++(42)</a>
+                                                        </li>
+                                                        <li><a href="https://www.cnblogs.com/hnrainll/category/324474.html"
+                                                                class="category-item-link" rel="" target="">Java(98)</a>
+                                                        </li>
+                                                        <li><a href="https://www.cnblogs.com/hnrainll/category/283519.html"
+                                                                class="category-item-link" rel=""
+                                                                target="">Linux(252)</a></li>
+                                                        <li><a href="https://www.cnblogs.com/hnrainll/category/271015.html"
+                                                                class="category-item-link" rel="" target="">MCU(60)</a>
+                                                        </li>
+                                                        <li><a href="https://www.cnblogs.com/hnrainll/category/2270112.html"
+                                                                class="category-item-link" rel="" target="">编程(1)</a>
+                                                        </li>
+                                                        <li><a href="https://www.cnblogs.com/hnrainll/category/1760580.html"
+                                                                class="category-item-link" rel="" target="">大数据(8)</a>
+                                                        </li>
+                                                        <li><a href="https://www.cnblogs.com/hnrainll/category/269785.html"
+                                                                class="category-item-link" rel="" target="">嵌入式(122)</a>
+                                                        </li>
+                                                        <li><a href="https://www.cnblogs.com/hnrainll/category/2270114.html"
+                                                                class="category-item-link" rel="" target="">生活(1)</a>
+                                                        </li>
+                                                        <li><a href="https://www.cnblogs.com/hnrainll/category/1784148.html"
+                                                                class="category-item-link" rel=""
+                                                                target="">数据结构与算法(1)</a></li>
+                                                        <li><a href="https://www.cnblogs.com/hnrainll/category/297419.html"
+                                                                class="category-item-link" rel=""
+                                                                target="">网络编程(140)</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="ng-star-inserted sidebar-dropdown"> <a href="javascript:void(0)"
+                                                    class="ng-star-inserted sidebar-dropdown-box"> <i
+                                                        class="iconfont icon-fenlei"></i> <span
+                                                        class="sidebar-dropdown-title">文章分类</span> </a>
+                                                <div class="sidebar-submenu" id="sb-ArticleCategory"></div>
+                                            </li>
+                                            <li class="ng-star-inserted sidebar-dropdown" style="display: list-item;">
+                                                <a href="javascript:void(0)"
+                                                    class="ng-star-inserted sidebar-dropdown-box"> <i
+                                                        class="iconfont icon-browse_fill"></i> <span
+                                                        class="sidebar-dropdown-title">阅读排行</span> </a>
+                                                <div class="sidebar-submenu" id="sb-topview">
+                                                    <ul>
+                                                        <li><a
+                                                                href="https://www.cnblogs.com/hnrainll/archive/2011/10/11/2206804.html">JAVA帮助文档全系列
+                                                                JDK1.5 JDK1.6 JDK1.7 官方中英完整版下载(419013)</a></li>
+                                                        <li><a href="https://www.cnblogs.com/hnrainll/p/3514637.html">Markdown
+                                                                11种基本语法(273998)</a></li>
+                                                        <li><a
+                                                                href="https://www.cnblogs.com/hnrainll/archive/2012/09/18/2690846.html">面向对象三大基本特性,五大基本原则(212300)</a>
+                                                        </li>
+                                                        <li><a
+                                                                href="https://www.cnblogs.com/hnrainll/archive/2011/12/29/2305582.html">java常用设计模式(164146)</a>
+                                                        </li>
+                                                        <li><a
+                                                                href="https://www.cnblogs.com/hnrainll/archive/2011/05/11/2043361.html">linux
+                                                                stat函数讲解(160387)</a></li>
+                                                        <li><a
+                                                                href="https://www.cnblogs.com/hnrainll/archive/2011/02/16/1956538.html">linux
+                                                                FTP配置详解(148388)</a></li>
+                                                        <li><a
+                                                                href="https://www.cnblogs.com/hnrainll/archive/2011/06/08/2074957.html">查看Linux内核版本的命令(148290)</a>
+                                                        </li>
+                                                        <li><a
+                                                                href="https://www.cnblogs.com/hnrainll/archive/2011/10/14/2212415.html">TCP三次握手及四次挥手详细图解(131970)</a>
+                                                        </li>
+                                                        <li><a
+                                                                href="https://www.cnblogs.com/hnrainll/archive/2011/04/29/2032662.html">vim——打开多个文件、同时显示多个文件、在文件之间切换(127425)</a>
+                                                        </li>
+                                                        <li><a
+                                                                href="https://www.cnblogs.com/hnrainll/archive/2011/07/22/2113557.html">Linux查看文件编码格式及文件编码转换(112518)</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="ng-star-inserted sidebar-dropdown" style="display: list-item;">
+                                                <a href="javascript:void(0)"
+                                                    class="ng-star-inserted sidebar-dropdown-box"> <i
+                                                        class="iconfont icon-like_fill"></i> <span
+                                                        class="sidebar-dropdown-title">推荐排行</span> </a>
+                                                <div class="sidebar-submenu" id="sb-topDiggPosts">
+                                                    <ul>
+                                                        <li><a href="https://www.cnblogs.com/hnrainll/p/3410042.html">Java
+                                                                内存区域和GC机制(46)</a></li>
+                                                        <li><a
+                                                                href="https://www.cnblogs.com/hnrainll/archive/2011/12/29/2305582.html">java常用设计模式(43)</a>
+                                                        </li>
+                                                        <li><a
+                                                                href="https://www.cnblogs.com/hnrainll/archive/2011/10/11/2206804.html">JAVA帮助文档全系列
+                                                                JDK1.5 JDK1.6 JDK1.7 官方中英完整版下载(39)</a></li>
+                                                        <li><a href="https://www.cnblogs.com/hnrainll/p/3514637.html">Markdown
+                                                                11种基本语法(17)</a></li>
+                                                        <li><a
+                                                                href="https://www.cnblogs.com/hnrainll/archive/2011/08/03/2126660.html">c语言中逗号运算符和逗号表达式(17)</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="ng-star-inserted sidebar-dropdown" style="display: list-item;">
+                                                <a href="javascript:void(0)"
+                                                    class="ng-star-inserted sidebar-dropdown-box"> <i
+                                                        class="iconfont icon-pinglunzu"></i> <span
+                                                        class="sidebar-dropdown-title">最新评论</span> </a>
+                                                <div class="sidebar-submenu" id="sb-recentComments">
+                                                    <ul>
+                                                        <li><a
+                                                                href="https://www.cnblogs.com/hnrainll/archive/2011/12/29/2305582.html">Re:java常用设计模式</a>
+                                                            <div class="sb-recent_comment_body">
+                                                                讲的非常棒，特别是开头对设计模式的理解让我这个小菜鸡受益良多
+                                                            </div>
+                                                            <div class="sb-recent_comment_author">--Snowclod</div>
+                                                        </li>
+                                                        <li><a
+                                                                href="https://www.cnblogs.com/hnrainll/archive/2011/05/26/2058038.html">Re:用
+                                                                STL vector 来创建二维数组</a>
+                                                            <div class="sb-recent_comment_body">补充： 也可以用这个方法创建三维（n维）数组。
+                                                                比如： vector<vector<vector<int>&gt;&gt; matrix(4, vector
+                                                                    <vector<int>&gt;(4, vector<int>...</int>
+                                                                    </vector<int>
+                                                                </vector<vector<int>
+                                                            </div>
+                                                            <div class="sb-recent_comment_author">--萨德伯格的小曾</div>
+                                                        </li>
+                                                        <li><a
+                                                                href="https://www.cnblogs.com/hnrainll/archive/2011/05/26/2058038.html">Re:用
+                                                                STL vector 来创建二维数组</a>
+                                                            <div class="sb-recent_comment_body">thanks.
+                                                            </div>
+                                                            <div class="sb-recent_comment_author">--萨德伯格的小曾</div>
+                                                        </li>
+                                                        <li><a
+                                                                href="https://www.cnblogs.com/hnrainll/archive/2011/09/19/2181527.html">Re:QQ通信原理概述</a>
+                                                            <div class="sb-recent_comment_body">考古
+                                                            </div>
+                                                            <div class="sb-recent_comment_author">--Zdz2005</div>
+                                                        </li>
+                                                        <li><a
+                                                                href="https://www.cnblogs.com/hnrainll/archive/2011/05/06/2039198.html">Re:怎样学习C语言(献给迷茫的C爱好者)</a>
+                                                            <div class="sb-recent_comment_body">老师,到了2021年这个学习路线变了么?
+                                                            </div>
+                                                            <div class="sb-recent_comment_author">--Celllz</div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="ng-star-inserted sidebar-dropdown"> <a href="javascript:void(0)"
+                                                    class="ng-star-inserted sidebar-dropdown-box"> <i
+                                                        class="iconfont icon-task_fill"></i> <span
+                                                        class="sidebar-dropdown-title">随笔档案</span> </a>
+                                                <div class="sidebar-submenu" id="sb-record"></div>
+                                            </li>
+                                            <li class="ng-star-inserted sidebar-dropdown"> <a href="javascript:void(0)"
+                                                    class="ng-star-inserted sidebar-dropdown-box"> <i
+                                                        class="iconfont icon-document_fill"></i> <span
+                                                        class="sidebar-dropdown-title">文章档案</span> </a>
+                                                <div class="sidebar-submenu" id="sb-articlearchive"></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="sidebar-footer">
+                                        <div class="dropdown"> <a href="https://www.cnblogs.com/hnrainll"
+                                                target="_self"> <i class="iconfont icon-homepage_fill"></i>首页 </a>
+                                        </div>
+                                        <div class="dropdown"> <a href="https://msg.cnblogs.com/send/hnrainll"
+                                                target="_blank"> <i class="iconfont icon-zhifeiji"></i>联系 </a> </div>
+                                        <div class="dropdown"> <a href="javascript:void(0)"
+                                                onclick="$(&quot;#blog_nav_rss&quot;).trigger(&quot;click&quot;)"
+                                                data-rss="https://www.cnblogs.com/hnrainll/rss/"> <i
+                                                    class="iconfont icon-qinmifu"></i>订阅 </a> </div>
+                                        <div class="dropdown"> <a href="https://i.cnblogs.com/" target="_blank"> <i
+                                                    class="iconfont icon-setup_fill"></i>管理 </a> </div>
+                                    </div>
+                                    <div class="morph-shape" id="morph-shape" style="display:none"
+                                        data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"
+                                            viewBox="0 0 100 800" preserveAspectRatio="none">
+                                            <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z">
+                                            </path>
+                                            <desc>Created with Snap</desc>
+                                            <defs></defs>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="optiscroll-v"><b class="optiscroll-vtrack"></b></div>
+                                <div class="optiscroll-h"><b class="optiscroll-htrack"></b></div>
+                            </div> <button class="menu-button menu-button-scroll" id="open-button"></button>
+                            <div class="content-wrap" id="content-wrap"></div>
+                        </div>
+                        <!--done-->
+                        <h3 class="catListTitle">公告</h3>
+
+                        <div id="blog-news">
+                            <!-- 顶部进度条 -->
+                            <div id="progressBar">
+                                <div id="top-progress-bar"
+                                    style="position: relative; top: 0px; left: 0px; right: 0px; background-color: rgb(119, 182, 255); height: 2px; width: 16%; transition: width 0.2s ease 0s, opacity 0.6s ease 0s; opacity: 1;">
+                                </div>
+                            </div>
+                            <!-- 右侧按钮，此div被js整体填充 -->
+                            <div id="rightMenu">
+                                <!-- 文章目录 -->
+                                <div id="rtaDirectory" class="rightMenuItem" style=""> <span
+                                        class="rightMenuSpan rtaDirectorySpan" style="display: none; opacity: 0.9;">
+                                        文章目录 </span> <i banmv="" class="iconfont icon-mulu"></i> </div>
+                                <!-- 主页按钮 -->
+                                <div id="rightMenuHome" class="rightMenuItem" style="" clickflg="true"> 
+                                    <span
+                                        class="rightMenuSpan" style="display: none; opacity: 0.9;"> 访问主页 </span> 
+                                        <i
+                                        class="iconfont icon-home"
+                                        style="transform: rotate(0deg); transform-origin: 50% 50%;"></i> </div> 
+                                        <span
+                                    class="hideRightMenu" style="display: none;">
+                                    <div id="rightDiggit" class="rightMenuItem" clickflg="false" style=""
+                                        onclick="votePost(1956539,&#39;Digg&#39;)"> <span
+                                            class="rightMenuSpan rightDiggitSpan"
+                                            style="display: none; opacity: 0.9;">4</span> <i class="iconfont icon-zan1"
+                                            style="transform: rotate(0deg); transform-origin: 50% 50%;"></i> </div>
+                                    <div id="rightBuryit" class="rightMenuItem" clickflg="false" style=""
+                                        onclick="votePost(1956539,&#39;Bury&#39;)"> <span
+                                            class="rightMenuSpan rightBuryitSpan"
+                                            style="display: none; opacity: 0.9;">0</span> <i class="iconfont icon-buzan"
+                                            style="transform: rotate(0deg); transform-origin: 50% 50%;"></i> </div>
+                                    <div id="rightDashang" class="rightMenuItem" clickflg="false" style="display:none">
+                                        <span class="rightMenuSpan rightDanshanSpan">
+                                            <div class="ds-pay">
+                                                <div class="ds-alipay" style="display:none"> <img \="">
+                                                    <span>Alipay</span>
+                                                </div>
+                                                <div class="ds-wecat" style="display:none"> <img \="">
+                                                    <span>WeChat</span>
+                                                </div>
+                                            </div>
+                                        </span> <i class="iconfont icon-dashang2"></i>
+                                    </div>
+                                    <div id="rightGzh" class="rightMenuItem" clickflg="false" style="display:none">
+                                        <span class="rightMenuSpan rightGzhSpan">
+                                            <div class="ds-pay">
+                                                <div class="ds-gzh"> <img><span>qrCode</span> </div>
+                                            </div>
+                                        </span> <i class="iconfont icon-erweima4"></i>
+                                    </div>
+                                    <div id="attention" class="rightMenuItem" clickflg="false"
+                                        onclick="follow(&#39;b044ca99-3220-df11-ba8f-001cf0cd104b&#39;)"> <span
+                                            class="rightMenuSpan attentionSpan"
+                                            style="display: none; opacity: 0.9;">关注</span> <i
+                                            class="iconfont icon-dianzan"
+                                            style="transform: rotate(0deg); transform-origin: 50% 50%;"></i> </div>
+                                </span>
+                                <!-- 网站目录 -->
+                                <div id="rightMenuSite" class="rightMenuItem" clickflg="true"> <span
+                                        class="rightMenuSpan" style="display: none; opacity: 0.9;">点击开启</span> <i
+                                        banmv="" class="iconfont icon-shezhi3"
+                                        style="transform: rotate(102deg); transform-origin: 50% 50%;"></i> </div>
+                                <!-- toUpDown按钮 -->
+                                <div id="toUpDown" class="rightMenuItem" data="up"> <span
+                                        class="rightMenuSpan toUpDownSpan"
+                                        style="display: none; opacity: 0.9;">返回顶部</span>
+                                    <div id="toUpDownI" style="transform: rotate(0deg); transform-origin: 50% 50%;"> <i
+                                            banmv="" class="iconfont icon-zhiding"></i> </div>
+                                </div>
+                            </div>
+                            <div id="loading" style="display: none;"></div>
+                            <script type="text/javascript">window['__document_write_ajax_callbacks__']['4']();</script>
+                            <script type="text/javascript">window['__document_write_ajax_callbacks__']['1']();</script>
+                            <script type="text/javascript">window['__document_write_ajax_callbacks__']['5']();</script>
+                            <script type="text/javascript">window['__document_write_ajax_callbacks__']['6']();</script>
+                            <script defer="">window['__document_write_ajax_callbacks__']['2']();</script>
+                            <div id="profile_block">
+                                昵称：
+                                <a href="https://home.cnblogs.com/u/hnrainll/">
+                                    hnrainll
+                                </a>
+                                <br>
+                                园龄：
+                                <a href="https://home.cnblogs.com/u/hnrainll/" title="入园时间：2010-02-23">
+                                    12年11个月
+                                </a>
+                                <br>
+                                粉丝：
+                                <a class="follower-count" href="https://home.cnblogs.com/u/hnrainll/followers/">
+                                    1551
+                                </a>
+                                <br>
+                                关注：
+                                <a class="folowing-count" href="https://home.cnblogs.com/u/hnrainll/followees/">
+                                    11
+                                </a>
+                                <div id="p_b_follow" class="follow-tip">
+                                    <a href="javascript:void(0)"
+                                        onclick="follow(&#39;b044ca99-3220-df11-ba8f-001cf0cd104b&#39;)">+加关注</a>
+                                </div>
+                                <script
+                                    type="text/javascript">window['__document_write_ajax_callbacks__']['7']();</script>
+                                <script>window['__document_write_ajax_callbacks__']['3']();</script>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="sidebar_c3"></div>
+                    <script>loadBlogDefaultCalendar();</script>
+                    <div id="leftcontentcontainer">
+                        <div id="blog-sidecolumn">
+                            <!-- 搜索 -->
+                            <div id="sidebar_search" class="sidebar-block">
+
+                            </div>
+
+                            <!-- 常用链接 -->
+                            <div id="sidebar_shortcut" class="sidebar-block">
+                                <div class="catListLink">
+                                    <h3 class="catListTitle">
+                                        常用链接
+                                    </h3>
+                                    <ul>
+                                        <li><a href="https://www.cnblogs.com/hnrainll/p/" title="我的博客的随笔列表">我的随笔</a>
+                                        </li>
+                                        <li><a href="https://www.cnblogs.com/hnrainll/MyComments.html"
+                                                title="我的发表过的评论列表">我的评论</a></li>
+                                        <li><a href="https://www.cnblogs.com/hnrainll/OtherPosts.html"
+                                                title="我评论过的随笔列表">我的参与</a></li>
+                                        <li><a href="https://www.cnblogs.com/hnrainll/comments"
+                                                title="我的博客的评论列表">最新评论</a></li>
+                                        <li><a href="https://www.cnblogs.com/hnrainll/tag/" title="我的博客的标签列表">我的标签</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+
+                            </div>
+
+                            <!-- 最新随笔 -->
+
+
+                            <!-- 我的标签 -->
+
+
+                            <!-- 积分与排名 -->
+                            <div id="sidebar_scorerank" class="sidebar-block">
+                                <div class="catListBlogRank">
+                                    <h3 class="catListTitle">积分与排名</h3>
+                                    <ul>
+                                        <li class="liScore">
+                                            积分 -
+                                            1694857
+                                        </li>
+                                        <li class="liRank">
+                                            排名 -
+                                            102
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+
+                            </div>
+
+                            <!-- 随笔分类、随笔档案、文章分类、新闻分类、相册、链接 -->
+                            <div id="sidebar_categories">
+
+                                <div id="sidebar_postcategory" class="catListPostCategory sidebar-block">
+                                    <h3 class="catListTitle">
+
+                                        <a class="sidebar-card-title-a"
+                                            href="https://www.cnblogs.com/hnrainll/post-categories">随笔分类</a>
+
+
+
+                                    </h3>
+
+                                    <ul>
+
+                                        <li data-category-list-item-visible="true" style="display: block">
+
+                                            <a href="https://www.cnblogs.com/hnrainll/category/325748.html"
+                                                class="category-item-link" rel="" target="">Android(221)</a>
+
+                                        </li>
+                                        <li data-category-list-item-visible="true" style="display: block">
+
+                                            <a href="https://www.cnblogs.com/hnrainll/category/234348.html"
+                                                class="category-item-link" rel="" target="">C(98)</a>
+
+                                        </li>
+                                        <li data-category-list-item-visible="true" style="display: block">
+
+                                            <a href="https://www.cnblogs.com/hnrainll/category/234345.html"
+                                                class="category-item-link" rel="" target="">C++(42)</a>
+
+                                        </li>
+                                        <li data-category-list-item-visible="true" style="display: block">
+
+                                            <a href="https://www.cnblogs.com/hnrainll/category/324474.html"
+                                                class="category-item-link" rel="" target="">Java(98)</a>
+
+                                        </li>
+                                        <li data-category-list-item-visible="true" style="display: block">
+
+                                            <a href="https://www.cnblogs.com/hnrainll/category/283519.html"
+                                                class="category-item-link" rel="" target="">Linux(252)</a>
+
+                                        </li>
+                                        <li data-category-list-item-visible="true" style="display: block">
+
+                                            <a href="https://www.cnblogs.com/hnrainll/category/271015.html"
+                                                class="category-item-link" rel="" target="">MCU(60)</a>
+
+                                        </li>
+                                        <li data-category-list-item-visible="true" style="display: block">
+
+                                            <a href="https://www.cnblogs.com/hnrainll/category/2270112.html"
+                                                class="category-item-link" rel="" target="">编程(1)</a>
+
+                                        </li>
+                                        <li data-category-list-item-visible="true" style="display: block">
+
+                                            <a href="https://www.cnblogs.com/hnrainll/category/1760580.html"
+                                                class="category-item-link" rel="" target="">大数据(8)</a>
+
+                                        </li>
+                                        <li data-category-list-item-visible="true" style="display: block">
+
+                                            <a href="https://www.cnblogs.com/hnrainll/category/269785.html"
+                                                class="category-item-link" rel="" target="">嵌入式(122)</a>
+
+                                        </li>
+                                        <li data-category-list-item-visible="true" style="display: block">
+
+                                            <a href="https://www.cnblogs.com/hnrainll/category/2270114.html"
+                                                class="category-item-link" rel="" target="">生活(1)</a>
+
+                                        </li>
+                                        <li data-category-list-item-visible="true" style="display: block">
+
+                                            <a href="https://www.cnblogs.com/hnrainll/category/1784148.html"
+                                                class="category-item-link" rel="" target="">数据结构与算法(1)</a>
+
+                                        </li>
+                                        <li data-category-list-item-visible="true" style="display: block">
+
+                                            <a href="https://www.cnblogs.com/hnrainll/category/297419.html"
+                                                class="category-item-link" rel="" target="">网络编程(140)</a>
+
+                                        </li>
+
+                                    </ul>
+
+
+                                </div>
+                            </div>
+
+                            <!-- 最新评论 -->
+                            <!-- 阅读排行榜 -->
+                            <div id="sidebar_topviewedposts" class="sidebar-block">
+                                <div class="catListView">
+                                    <h3 class="catListTitle">
+                                        <a href="https://www.cnblogs.com/hnrainll/most-viewed"
+                                            class="sidebar-card-title-a">
+                                            阅读排行榜
+                                        </a>
+
+                                    </h3>
+                                    <div id="TopViewPostsBlock">
+                                        <ul style="word-break:break-all">
+                                            <li>
+                                                <a
+                                                    href="https://www.cnblogs.com/hnrainll/archive/2011/10/11/2206804.html">
+                                                    1. JAVA帮助文档全系列 JDK1.5 JDK1.6 JDK1.7 官方中英完整版下载(419013)
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.cnblogs.com/hnrainll/p/3514637.html">
+                                                    2. Markdown 11种基本语法(273998)
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="https://www.cnblogs.com/hnrainll/archive/2012/09/18/2690846.html">
+                                                    3. 面向对象三大基本特性,五大基本原则(212300)
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="https://www.cnblogs.com/hnrainll/archive/2011/12/29/2305582.html">
+                                                    4. java常用设计模式(164146)
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="https://www.cnblogs.com/hnrainll/archive/2011/05/11/2043361.html">
+                                                    5. linux stat函数讲解(160387)
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="https://www.cnblogs.com/hnrainll/archive/2011/02/16/1956538.html">
+                                                    6. linux FTP配置详解(148388)
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="https://www.cnblogs.com/hnrainll/archive/2011/06/08/2074957.html">
+                                                    7. 查看Linux内核版本的命令(148290)
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="https://www.cnblogs.com/hnrainll/archive/2011/10/14/2212415.html">
+                                                    8. TCP三次握手及四次挥手详细图解(131970)
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="https://www.cnblogs.com/hnrainll/archive/2011/04/29/2032662.html">
+                                                    9. vim——打开多个文件、同时显示多个文件、在文件之间切换(127425)
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="https://www.cnblogs.com/hnrainll/archive/2011/07/22/2113557.html">
+                                                    10. Linux查看文件编码格式及文件编码转换(112518)
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 评论排行榜 -->
+
+
+                            <!-- 推荐排行榜 -->
+                            <div id="sidebar_topdiggedposts" class="sidebar-block">
+                                <div id="topdigg_posts_wrap">
+                                    <div class="catListView">
+                                        <h3 class="catListTitle">
+                                            <a href="https://www.cnblogs.com/hnrainll/most-liked"
+                                                class="sidebar-card-title-a">推荐排行榜</a>
+
+                                        </h3>
+                                        <div id="TopDiggPostsBlock">
+                                            <ul style="word-break: break-all">
+                                                <li>
+                                                    <a href="https://www.cnblogs.com/hnrainll/p/3410042.html">
+                                                        1. Java 内存区域和GC机制(46)
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a
+                                                        href="https://www.cnblogs.com/hnrainll/archive/2011/12/29/2305582.html">
+                                                        2. java常用设计模式(43)
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a
+                                                        href="https://www.cnblogs.com/hnrainll/archive/2011/10/11/2206804.html">
+                                                        3. JAVA帮助文档全系列 JDK1.5 JDK1.6 JDK1.7 官方中英完整版下载(39)
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://www.cnblogs.com/hnrainll/p/3514637.html">
+                                                        4. Markdown 11种基本语法(17)
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a
+                                                        href="https://www.cnblogs.com/hnrainll/archive/2011/08/03/2126660.html">
+                                                        5. c语言中逗号运算符和逗号表达式(17)
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="sidebar_recentcomments" class="sidebar-block">
+                                <div class="catListComment">
+                                    <h3 class="catListTitle"><a href="https://www.cnblogs.com/hnrainll/comments"
+                                            class="sidebar-card-title-a">最新评论</a></h3>
+                                    <div class="RecentCommentBlock">
+                                        <ul>
+                                            <li class="recent_comment_title"><a
+                                                    href="https://www.cnblogs.com/hnrainll/archive/2011/12/29/2305582.html">1.
+                                                    Re:java常用设计模式</a></li>
+                                            <li class="recent_comment_body">
+                                                <p>讲的非常棒，特别是开头对设计模式的理解让我这个小菜鸡受益良多</p>
+                                            </li>
+                                            <li class="recent_comment_author">--Snowclod</li>
+                                            <li class="recent_comment_title"><a
+                                                    href="https://www.cnblogs.com/hnrainll/archive/2011/05/26/2058038.html">2.
+                                                    Re:用 STL vector 来创建二维数组</a></li>
+                                            <li class="recent_comment_body">补充： 也可以用这个方法创建三维（n维）数组。 比如：
+                                                vector&lt;vector&lt;vector&lt;int&gt;&gt;&gt; matrix(4,
+                                                vector&lt;vector&lt;int&gt;&gt;(4, vector&lt;int&gt;...</li>
+                                            <li class="recent_comment_author">--萨德伯格的小曾</li>
+                                            <li class="recent_comment_title"><a
+                                                    href="https://www.cnblogs.com/hnrainll/archive/2011/05/26/2058038.html">3.
+                                                    Re:用 STL vector 来创建二维数组</a></li>
+                                            <li class="recent_comment_body">
+                                                <p>thanks.</p>
+                                            </li>
+                                            <li class="recent_comment_author">--萨德伯格的小曾</li>
+                                            <li class="recent_comment_title"><a
+                                                    href="https://www.cnblogs.com/hnrainll/archive/2011/09/19/2181527.html">4.
+                                                    Re:QQ通信原理概述</a></li>
+                                            <li class="recent_comment_body">
+                                                <p>考古</p>
+                                            </li>
+                                            <li class="recent_comment_author">--Zdz2005</li>
+                                            <li class="recent_comment_title"><a
+                                                    href="https://www.cnblogs.com/hnrainll/archive/2011/05/06/2039198.html">5.
+                                                    Re:怎样学习C语言(献给迷茫的C爱好者)</a></li>
+                                            <li class="recent_comment_body">
+                                                <p>老师,到了2021年这个学习路线变了么?</p>
+                                            </li>
+                                            <li class="recent_comment_author">--Celllz</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        <script>loadBlogSideColumn();</script>
+                    </div>
+                </div>
+                <!--end: sideBarMain -->
+            </div>
+            <!--end: sideBar 侧边栏容器 -->
+            <div class="clear"></div>
+        </div>
+        <!--end: main -->
+        <div class="clear"></div>
+        <div id="footer">
+            <div class="footer-image" id="footerStyle1" style="display:none"></div>
+            <footer id="footerStyle2" style="">
+                <footer-background>
+                    <figure class="clouds"
+                        style="background: url(&quot;https://cdn.cnblogs.com/gh/BNDong/Cnblogs-Theme-SimpleMemory@v2.1.2/dist/images/0ff63a3006d8a2821be2.webp&quot;) repeat-x;">
+                    </figure>
+                    <figure class="background"
+                        style="background: url(&quot;https://cdn.cnblogs.com/gh/BNDong/Cnblogs-Theme-SimpleMemory@v2.1.2/dist/images/af2701cbb4196bedb254.webp&quot;) repeat-x;">
+                    </figure>
+                    <figure class="foreground"
+                        style="background: url(&quot;https://cdn.cnblogs.com/gh/BNDong/Cnblogs-Theme-SimpleMemory@v2.1.2/dist/images/30b4f3f93333bef2cf56.webp&quot;) repeat-x;">
+                    </figure>
+                </footer-background>
+            </footer>
+            <div class="footer-box">
+                <div class="footer-text"
+                    style="display: none; padding-bottom: 0px; border-bottom: none; margin-bottom: 0px;"> [ ##textLeft##
+                    <span class="footer-text-icon"> <span class="iconfont ##iconFont##"
+                            style="color:##iconColor##;font-size:##iconSize##"></span> </span> ##textRight## ]
+                </div>
+                <div> <span id="blogRunTimeSpan">This blog has running : 4743 d 9 h 16 m 23 s</span> <span
+                        class="my-face">ღゝ◡╹)ノ♡</span> </div>
+                <div id="linksHtml" style="display:none">##linksHtml##</div> <!--        ##cnzzHtml##-->
+                <div>
+
+                    Copyright © 2023 hnrainll
+                    Powered by .NET 7.0 on Kubernetes
+
+
+
+                </div>
+            </div>
+        </div>
+        <!--end: footer -->
+    </div>
+    <!--end: home 自定义的最大容器 -->
+
+
+
+
+
+    <input type="hidden" id="antiforgery_token"
+        value="CfDJ8GXQNXLgcs5PrnWvMs4xAGPrDdNVlAp_h3mUXlhqtMnxnXVq3qjLkpDx6add9PwcZZea3kR5gak7A0ITkIXVEmrdcafoJbdxJOBAtAjeZGX8UQSAM2cBSMk4cExBwqtbkXwYzP-FENYiIXq_0WN_24c">
+    <script async="" src="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/js"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        var kv = getGACustom();
+        if (kv) {
+            gtag('set', kv);
+        }
+        gtag('config', 'UA-476124-1');
+    </script>
+    <script defer="" src="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/hm.js.下载"></script>
+
+    <script type="text/javascript">
+        window.cnblogsConfig = {
+            title: {
+                onblur: '修己以安人',
+                focus: '修己以安人',
+            },
+            info: {
+                name: 'hnrainll', // 用户名
+                startDate: '2010-02-23', // 入园时间，年-月-日。入园时间查看方法：鼠标停留园龄时间上，会显示入园时间
+                avatar: 'https://pic.cnblogs.com/avatar/115749/20200413103458.png', // 用户头像
+            },
+            banner: {
+                home: {
+                    title: ' ',
+                    background: [
+                        "https://images.cnblogs.com/cnblogs_com/hnrainll/2270106/o_230203040102_image.png",
+                    ],
+                },
+                article: {
+                    background: [
+                        "https://images.cnblogs.com/cnblogs_com/hnrainll/2270106/o_230203040102_image.png",
+                    ],
+                },
+            },
+
+        }
+    </script><iframe src="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/container.html"
+        style="visibility: hidden; display: none;"></iframe>
+    <script type="text/javascript">getFollowStatus('b044ca99-3220-df11-ba8f-001cf0cd104b');</script><iframe
+        style="position: absolute; width: 1px; height: 1px; left: -9999px;"
+        src="./Linux FTP 服务器配置简单说明 - hnrainll - 博客园_files/globalstorage.html"></iframe>
+</body>
+
+</html>
