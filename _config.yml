@@ -15,6 +15,8 @@ defaults:
       layout: leap_day_customized_v5
       allow_download_doc: true
 
+allow_download_doc: true
+
 exclude:
   - /**/*.origin.*
   - Todo.md
