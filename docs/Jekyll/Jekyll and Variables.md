@@ -10,7 +10,7 @@ categories: Jekyll
 
 ### iframe
 
-<iframe height="600" src="https://jekyllrb.com/docs/variables/"></iframe>
+<iframe height="600" width="100%" src="https://jekyllrb.com/docs/variables/"></iframe>
 
 ### Text
 
@@ -86,7 +86,7 @@ Global Variables:
 
 Here is an iframe to view that [webpage](https://jekyll.github.io/github-metadata/site.github/).
 
-<iframe height="600" src="https://jekyll.github.io/github-metadata/site.github/" ></iframe>
+<iframe height="600" width="100%" src="https://jekyll.github.io/github-metadata/site.github/" ></iframe>
 
 ### Text
 
