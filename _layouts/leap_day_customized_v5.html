@@ -30,7 +30,7 @@ layout_name: leap_day_customized_v5
     <div id="banner">
       {%- if site.allow_download_doc -%}
       {%- if page.allow_download_doc == nil or page.allow_download_doc -%}
-      <a href="{{site.github.repository_url}}/raw/{{site.github.source.branch}}{{page.path}}">
+      <a href="{{site.github.repository_url}}/raw/{{site.github.source.branch}}/{{page.path}}">
         <span id="logo" ></span>
       </a>
       {%- endif -%}
@@ -43,7 +43,7 @@ layout_name: leap_day_customized_v5
       <a href="{{site.github.url}}" class="button"><strong>Home</strong></a>
       <a href="{{site.github.url}}/pagemap.html" class="button">Page Map</a>
 
-      <a href="{{ site.github.repository_url }}/tree/{{site.github.source.branch}}{{page.path}}" class="button fork"><strong>View On GitHub</strong></a>
+      <a href="{{ site.github.repository_url }}/tree/{{site.github.source.branch}}/{{page.path}}" class="button fork"><strong>View On GitHub</strong></a>
       {% if site.show_downloads %}
         <div class="downloads">
           <span>Downloads:</span>

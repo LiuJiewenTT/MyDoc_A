@@ -30,7 +30,11 @@ Markdown文件不得留有YAML头，否则编译不出结果。（Github限定�
 
 Github Pages(v277, 截止到2023-01-23)，Jekyll 3.9.2，Liquid 4.0.3：
 
-1. 不能使用`iframe`，这会导致处理终止，后续内容消失。
+1. <del>不能使用`iframe`，这会导致处理终止，后续内容消失。</del>。`iframe`不是 *self-closing tag*，应当这么写：
+
+   ``` html
+   <iframe style="height:400px" src="www.baidu.com"></iframe>
+   ```
 
 ## 插件与配置
 
@@ -46,7 +50,7 @@ Github Jekyll 组合添加了一些插件，并且无法禁用，只能通过设
 
 ### 主页
 
-有一个插件将主页从*index.d*更换成了*README.md*，这个插件也无法禁用，只能修改配置使其不生效。
+有一个插件将主页从*index.md*更换成了*README.md*，这个插件也无法禁用，只能修改配置使其不生效。
 
 [https://github.com/benbalter/jekyll-readme-index](https://github.com/benbalter/jekyll-readme-index)（见*Configuration*）
 
@@ -78,4 +82,4 @@ Github Jekyll 组合添加了一些插件，并且无法禁用，只能通过设
 
 ![image-20221217002937915](Jekyll and Files.assets/image-20221217002937915.png)
 
-> 对中文标题友好！
+> 这个插件看起来对中文标题友好！
