@@ -40,3 +40,7 @@ code:has(.language-mermaid) {
   #ffffa029
 
   #f9c5e85c
+
+  #ac4142
+
+  #df8202

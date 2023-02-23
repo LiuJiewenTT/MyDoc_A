@@ -109,10 +109,15 @@ pre {
   code {
     margin: 0px;
     padding: 0px;
+    .err{
+      background-color: #df8202;
+      color: white;
+      // text-shadow: none;
+    }
   }
   
   .language-mermaid {
-    text-shadow: 0 0 black;
+    text-shadow: none;
     svg {
       background: #ffffa0;
       display: flex;
