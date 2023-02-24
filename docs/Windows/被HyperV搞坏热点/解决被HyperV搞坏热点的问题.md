@@ -75,6 +75,106 @@ tags: [Hyper-V, 热点, 搞坏, 解决]
 
 啊，好是好了，可是我再去看驱动信息，支持承载网络这一项仍然是：**否**。但就是能用了。欸！真是奇妙。
 
+## 有用的拓展阅读
+
+1. [MS的帖子](https://answers.microsoft.com/zh-hans/windows/forum/all/%E5%A6%82%E4%BD%95%E8%AE%A9-hyper-v-default/8703ffa4-1796-441f-88b9-0566eaeff1bf) [this](#Extend 1)
+
+### Extend 1
+
+**如何让 Hyper-v Default Switch适配器 和 移动热点虚拟适配器 同时共享主机的有线网卡适配器的宽带，以及其他两个关于hyper-v的问题**
+
+> 系统是win10专业版，因为工作需要，我的PC主机必须设置为静态IP
+>
+> 我的开发环境是用的是hyper-v搭建的lnmp环境，项目中有与其他系统交互，因此需要能访问外网，
+>
+> 因为环境wifi信号太差，所以平常需要用电脑开热点给手机用，这两个是刚性需求
+>
+> 但是后来发现，只要我开了移动热点，开发环境虚拟机中就没网了，
+>
+> 试过cmd执行命令手动创建热点，
+>
+>    发现只要 手动 把有线网卡的网络共享给 Microsoft Wi-Fi Direct Virtual Adapter，Hyper-v 的Default Switch适配器就会断网，不共享网络wifi就没网
+>
+> 后来又试了下win10自带的移动热点功能，
+>
+>    发现打开热点后，即使没有手动把有线网卡的带宽共享给Microsoft Wi-Fi Direct Virtual Adapter，Default Switch适配器依然会断网
+>
+> 还试过用外接的USB网卡创建wifi热点
+>
+>    也是一样的结果，只要热点一创建，Default Switch就会断网
+>
+> 因此可以断定，问题就出在一个实体有线网卡的网络，不能同时分享给两个以上的适配器，
+>
+> 当然这不单单是在共享网络页面加个多选的问题，我有尝试手动将有线网卡的宽带共享给Default Switch，发现会强制更改Default Switch分配的ip；
+>
+> 其他关于hyper-v的的问题，
+>
+> 在主机防火墙全部关闭的情况下，虚拟机刚问不到主机，
+>
+> 反之在Ubuntu Server虚拟机中防火墙关闭，iptable放行端口的情况下，主机仍然只能访问80和22端口，其他端口均不通；
+>
+> [![图片](解决被HyperV搞坏热点的问题.assets/fc776d79-35f9-4870-8115-50f1193891cb)](https://filestore.community.support.microsoft.com/api/images/fc776d79-35f9-4870-8115-50f1193891cb?upload=true)
+>
+> 更新之后Hyper-v新建虚拟机会出来两个虚拟适配器，并且会为我 本地已有的实体适配器 创建新的虚拟适配器；
+>
+> [![图片](解决被HyperV搞坏热点的问题.assets/078efb7f-194a-47ea-b4d1-cfb1ee51f3ab)](https://filestore.community.support.microsoft.com/api/images/078efb7f-194a-47ea-b4d1-cfb1ee51f3ab?upload=true)
+>
+> 以上，就是我关于hyper-v的三个问题，如果没有办法解决，就当做bug提交或者建议来处理吧（如果是建议的希望能尽快实现）
+>
+> 在此先谢过各位大佬。
+>
+>  此会话已锁定。 可关注问题或投赞成票，但不能回复此会话。
+>
+> 我有相同问题 (3)
+
+[**回复 (3) **](https://answers.microsoft.com/zh-hans/windows/forum/all/如何让-hyper-v-default/8703ffa4-1796-441f-88b9-0566eaeff1bf?tab=AllReplies#tabs)
+
+><img src="https://filestore.community.support.microsoft.com/api/profileimages/08eafb85-b633-4a68-b918-99738177f6b1" alt="A Big 蓝鲸" style="zoom:25%;" /> [A Big 蓝鲸](https://answers.microsoft.com/zh-hans/profile/08eafb85-b633-4a68-b918-99738177f6b1) [独立顾问](http://answers.microsoft.com/zh-hans/page/faq#faqWhosWho1)
+>
+>回复日期 2021/05/07
+>
+>您好
+>
+>欢迎咨询微软社区，我是独立顾问(Independent Advisor) Zhang
+>
+>请您尝试在创建Hyper-V虚拟交换机的时候，不要直接分享物理网卡，而是通过热点的本地连接分享。
+>或者，看到您有深信服的代理，您也可以连接上代理后，尝试分享深信服的网络给Hyper-V
+>
+>如果您有回复请在48小时之内进行回复，超时问题会被关闭
+
+> [on_road](https://answers.microsoft.com/zh-hans/profile/153d5817-c979-4644-9fab-ac315a6fa191)
+>
+> 回复日期 2021/05/07
+>
+> ![回复](https://answerscdn.microsoft.com/static/images/inreplyto.svg) 2021/05/07 中对 A Big 蓝鲸 文章的回复
+>
+> 您好，感谢您的回答，
+>
+> 您的思路应该是正确的，先把“有线网卡的网络”分享给 “热点的虚拟交换机”，然后再新建一个hyper-v虚拟交换机引用 “热点的虚拟交换机”
+>
+> 但是default switch 是hyper-v虚拟机内置的虚拟适配器，无法操作，且创建虚拟交换机不能选择 “通过热点的本地连接分享”
+>
+> 深信服的网络我们本身并没有在用，因此也没办法用它来分享网络，而且问题好像与这个深信服的vpn没关系，不出在这里，
+>
+> 请问您那边还有其他的解决办法吗？
+>
+> [![图片](解决被HyperV搞坏热点的问题.assets/dfcd436e-8841-416f-a50c-cb7010949e06)](https://filestore.community.support.microsoft.com/api/images/dfcd436e-8841-416f-a50c-cb7010949e06?upload=true)
+>
+> [![图片](解决被HyperV搞坏热点的问题.assets/1d397a9d-90f4-4fbb-aa71-b29961a153c0)](https://filestore.community.support.microsoft.com/api/images/1d397a9d-90f4-4fbb-aa71-b29961a153c0?upload=true).
+>
+> 1 人认为此回复有帮助
+
+> <img src="https://filestore.community.support.microsoft.com/api/profileimages/08eafb85-b633-4a68-b918-99738177f6b1" alt="A Big 蓝鲸" style="zoom:25%;" /> [A Big 蓝鲸](https://answers.microsoft.com/zh-hans/profile/08eafb85-b633-4a68-b918-99738177f6b1) [独立顾问](http://answers.microsoft.com/zh-hans/page/faq#faqWhosWho1)
+>
+> 回复日期 2021/05/08
+>
+> > 您可以按Win+F进行反馈。
+> >
+> > 感谢你的反馈。
+>
+
+End.
+
 ## 链接
 
 ### 1

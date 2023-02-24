@@ -72,10 +72,14 @@ Temporarily disables tag processing. This is useful for generating certain conte
 
 Input
 
-​```liquid {% raw %}{{ "%7B%25+raw+%25%7D" | url_decode }}{% endraw %}{{ "%7B%25+raw+%25%7D" | url_decode }}{% raw %} In Handlebars, {{ this }} will be HTML-escaped, but {{{ that }}} will not. {% endraw %}{{ "%7B%25+endraw+%25%7D" | url_decode }}{% raw %}{{ "%7B%25+endraw+%25%7D" | url_decode }}{% endraw %} ```
+​```liquid 
+{% raw %}{{ "%7B%25+raw+%25%7D" | url_decode }}{% endraw %}{{ "%7B%25+raw+%25%7D" | url_decode }}{% raw %} In Handlebars, {{ this }} will be HTML-escaped, but {{{ that }}} will not. {% endraw %}{{ "%7B%25+endraw+%25%7D" | url_decode }}{% raw %}{{ "%7B%25+endraw+%25%7D" | url_decode }}{% endraw %} 
+​```
 Output
 
-​```text {{ "%7B%25+raw+%25%7D" | url_decode }} In Handlebars, {{ this }} will be HTML-escaped, but {{{ that }}} will not. {{ "%7B%25+endraw+%25%7D" | url_decode }} ```
+​```text 
+{% raw %} In Handlebars, {{ this }} will be HTML-escaped, but {{{ that }}} will not. {% endraw %}{{ "%7B%25+endraw+%25%7D" | url_decode }} 
+​```
 ```
 
 {% endif %}

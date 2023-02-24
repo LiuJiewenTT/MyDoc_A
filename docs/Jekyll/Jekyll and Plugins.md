@@ -124,14 +124,14 @@ redirect_from:
 
 我想试试这样：
 
-{%- raw -%}
+{% raw %}
 
 ```yaml
 redirect_from:
   - /Liquid/{{page.title}}
 ```
 
-{%- endraw -%}
+{% endraw %}
 
 开测！
 
