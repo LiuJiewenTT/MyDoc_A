@@ -66,21 +66,21 @@ Output
 
 ==[What you see here is the Jekyll site version of complete demonstration. What you see from page is correct writing.]==
 
-```markdown
-raw
+
+**raw**
 Temporarily disables tag processing. This is useful for generating certain content that uses conflicting syntax, such as Mustache or Handlebars.
 
 Input
 
-​```liquid 
+```liquid 
 {% raw %}{{ "%7B%25+raw+%25%7D" | url_decode }}{% endraw %}{{ "%7B%25+raw+%25%7D" | url_decode }}{% raw %} In Handlebars, {{ this }} will be HTML-escaped, but {{{ that }}} will not. {% endraw %}{{ "%7B%25+endraw+%25%7D" | url_decode }}{% raw %}{{ "%7B%25+endraw+%25%7D" | url_decode }}{% endraw %} 
-​```
+```
 Output
 
-​```text 
+``` text 
 {% raw %} In Handlebars, {{ this }} will be HTML-escaped, but {{{ that }}} will not. {% endraw %}{{ "%7B%25+endraw+%25%7D" | url_decode }} 
-​```
 ```
+
 
 {% endif %}
 
