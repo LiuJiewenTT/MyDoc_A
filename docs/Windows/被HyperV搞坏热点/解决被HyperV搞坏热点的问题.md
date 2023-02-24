@@ -1,0 +1,237 @@
+---
+date: 2023.02.24 21:57:00
+tags: [Hyper-V, 热点, 搞坏, 解决]
+---
+
+# 解决被HyperV搞坏热点的问题
+
+[toc]
+
+## 故事讲述
+
+今日整虚拟机用的网卡，整着整着热点用不了了。手机连热点说无法访问互联网。就很郁闷。
+
+一番查找，还是决定试试重置。
+
+当我搜索：
+
+> win10热点怎么重置
+
+就看到了这么一项：
+
+![image-20230224212657960](解决被HyperV搞坏热点的问题.assets/image-20230224212657960.png)
+
+链接：[Link](https://www.uc23.net/jiaocheng/65456.html). [this](#1).
+
+然后发现居然无法启动承载网络。我一看配置没了，虽然设置里还是有显示配置的。于是我手动打了一遍命令去配置好ssid和key，然后试图启动，失败。
+
+然后我搜索：
+
+> 无法启动承载网络。
+
+看到这么一篇文章：[链接](https://blog.csdn.net/devilnov/article/details/51487472) [this](#2).
+
+后面解决了之后还是看不懂它在说什么，但是感觉它说的好有道理。
+
+然后看到了这么一份：[链接](https://zhuanlan.zhihu.com/p/28385289) [this](#3).
+
+然而还是情况不符合，没卵用。
+
+然后看到了这一篇号称完美解决的憨批：[憨憨发言](https://blog.csdn.net/pengjian444/article/details/50959766), [this](#4).
+
+还有百度经验的：[链接](https://jingyan.baidu.com/article/3ea514898932ef52e71bba40.html).
+
+究极没用，用Windows诊断功能修复，还有禁用再启用。这算什么？
+
+然后简书上有一篇有一点用：[链接](https://www.jianshu.com/p/fc71d3d94949) [this](#5).
+
+我试过了，最老的那个驱动是可以启用的，不过不支持WiFi5，也还是连不上互联网，只是那个无法启动承载网络的问题解决了。但是没用啊，上不了网。
+
+到了这里我已经很崩溃了，明明我这些天都在用热点用的好好的，怎么突然就显示否了呢？这不科学！
+
+于是我转换方向，直接搜索：
+
+> 网卡驱动的是否支持承载网络变成了否
+
+然后没有卵用，就是叫我多换驱动版本试试。
+
+最后我恼了，攻击性拉满：
+
+> hyperv把我的热点搞坏了
+
+欸，这么一搜居然搜出好东西来：
+
+![image-20230224214507933](解决被HyperV搞坏热点的问题.assets/image-20230224214507933.png)
+
+我当即知道，有救了！放出两个的链接：[CSDN](https://blog.csdn.net/songtianlun/article/details/114140477), [Tencent Cloud](https://cloud.tencent.com/developer/article/1796902). 我跟你们讲，这是文贼见面：互抄。欸！这就很有趣，后者发布时间更晚，不仅内容和前者完全一致，甚至还加了个*CC4.0 NC SA*版权申明。
+
+不调侃了，放文章：[this](#6).
+
+但是呢，我虽然是照着它做的，但还是没看懂，胡乱操作了一番居然解决了。
+
+## 我的过程
+
+选择我的虚拟网卡，进入属性，共享internet，启用并连到了WLAN。发现没用，取消掉。然后换热点用的那个，同样地启用并连到了WLAN，然后没用，又取消掉，然后就好了。
+
+啊，好是好了，可是我再去看驱动信息，支持承载网络这一项仍然是：**否**。但就是能用了。欸！真是奇妙。
+
+## 链接
+
+### 1
+
+　随着电脑的使用率越来越高，我们有时候可能会遇到对[win10](https://www.uc23.net/xitong/win10/)系统笔记本开启自带的WiFi热点进行设置，如果我们需要对[win10](https://www.uc23.net/xitong/win10/)系统笔记本开启自带的WiFi热点进行设置时，要怎么处理[win1](https://www.uc23.net/xitong/windows-win1-yuanban/)0系统笔记本开启自带的WiFi热点呢？我们按照
+
+1、使用快捷键Windows+R，在运行窗口中，输入“cmd”，点击确定; 
+
+2、输入netsh wlan set hostednetwork mode=allow ssid=name(无线名字) key=00000000(8位以上密码);就搞定了;接下来给大家带来[win1](https://www.uc23.net/xitong/windows-win1-yuanban/)0系统笔记本开启自带的WiFi热点的详细步骤：
+
+　　具体方法如下:
+
+　　1、使用快捷键Windows+R，在运行窗口中，输入“cmd”，点击确定;
+
+![在运行窗口中，输入“cmd”](http://down.dnxp.net:8055/uploads/allimg/190314/1R4491428-0.jpg)
+
+　　2、输入netsh wlan set hostednetwork mode=allow ssid=name(无线名字) key=00000000(8位以上密码);
+
+![输入无线名字和8位以上密码](http://down.dnxp.net:8055/uploads/allimg/190314/1R4493016-1.jpg)
+
+　　3、按下回车键后再输入：netsh wlan start hostednetwork;
+
+![输入netsh wlan start hostednetwork](http://down.dnxp.net:8055/uploads/allimg/190314/1R4494501-2.jpg)
+
+　　4、按下回车键后，会提示“已启动承载[网络](https://www.uc23.net/lishi/wlls/)”，虚拟无线热点创建完成。
+
+![虚拟无线热点创建完成](http://down.dnxp.net:8055/uploads/allimg/190314/1R44aR0-3.jpg)
+
+　　Win10系统[笔记本电脑](https://www.uc23.net/lishi/bjbdnls/)开启WiFi热点的步骤其实并不复杂，我们只能轻松设置几步就能马上体验超便捷的上网过程了。
+
+### 2
+
+cmd中执行netsh wlan start hostednetwork 无法启动承载网络。 组或资源的状态不是执行请求操作的正确状态。
+
+解决办法：
+
+
+1、打开网络共享中心，点击“更改适配器”，如果没有看到“无线网络连接2”的网络连接，请尝试以下步骤，希望能帮到大家
+
+
+
+2、如没有，则将带有“共享的”字样的网络连接禁用，再启用；（这步骤中的网络连接：无线网络或本地网络，要看个人设置）
+
+
+
+3、启用后按F5刷新，“无线网络连接2”会重新出现
+
+
+4、然后在cmd中执行netsh wlan start hostednetwork，成功启动！
+
+
+
+出现此情况的原因：手提进行休眠后，断网导致的
+------------------------------------------------
+版权声明：本文为CSDN博主「DevilNoV」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/devilnov/article/details/51487472
+
+### 3
+
+link: [link](https://zhuanlan.zhihu.com/p/28385289).
+
+### 4
+
+> 这是个玩树莓派但是仍然是个憨批的作者，所谓的办法就是卸载了换驱动。还是靠别家软件提供的驱动。
+
+怎么办，怎么办。我要去把驱动卸载了重新安装么？卸载了不就连不上网了么？
+去驱动精灵的官网上瞧瞧，果然有发现啊。有一个网卡版的哎，下载 + 安装。任性的卸载了网卡驱动。果然无线都检测不到了，断网模式。打开驱动精灵，开始修复，修复成功，重启系统。
+输入上面的东东，成功。
+
+简直艰辛。。。。。。。。
+
+这说明了什么？说明我换的系统里面的网卡驱动有问题。
+------------------------------------------------
+版权声明：本文为CSDN博主「PJZero」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/pengjian444/article/details/50959766
+
+### 5
+
+先查看一下自己当前的无线驱动是否支持“承载网络”。
+ 将以下命令输入到cmd命令窗口中，按回车键
+
+```dart
+netsh wlan show drivers
+```
+
+![img](https:////upload-images.jianshu.io/upload_images/13445093-0c4e4cafb492b3a1.png?imageMogr2/auto-orient/strip|imageView2/2/w/787/format/webp)
+
+如上图所示，一般会是不支持承载网络。
+ 这说明该无线驱动程序不支持承载网络，并不是说咱们的电脑不支持无线热点，所以，我们只要更新一个能够支持承载网络的无线驱动，就可以启动WiFi啦。
+
+**第一步：设备管理**
+ 从桌面调出我的小电脑图标，鼠标右键单击选择设备管理
+
+![img](https:////upload-images.jianshu.io/upload_images/13445093-5356d05097e19c3e.png?imageMogr2/auto-orient/strip|imageView2/2/w/300/format/webp)
+
+**第二步：无线网卡**
+ 打开设备管理器，--》网络适配器--》找到无线网卡驱动
+
+![img](https:////upload-images.jianshu.io/upload_images/13445093-ea0c259151c60836.png?imageMogr2/auto-orient/strip|imageView2/2/w/360/format/webp)
+
+一般情况下，无线网卡驱动程序的名字和文中第二张图中查到的名称是一致的。
+ **第三步：更新驱动程序**
+ 选中该驱动程序--》右键--》更新驱动程序
+
+![img](https:////upload-images.jianshu.io/upload_images/13445093-efbd101cd097e500.png?imageMogr2/auto-orient/strip|imageView2/2/w/647/format/webp)
+
+选择第二项，浏览我的计算机以查找驱动程序软件
+
+![img](https:////upload-images.jianshu.io/upload_images/13445093-323da7d5a4a2c347.png?imageMogr2/auto-orient/strip|imageView2/2/w/726/format/webp)
+
+选择：让我从计算机上的可用驱动程序列表中选取
+ 从双频驱动中选择比较旧的版本进行更新
+
+![img](https:////upload-images.jianshu.io/upload_images/13445093-40f7a319f4b59a55.png?imageMogr2/auto-orient/strip|imageView2/2/w/731/format/webp)
+
+![img](https:////upload-images.jianshu.io/upload_images/13445093-3ac6b4fd0f70f26d.png?imageMogr2/auto-orient/strip|imageView2/2/w/418/format/webp)
+
+安装成功
+ **第四步：启用无线网络**
+ 再次从桌面调出我的小电脑图标，右键--》命令提示符（管理员）
+
+```undefined
+netsh wlan start hostednetwork
+```
+
+回车之后，启动成功。
+
+![img](https:////upload-images.jianshu.io/upload_images/13445093-e810d73979f3b87a.png?imageMogr2/auto-orient/strip|imageView2/2/w/513/format/webp)
+
+打开手机WiFi，找到你设置的WiFi名称，输入密码即可联网
+
+![img](https:////upload-images.jianshu.io/upload_images/13445093-66288734a64becab.png?imageMogr2/auto-orient/strip|imageView2/2/w/438/format/webp)
+
+
+
+作者：Marydon
+链接：https://www.jianshu.com/p/fc71d3d94949
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+### 6
+
+最近给 Win10 电脑加装了一个无线网卡，想要开热点使用，但是发现手机连上之后显示无法联网，在这里记录解决办法。
+
+首先查看一下当前电脑上网使用的网卡是哪一张，我当前使用的是 Hyper-V 虚拟的一个桥接网卡 `vEthernet (NetBridge)` 开启 wifi 热点后新增的网卡是 ` 本地连接* 12` 。
+
+现在进入上网网卡的属性，进入共享标签，发现 Internet 连接共享是关闭状态，现在将它打开，并将家庭网络连接指定为 wifi 热点的网卡，确认即可。
+
+再次尝试连接即可。
+
+> 补充：开启连接共享时报错 "无法启用 internet 连接共享，为 lan 连接配置的 ip 地址需要使用自动 ip 寻址" ，将不需要的 Vmware 虚拟网卡卸载后解决，猜测可能是占用了某些共享需要用到的网段导致。
+
+**参考文献**
+
+- [解决使用 Win10 共享移动热点无法连接互联网的问题](https://github.com/Ruikuan/blog/issues/51)
+- [win10 无法启用 internet 连接共享，为 lan 连接配置的 IP 地址需要使用自动 ip 寻址。](https://www.cnblogs.com/handsome1013/p/13957581.html)
+
+### 解决
+
+看[我的过程](#我的过程).
