@@ -9,6 +9,8 @@
 2. `grep`:
 
    > 在文件或输入中查找pattern，pattern是基本正则表达式。
+   >
+   > 例：`grep hello tmp3.file`
 
 3. `cat`:
 
