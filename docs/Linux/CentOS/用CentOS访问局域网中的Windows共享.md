@@ -4,7 +4,9 @@ links:
 
 1. <https://blog.csdn.net/weixin_33816300/article/details/93068082>
 
+## Mine
 
+只要使用内部虚拟交换器，给虚拟机和物理机都手动分配ip，设置相同的网关，就可以ping通了。
 
 ## 1
 
