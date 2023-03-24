@@ -22,3 +22,4 @@ usermod -aG wheel usr1
 getent group wheel
 ```
 
+注：这些系统属于Fedora Linux。

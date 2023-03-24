@@ -7,7 +7,8 @@ links:
 ## 1
 
 想通过防火墙打开8080端口登录tomcat却发现提示 `/etc/rc.d/init.d/iptable.找不到文件`，
-最后发现因为于CentOS7不用iptables执行命令了，所以应用firewall相关命令控制防火墙
+
+<p style="color:red">最后发现因为于CentOS7不用iptables执行命令了，所以应用firewall相关命令控制防火墙</p>
 
 查看firewall的状态：
 
