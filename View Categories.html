@@ -30,7 +30,7 @@ tags: __supports__
 
     <ul>
         <!-- //这里使用了 jekyll 语法，会被编译，所以加多个"\" -->
-        {% assign categories = site.categories | all_categories %}
+        {% assign categories = site.categories | map: 'category' %}
         {% for category in categories %}
             <li>
                 <!-- <a href="/categories/{{ category | first }}/" title="view all posts">{{ category | first }} {{ category | last | size }}</a> -->
@@ -47,7 +47,7 @@ tags: __supports__
     {% endif %}
 
     <ul>
-        {% assign tags = site.pages | all_tags %}
+        {% assign tags = site.pages | map: 'tags' %}
         {% for tag in tags %}
             <li>
                 <p>{{ tag['name'] }}: [{{ tag['count'] }}]</p>
