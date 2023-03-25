@@ -23,9 +23,9 @@ tags: __supports__
     <hr>
     <h1>View Categories</h1>
     {% if site.categories == nil %}
-        <p>No Categories</p>
-    {% else %}
         <p>Categories not nil</p>
+    {% else %}
+        <p>No Categories</p>
     {% endif %}
 
     <ul>
@@ -40,10 +40,10 @@ tags: __supports__
     </ul>   
 
     <h1>View Tags</h1>
-    {% if site.tags == nil %}
-        <p>No tags</p>
-    {% else %}
+    {% if site.tags %}
         <p>Tags not nil</p>
+    {% else %}
+        <p>No tags</p>
     {% endif %}
 
     <ul>
@@ -61,9 +61,9 @@ tags: __supports__
     <p>{{site.tags.size}}</p>
 
     {% for tag in site.tags %}
-    <h3>{{ tag }}: {{ tag | last | size }}</h3>
+    <h3>{{ tag['name'] }}: {{ tag | last | size }}</h3>
     <ul>
-        {% for post in tag.last %}
+        {% for page in tag.last %}
         <li><a href="{{ page.url }}">{{ page.title }}</a></li>
         {% endfor %}
     </ul>
@@ -74,7 +74,7 @@ tags: __supports__
     <div class="all-tags">
         All tags:
         <ul>
-          {% assign tags = site.posts | all_tags %}
+          {% assign tags = site.pages | all_tags %}
           {% for tag in tags %}
             {% assign tag_slug = tag['name'] | slugify: "raw" %}
             <li>
