@@ -1,9 +1,9 @@
-Jekyll::Hooks.register :posts, :post_write do |post|
+Jekyll::Hooks.register :pages, :page_write do |page|
   all_existing_tags = Dir.entries("_tags")
     .map { |t| t.match(/(.*).md/) }
     .compact.map { |m| m[1] }
 
-  tags = post['tags'].reject { |t| t.empty? }
+  tags = page['tags'].reject { |t| t.empty? }
   tags.each do |tag|
     generate_tag_file(tag) if !all_existing_tags.include?(tag)
   end
