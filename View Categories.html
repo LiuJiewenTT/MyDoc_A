@@ -21,7 +21,7 @@ title: View Categories and Tags
         {% for category in site.categories %}
         <li>
             <!-- <a href="/categories/{{ category | first }}/" title="view all posts">{{ category | first }} {{ category | last | size }}</a> -->
-            <p>{{ category | first }}</p>
+            <p>{{ category[0] }}</p>
         </li>
         {% endfor %}
     </ul>   
@@ -31,12 +31,17 @@ title: View Categories and Tags
     <p>No tags</p>
     {% else %}
     <p>Tags not nil</p>
+    {% for tag in site.tags %}
+        <li>
+            <p>{{ tag[0] }}</p>
+        </li>
+    {% endfor %}
     {% endif %}
     
     <p>{{site.tags.size}}</p>
 
     {% for tag in site.tags %}
-    <h3>{{ tag | first }}: {{ tag | last | size }}</h3>
+    <h3>{{ tag[0] }}: {{ tag | last | size }}</h3>
     <ul>
         {% for post in tag.last %}
         <li><a href="{{ post.url }}">{{ post.title }}</a></li>
