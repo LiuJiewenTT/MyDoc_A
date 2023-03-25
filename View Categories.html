@@ -22,7 +22,7 @@ tags: __supports__
     {% endfor %}
     <hr>
     <h1>View Categories</h1>
-    {% if site.categories == nil %}
+    {% if site.categories %}
         <p>Categories not nil</p>
     {% else %}
         <p>No Categories</p>
@@ -30,11 +30,12 @@ tags: __supports__
 
     <ul>
         <!-- //这里使用了 jekyll 语法，会被编译，所以加多个"\" -->
-        {% assign categories = site.categories | map: 'category' %}
+        {% assign categories = site.pages | map: 'category' | uniq | compact %}
         {% for category in categories %}
             <li>
                 <!-- <a href="/categories/{{ category | first }}/" title="view all posts">{{ category | first }} {{ category | last | size }}</a> -->
-                <p>{{ category['name'] }}: [{{ category['count'] }}]</p>
+                <!-- <p>{{ category['name'] }}: [{{ category['count'] }}]</p> -->
+                {{ category }}
             </li>
         {% endfor %}
     </ul>   
@@ -60,7 +61,7 @@ tags: __supports__
     
     <p>{{site.tags.size}}</p>
 
-    {% for tag in site.tags %}
+    {% for tag in site.tags | compact %}
     <h3>{{ tag['name'] }}: {{ tag | last | size }}</h3>
     <ul>
         {% for page in tag.last %}
