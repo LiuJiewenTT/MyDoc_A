@@ -31,7 +31,7 @@ jobs:
         uses: actions/configure-pages@v3
       - name: Build with Jekyll
         # uses: actions/jekyll-build-pages@v1
-        uses: ./supports/jekyll-build-pages-latest.yml
+        uses: ./supports/jekyll-build-pages-latest
         with:
           source: ./
           destination: ./_site
