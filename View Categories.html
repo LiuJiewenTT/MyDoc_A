@@ -47,10 +47,10 @@ tags: __supports__
     {% endif %}
 
     <ul>
-        {% assign tags = site.pages | map: 'tags' %}
+        {% assign tags = site.pages | map: 'tag' %}
         {% for tag in tags %}
             <li>
-                <p>{{ tag['name'] }}: [{{ tag['count'] }}]</p>
+                <p>{{ tag }}</p>
             </li>
         {% endfor %}
     </ul>
