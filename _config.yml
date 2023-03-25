@@ -6,6 +6,10 @@ plugins:
 baseurl: /MyDoc_A
 # url: https://liujiewentt.github.io
 permalink: none
+collections:
+  tags:
+    output: true
+    permalink: tags/:path/
 
 defaults:
   -

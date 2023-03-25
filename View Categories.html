@@ -29,10 +29,11 @@ tags: __supports__
 
     <ul>
         <!-- //这里使用了 jekyll 语法，会被编译，所以加多个"\" -->
-        {% for category in site.categories %}
+        {% assign categories = site.categories | all_categories %}
+        {% for category in categories %}
             <li>
                 <!-- <a href="/categories/{{ category | first }}/" title="view all posts">{{ category | first }} {{ category | last | size }}</a> -->
-                <p>{{ category }}</p>
+                <p>{{ category['name'] }}: [{{ category['count'] }}]</p>
             </li>
         {% endfor %}
     </ul>   
@@ -45,9 +46,10 @@ tags: __supports__
     {% endif %}
 
     <ul>
-        {% for tag in site.tags %}
+        {% assign tags = site.posts | all_tags %}
+        {% for tag in tags %}
             <li>
-                <p>{{ tag[0] }}</p>
+                <p>{{ tag['name'] }}: [{{ tag['count'] }}]</p>
             </li>
         {% endfor %}
     </ul>
