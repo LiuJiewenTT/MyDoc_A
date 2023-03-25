@@ -1,5 +1,6 @@
 ---
 title: View Categories and Tags
+tags: __supports__
 ---
 <!doctype html>
 <html lang="{{ site.lang | default: "en-US" }}">
@@ -9,34 +10,50 @@ title: View Categories and Tags
  </head>
 
 <body>
+    <h1>This file:</h1>
+    {% for tag in post.tags %}
+        {% assign tag_slug = tag | slugify: "raw" %}
+        <a class="tag-link"
+            href={{ site.baseurl | append: "/tags/" | append: tag_slug | append: "/" }}
+            rel="category tag">
+            #{{ tag }}
+        </a>
+    {% endfor %}
+    ---
     <h1>View Categories</h1>
     {% if site.categories == nil %}
-    <p>No Categories</p>
+        <p>No Categories</p>
     {% else %}
-    <p>Categories not nil</p>
+        <p>Categories not nil</p>
     {% endif %}
 
     <ul>
         <!-- //这里使用了 jekyll 语法，会被编译，所以加多个"\" -->
         {% for category in site.categories %}
-        <li>
-            <!-- <a href="/categories/{{ category | first }}/" title="view all posts">{{ category | first }} {{ category | last | size }}</a> -->
-            <p>{{ category }}</p>
-        </li>
+            <li>
+                <!-- <a href="/categories/{{ category | first }}/" title="view all posts">{{ category | first }} {{ category | last | size }}</a> -->
+                <p>{{ category }}</p>
+            </li>
         {% endfor %}
     </ul>   
 
     <h1>View Tags</h1>
     {% if site.tags == nil %}
-    <p>No tags</p>
+        <p>No tags</p>
     {% else %}
-    <p>Tags not nil</p>
-    {% for tag in site.tags %}
-        <li>
-            <p>{{ tag[0] }}</p>
-        </li>
-    {% endfor %}
+        <p>Tags not nil</p>
     {% endif %}
+
+    <ul>
+        {% for tag in site.tags %}
+            <li>
+                <p>{{ tag[0] }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+    
+    ---
+    <h1>More</h1>
     
     <p>{{site.tags.size}}</p>
 
