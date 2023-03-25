@@ -1,0 +1,2 @@
+C++ is not a valid name for <del>weblinks</del> <del>Jekyll. Jekyll has some bug on it</del>. While some plugins do not.
+It's because "url_decode" option.
