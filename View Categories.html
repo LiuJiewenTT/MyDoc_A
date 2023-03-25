@@ -47,7 +47,7 @@ tags: __supports__
     {% endif %}
 
     <ul>
-        {% assign tags = site.pages | map: 'tag' %}
+        {% assign tags = site.pages | map: 'tags' | uniq | compact %}
         {% for tag in tags %}
             <li>
                 <p>{{ tag }}</p>
