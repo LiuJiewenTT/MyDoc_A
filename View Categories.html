@@ -67,4 +67,23 @@ tags: __supports__
         {% endfor %}
     </ul>
     {% endfor %}
+    ---
+    <h1>Test</h1>
+
+    <div class="all-tags">
+        All tags:
+        <ul>
+          {% assign tags = site.posts | all_tags %}
+          {% for tag in tags %}
+            {% assign tag_slug = tag['name'] | slugify: "raw" %}
+            <li>
+              <a class="tag-link"
+                href={{ site.baseurl | append: "/tags/" | append: tag_slug | append: "/" }}
+                rel="category tag">
+                #{{ tag['name'] }} ({{ tag['count'] }})
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
 </body>
