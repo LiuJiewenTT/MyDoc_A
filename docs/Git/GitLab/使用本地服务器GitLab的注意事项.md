@@ -1,6 +1,6 @@
 ---
 author: 刘杰文
-date: 2023-04-15 22:05:00
+date: 2023-04-15 22:05:00 +0800
 tags: Git GitLab Guidance
 categories: Git GitLab
 ---
