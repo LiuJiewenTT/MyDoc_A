@@ -21,8 +21,8 @@ layout_name: leap_day_customized_v5.1
   </head>
   <body>
 
-    {%- if page.author == nil and page.allow_download == nil -%}
-      {%- assign page.allow_download=False -%}
+    {%- if page.author == nil and page.allow_download_doc == nil -%}
+      {%- assign page.allow_download_doc=False -%}
     {%- endif -%}
 
     <header>
