@@ -16,7 +16,7 @@ defaults:
     values:
       author: "刘杰文"
       # title: "MyDoc_A Library"
-      layout: leap_day_customized_v5
+      layout: leap_day_customized_v5.1
       allow_download_doc: true
 
 allow_download_doc: true
