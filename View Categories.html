@@ -77,7 +77,7 @@ tags: __supports__
         <ul>
           {% assign tags = site.pages | all_tags %}
           {% for tag in tags %}
-            <em>{{tag}}</em>
+            <!-- <em>{{tag}}</em> -->
             {% assign tag_slug = tag['name'] | slugify: "raw" %}
             <li>
               <a class="tag-link"
