@@ -30,7 +30,7 @@ layout_name: leap_day_customized_v5.1
     <header>
       <h1>{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
       <p>{{ page.description | default: site.description | default: site.github.project_tagline }}</p>
-      <p>Author: {{ page.author | default: site.auther }}, Date: {{ page.date | default: "Unknown" }}, Categories: {{ page.categories }}, Tags: {{ page.tags }}</p>
+      <p>Author: {{ page.author | default: site.author }}, Date: {{ page.date | default: "Unknown" }}, Categories: {{ page.categories }}, Tags: {{ page.tags }}</p>
     </header>
 
     <div id="banner">
@@ -68,6 +68,7 @@ layout_name: leap_day_customized_v5.1
         <ul></ul>
       </nav>
       <section>
+        <p>page.author: {{page.author}}</p>
         <p>site.allow_download_doc: {{site.allow_download_doc}}</p>
         <p>page.allow_download_doc: {{page.allow_download_doc}}</p>
         {%- if page.redirect_from -%}
