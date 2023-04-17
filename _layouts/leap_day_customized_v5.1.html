@@ -43,7 +43,7 @@ layout_name: leap_day_customized_v5.1
 
     <div id="banner">
       {%- if site.allow_download_doc == true -%}
-        {%- if (page.allow_download_doc != false) and (allow_download_doc) -%}
+        {%- if (page.allow_download_doc == nil or page.allow_download_doc == true) and (allow_download_doc) -%}
           <a href="{{site.github.repository_url}}/raw/{{site.github.source.branch}}/{{page.path}}">
             <span id="logo" ></span>
           </a>
@@ -76,9 +76,9 @@ layout_name: leap_day_customized_v5.1
         <ul></ul>
       </nav>
       <section>
-        <!-- <p>page.author: {{page.author}}</p>
+        <p>page.author: {{page.author}}</p>
         <p>site.allow_download_doc: {{site.allow_download_doc}}</p>
-        <p>page.allow_download_doc: {{page.allow_download_doc}}</p> -->
+        <p>page.allow_download_doc: {{page.allow_download_doc}}</p>
         {%- if page.redirect_from -%}
           <section style="height:min-content; margin-top: 0px; padding-bottom: 30px;">
             <b>Starring Links: </b>
