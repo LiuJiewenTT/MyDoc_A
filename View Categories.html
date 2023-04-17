@@ -49,11 +49,11 @@ tags: __supports__
 
     <ul>
         {% assign tags = site.pages | map: 'tags' | uniq | compact %}
-        {% for tag in tags %}
+        {%- for tag in tags -%}
             <li>
                 <p>{{ tag }}</p>
             </li>
-        {% endfor %}
+        {%- endfor -%}
     </ul>
     
     <hr>
@@ -64,9 +64,9 @@ tags: __supports__
     {% for tag in site.tags | compact %}
     <h3>{{ tag['name'] }}: {{ tag | last | size }}</h3>
     <ul>
-        {% for page in tag.last %}
+        {%- for page in tag.last -%}
         <li><a href="{{ page.url }}">{{ page.title }}</a></li>
-        {% endfor %}
+        {%- endfor -%}
     </ul>
     {% endfor %}
     <hr>
@@ -75,8 +75,9 @@ tags: __supports__
     <div class="all-tags">
         All tags:
         <ul>
-          {% assign tags = {{ site.pages | all_tags }} %}
+          {% assign tags = site.pages | all_tags %}
           {% for tag in tags %}
+            <em>{{tag}}</em>
             {% assign tag_slug = tag['name'] | slugify: "raw" %}
             <li>
               <a class="tag-link"
