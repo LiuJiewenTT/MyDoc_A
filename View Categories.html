@@ -76,6 +76,17 @@ tags: __supports__
         All tags:
         <ul>
           {% assign tags = site.pages | all_tags %}
+          {% assign tags2 = site.pages | map:'tags' %}
+          {% assign tags3 = site.pages %}
+          {%- if tags == tags2 -%}
+            <p>tags == tags2</p>
+          {%- endif -%}
+          {%- if tags == tags3 -%}
+            <p>tags == tags3</p>
+          {%- endif -%}
+          {%- if tags2 == tags3 -%}
+            <p>tags2 == tags2</p>
+          {%- endif -%}
           {% for tag in tags %}
             <!-- <em>{{tag}}</em> -->
             {% assign tag_slug = tag['name'] | slugify: "raw" %}
