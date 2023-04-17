@@ -35,13 +35,15 @@ layout_name: leap_day_customized_v5.1
 
     <div id="banner">
       {%- if site.allow_download_doc == true -%}
-      {%- if page.allow_download_doc == nil or page.allow_download_doc == true -%}
-      <a href="{{site.github.repository_url}}/raw/{{site.github.source.branch}}/{{page.path}}">
-        <span id="logo" ></span>
-      </a>
-      {%- endif -%}
+        {%- if page.allow_download_doc != false -%}
+          <a href="{{site.github.repository_url}}/raw/{{site.github.source.branch}}/{{page.path}}">
+            <span id="logo" ></span>
+          </a>
+        {%- else -%}
+          <span id="logo" ></span>
+        {%- endif -%}
       {%- else -%}
-      <span id="logo" ></span>
+        <span id="logo" ></span>
       {%- endif -%}
       
 
