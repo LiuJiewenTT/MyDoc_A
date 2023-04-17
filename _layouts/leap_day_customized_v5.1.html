@@ -23,8 +23,8 @@ layout_name: leap_day_customized_v5.1
 
     {%- if page.author == nil and page.allow_download_doc == nil -%}
       <p>should not download</p>
-      {%- assign page.allow_download_doc=false -%}
-      {%- assign page.author=site.author -%}
+      {%- page.allow_download_doc=false -%}
+      {%- page.author=site.author -%}
     {%- endif -%}
 
     <header>

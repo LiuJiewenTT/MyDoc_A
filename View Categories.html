@@ -88,7 +88,6 @@ tags: __supports__
             <p>tags2 == tags2</p>
           {%- endif -%}
           {% for tag in tags %}
-            <!-- <em>{{tag}}</em> -->
             {% assign tag_slug = tag['name'] | slugify: "raw" %}
             <li>
               <a class="tag-link"
