@@ -56,3 +56,44 @@ tags: Minecraft MC Create Mod
 > 被识别为：`Minecraft MC Create Mod`一个标签，是的，就**一个！**
 >
 > 有图为证：![image-20230508205709363](YAML HEADER.assets/image-20230508205709363.png)
+
+---
+
+现在我们回到上面正确的用例：
+
+``` yaml
+categories: [classA, class B, newclass]
+tags: [tag1, tag2, tag3]
+```
+
+我们注意到其中有空格，可是`yaml`作为一种极其离谱又死板格式的语言，真的可以这样包含空格而不出错吗？（比如被分开）其实这个问题上面的错误示范就可以推导出结论。
+
+---
+
+让我们看看这个尝试的验证结果：
+
+``` yaml
+tags: [tag1, tag2, tag 3, tagB]
+```
+
+看到结果：
+
+![image-20230508214823104](YAML HEADER.assets/image-20230508214823104.png)
+
+一切正常，空格不受影响。
+
+---
+
+另外，遍历展示的时候注意分隔格式，不然就会变成这样：
+
+![image-20230508220855972](YAML HEADER.assets/image-20230508220855972.png)
+
+---
+
+至于其中是否需要双引号号，似乎不是必要，看起来没什么区别：
+
+``` yaml
+tags: ["tag1", "tag2", "tag 3", "tagB"]
+```
+
+结果和上面的是一样的。
