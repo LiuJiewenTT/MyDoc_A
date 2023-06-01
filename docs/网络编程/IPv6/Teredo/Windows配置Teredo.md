@@ -9,7 +9,7 @@ links:
 
 ## Mine
 
-### DNS Recommanded
+### DNS Recommended
 
 - **Quad9 DNS**(IBM 发起的 Quad9 提供的公共免费 DNS 服务，同时包含 IPv4/IPv6/DoT/DoH.)
   - `2620:fe::fe`
@@ -20,7 +20,7 @@ links:
 
 ### Teredo Servers
 
-#### Outseas
+#### Oversea
 
 - [ ] teredo.remlab.net / teredo-debian.remlab.net (法国)
 - [ ] teredo.trex.fi (Finland)
@@ -29,10 +29,21 @@ links:
 - [ ] teredo.ngix.ne.kr (韩国)
 - [ ] teredo.ipv6.microsoft.com (美国 雷蒙德) (Windows XP/2003/Vista/7/2008 系统默认设置)
 - [ ] teredo.autotrans.consulintel.com (西班牙)
+- [ ] teredo.ginzado.ne.jp
+- [ ] debian-miredo.progsoc.org
+- [ ] teredo.managemydedi.com
+- [ ] teredo.ipv6.microsoft.com
+- [ ] win8.ipv6.microsoft.com
+- [ ] teredo2.remlab.net
+- [x] win10.ipv6.microsoft.com (<100ms, 25% Loss)
+- [x] win1710.ipv6.microsoft.com
+- [x] win1711.ipv6.microsoft.com
+- [x] win1807.ipv6.microsoft.com
+- [x] win1901.ipv6.microsoft.com (<200ms, 0% Loss)
 
-#### Homelands
+#### Homeland
 
-
+(not found)
 
 ### My Profile
 

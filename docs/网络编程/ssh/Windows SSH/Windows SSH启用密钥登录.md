@@ -1,3 +1,10 @@
+---
+author: 刘杰文
+date: 2023-5-29 21:05:48 +0800
+categories: [SSH, Windows, SSH Authentication, SSH Key Authentication]
+tags: [SSH, SSH Authentication, SSH Key Authentication, Windows]
+---
+
 # Windows SSH启用密钥登录
 
 links:
