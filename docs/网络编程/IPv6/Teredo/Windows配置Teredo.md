@@ -9,6 +9,8 @@ links:
 
 ## Mine
 
+> 友情提示，有些VPN或者加速器可能导致通过Teredo获取的地址无法连接等问题，如有遇到，请尝试关闭相关程序。
+
 ### DNS Recommended
 
 - **Quad9 DNS**(IBM 发起的 Quad9 提供的公共免费 DNS 服务，同时包含 IPv4/IPv6/DoT/DoH.)

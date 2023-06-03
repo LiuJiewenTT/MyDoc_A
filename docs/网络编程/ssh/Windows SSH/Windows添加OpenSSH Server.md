@@ -7,6 +7,8 @@ tags: [SSH, OpenSSH, OpenSSH Server, Windows]
 
 # Windows添加OpenSSH Server
 
+> 如果你正在使用Win7等老版本，请转到[这篇文章](Windows 7安装SSH.md)。
+
 具体的教程网上到处都是，这里就不详细描述了，先简要概括一下：
 
 > 打开设置，到应用，添加Windows功能/“可选功能”（位置在Win10和Win11上不一样），在已添加的功能列表的上方搜索“SSH”。通常来说，“OpenSSH 客户端”都是默认安装好的，而“OpenSSH 服务器”是默认未安装的。
