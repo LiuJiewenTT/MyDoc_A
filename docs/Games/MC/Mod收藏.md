@@ -1,9 +1,7 @@
 ---
-categories: MC, Create
-tags: Create, Mod, Stars
+categories: [MC, Create]
+tags: [Create, Mod, Stars]
 ---
-
-
 
 # Mod收藏
 

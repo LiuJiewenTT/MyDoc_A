@@ -1,6 +1,6 @@
 ---
 categories: Deep Learning
-tags: Keras, tensorflow
+tags: [Keras, tensorflow]
 ---
 
 # Keras and Tensorflow

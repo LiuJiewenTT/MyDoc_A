@@ -1,5 +1,5 @@
 ---
-tags: LabPBR, ray-tracing
+tags: [LabPBR, ray-tracing]
 ---
 
 

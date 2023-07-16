@@ -1,5 +1,5 @@
 ---
-tags: Liquid, Jekyll, disaster
+tags: [Liquid, Jekyll, disaster]
 ---
 
 # Terrible Liquid
