@@ -1,7 +1,7 @@
 ---
 author: LiuJiewenTT
 date: 2023-7-10 +0800
-published: false
+published: true
 tags: [MC, Create, Mod]
 ---
 
@@ -36,6 +36,11 @@ tags: [MC, Create, Mod]
 破解mod，修改其中的引用关系使其能够兼容最新的机械动力。
 
 ## 成果下载
+
+### 百度网盘
+
+链接：https://pan.baidu.com/s/139VBICtgtIfPlWGZ37F4PA?pwd=p29r 
+提取码：p29r
 
 
 
