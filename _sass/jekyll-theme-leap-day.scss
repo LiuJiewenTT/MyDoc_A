@@ -426,7 +426,7 @@ footer {
     float:none;
 
     h1 {
-      white-space: nowrap;
+      white-space: pre-line;
       overflow: hidden;
       text-overflow: ellipsis;
       -o-text-overflow: ellipsis;
@@ -486,7 +486,7 @@ footer {
 
     h1 {
       font-size: 32px;
-      white-space: nowrap;
+      white-space: inherit;
       overflow: hidden;
       text-overflow: ellipsis;
       -o-text-overflow: ellipsis;
@@ -532,7 +532,7 @@ footer {
 
     h1 {
       font-size: 24px;
-      white-space: nowrap;
+      white-space: inherit;
       overflow: hidden;
       text-overflow: ellipsis;
       -o-text-overflow: ellipsis;
