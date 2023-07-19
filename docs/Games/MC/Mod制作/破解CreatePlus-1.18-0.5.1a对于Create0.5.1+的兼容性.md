@@ -3,6 +3,9 @@ author: LiuJiewenTT
 date: 2023-7-10 +0800
 published: true
 tags: [MC, Create, Mod]
+redirect_from: 
+  - /aka/game/mc/2023-07-10-CreatePlus
+  - 2023-07-10-CreatePlus
 ---
 
 # 破解CreatePlus-1.18-0.5.1a对于Create0.5.1+的兼容性
