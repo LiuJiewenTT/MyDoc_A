@@ -28,6 +28,12 @@ links:
 >
 > 否则，交汇点的工作方式与硬链接**相同**。 交汇点通过 [重新分析点](https://learn.microsoft.com/zh-cn/windows/win32/fileio/reparse-points)实现。
 
+---
+
+“这些都是文件**共享**的方式”
+
+---
+
 ## 符号链接
 
 符号链接：Symbol Link
