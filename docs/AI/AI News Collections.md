@@ -3,7 +3,7 @@
 ## Predefines
 
 <style type="text/css">
-    .summary a span {
+    .summary a {
         color: orange;
         font-style: oblique;
     }
