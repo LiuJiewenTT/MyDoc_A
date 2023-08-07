@@ -94,7 +94,7 @@ This section is to store some codes of HTML for better viewing experience.
 
 上传公钥之后，GitHub 就会展示对应的 SSH 签名。
 
-![99e982d0d87fda4dde43b9492761f411.png](https://img-blog.csdnimg.cn/img_convert/99e982d0d87fda4dde43b9492761f411.png)
+![99e982d0d87fda4dde43b9492761f411.png](给git的commit和tag使用签名.assets/99e982d0d87fda4dde43b9492761f411.png)
 
 在个人设置里，可以选择是否开启警惕模式(Vigilant Mode)。
 
