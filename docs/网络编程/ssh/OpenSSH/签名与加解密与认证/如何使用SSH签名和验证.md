@@ -91,4 +91,4 @@ Could not verify signature.
 
 ---
 
-如果你使用Git，那么相关git命令应该更适合你，详见[链接2](https://git-scm.com/docs/signature-format)，本页面暂未摘抄。或者，你也可以看这篇文章：[文章](../../../../Git/给git的commit和tag使用签名.md)。
+如果你使用Git，那么相关git命令应该更适合你，详见[链接2](https://git-scm.com/docs/signature-format)，本页面暂未摘抄。或者，你也可以看这篇文章：[文章](../../../../Git/给git的commit和tag使用签名.md#2%20手动验证命令)。
