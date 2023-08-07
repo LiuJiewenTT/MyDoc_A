@@ -129,7 +129,7 @@ git config tag.gpgsign true
 
 > 关于利用ssh密钥对文件进行签名和验证的资料，以及可信公钥列表文件的信息，见：
 >
-> 1. 如何使用SSH签名和验证：</aka/digital_key/ssh/how-to-sign-and-verify-a-file>
+> 1. 如何使用SSH签名和验证：<{{site.github.url}}/aka/digital_key/ssh/how-to-sign-and-verify-a-file>
 
 ### 2 手动验证命令
 
