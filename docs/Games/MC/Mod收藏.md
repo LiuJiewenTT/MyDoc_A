@@ -5,7 +5,15 @@ tags: [Create, Mod, Stars]
 
 # Mod收藏
 
+## Predefines
 
+<style type="text/css">
+    section img {
+        max-width: 64px;
+    }
+</style>
+
+## Main
 
 | Number |                             Icon                             | Mod                                  |
 | :----: | :----------------------------------------------------------: | ------------------------------------ |
