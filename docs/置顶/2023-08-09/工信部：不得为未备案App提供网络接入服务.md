@@ -10,7 +10,7 @@ tags: fxxkQ
 
 ---
 
-<div class="slogan_div"><strong>{{slogan}}</strong></div>
+<div class="slogan_div"><strong>{{page.slogan}}</strong></div>
 
 Link: <https://www.msn.cn/zh-cn/news/other/%E5%B7%A5%E4%BF%A1%E9%83%A8-%E4%B8%8D%E5%BE%97%E4%B8%BA%E6%9C%AA%E5%A4%87%E6%A1%88app%E6%8F%90%E4%BE%9B%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%85%A5%E6%9C%8D%E5%8A%A1/ar-AA1eZDEg>
 
