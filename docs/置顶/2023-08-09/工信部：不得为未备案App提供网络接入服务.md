@@ -6,7 +6,7 @@ tags: fxxkQ
 
 # 工信部：不得为未备案App提供网络接入服务
 
-<script src="../css/slogan.css"></script>
+<link rel="stylesheet" href="../css/slogan.css">
 
 ---
 
