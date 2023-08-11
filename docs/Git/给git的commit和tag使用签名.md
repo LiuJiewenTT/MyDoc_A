@@ -98,6 +98,10 @@ This section is to store some codes of HTML for better viewing experience.
 
 在个人设置里，可以选择是否开启警惕模式(Vigilant Mode)。
 
+> 在我的github客户端升级后(v3.2.7)，即便没有设置ssh签名密钥，如果开启了自动签名，那么也会自动使用一个GPG密钥签名。
+
+![image-20230811145143681](给git的commit和tag使用签名.assets/image-20230811145143681.png)
+
 ssh的key怎么生成我就不提了，网络上很多资料。这里讲讲怎么给git的repository设置使用key。
 
 ---
