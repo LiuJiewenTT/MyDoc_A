@@ -125,6 +125,17 @@ git config commit.gpgsign true
 git config tag.gpgsign true
 ```
 
+如果你还没有可用的`allowed_signers`文件，你可以像我这样操作：
+
+``` shell
+mkdir %HOMEDRIVE%%HOMEPATH%\.config\git
+set /p git_email=Enter your email address that git used:
+@REM 注意一定是OpenSSH的公钥，以".pub"为扩展名的文件。
+for /f "delims=" %i in (%HOMEDRIVE%%HOMEPATH%\.ssh\id_rsa.pub) do (set pubkey=%i)
+@REM echo [%pubkey%]
+echo %git_email% %pubkey%>%HOMEDRIVE%%HOMEPATH%\.config\git\allowed_signers
+```
+
 **一番操作之后就准备好了**。接下来所有的 Git 提交都会使用 SSH 签名。如果没有开启自动签名，则可以在提交的时候通过`-s`参数来临时开启。
 
 > 关于利用ssh密钥对文件进行签名和验证的资料，以及可信公钥列表文件的信息，见：
